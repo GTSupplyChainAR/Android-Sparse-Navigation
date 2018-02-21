@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SparseNavigation.iml" filepath="$PROJECT_DIR$/SparseNavigation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/glass/glass.iml" filepath="$PROJECT_DIR$/glass/glass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/locationtracker/locationtracker.iml" filepath="$PROJECT_DIR$/locationtracker/locationtracker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mobile/mobile.iml" filepath="$PROJECT_DIR$/mobile/mobile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sparse_nav_lib/sparse_nav_lib.iml" filepath="$PROJECT_DIR$/sparse_nav_lib/sparse_nav_lib.iml" />
+    </modules>
+  </component>
+</project>

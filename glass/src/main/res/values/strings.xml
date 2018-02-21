@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Sparse Navigation</string>
+    <string name="title_activity_glass_main">Warehouse Navigation</string>
+    <string name="hello_world">Hello world!</string>
+</resources>
