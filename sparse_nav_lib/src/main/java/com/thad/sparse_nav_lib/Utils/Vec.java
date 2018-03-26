@@ -18,4 +18,16 @@ public class Vec {
         x /= length;
         y /= length;
     }
+
+    public Vec add(Vec v){
+        return new Vec(x+v.x, y + v.y);
+    }
+
+    public Vec sub(Vec v){
+        return new Vec(x-v.x, y - v.y);
+    }
+
+    public String toString(){
+        return x+", "+y;
+    }
 }

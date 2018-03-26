@@ -1,5 +1,7 @@
 package com.thad.sparse_nav_lib;
 
+import android.util.Log;
+
 import com.thad.sparse_nav_lib.Utils.Vec;
 
 /**
@@ -10,6 +12,8 @@ import com.thad.sparse_nav_lib.Utils.Vec;
  */
 
 public class WarehouseLocation {
+    private static final String TAG = "|WarehouseLocation|";
+
     private int row, col;
     private Vec displacement;
 
@@ -17,4 +21,17 @@ public class WarehouseLocation {
         row = 0; col = 0;
         displacement = new Vec();
     }
+
+    public void setCell(int row, int col){
+        Log.d(TAG, "Row/Col : "+row+"/"+col);
+        this.row = row;
+        this.col = col;
+    }
+    public void setDisplacement(Vec displacement){
+        Log.d(TAG, "Displacement : "+displacement.toString());
+        this.displacement = displacement;
+    }
+
+    public int[] getCell(){return new int[]{row,col};}
+    public Vec getDisplacement(){return displacement;}
 }

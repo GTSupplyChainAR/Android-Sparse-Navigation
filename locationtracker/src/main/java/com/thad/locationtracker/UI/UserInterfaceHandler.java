@@ -6,12 +6,14 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.thad.locationtracker.AndroidClient;
+import com.thad.locationtracker.Prefs;
 import com.thad.locationtracker.R;
 import com.thad.sparse_nav_lib.UI.WarehouseMapView;
 import com.thad.sparse_nav_lib.WarehouseLocation;
@@ -24,6 +26,7 @@ import com.thad.sparse_nav_lib.WarehouseMap;
  */
 
 public class UserInterfaceHandler {
+    private static final String TAG = "|UserInterfaceHandler|";
 
     private Activity mActivity;
     private AndroidClient mClient;
@@ -34,47 +37,37 @@ public class UserInterfaceHandler {
     private PickerView pickerView;
 
     @SuppressLint("ClickableViewAccessibility")
-    public UserInterfaceHandler(Context context, AndroidClient androidClient){
+    public UserInterfaceHandler(final Context context, AndroidClient androidClient){
         mActivity = (Activity) context;
         mClient = androidClient;
 
         mMapView = new WarehouseMapView(mActivity);
+        mMapView.setSize(Prefs.SCREEN_WIDTH, Prefs.SCREEN_HEIGHT);
+
         pickerView = new PickerView(context,200,500);
         RelativeLayout layout = mActivity.findViewById(R.id.main_layout);
         layout.addView(mMapView);
         layout.addView(pickerView);
 
 
-        layout.setOnTouchListener(new View.OnTouchListener(){
-
+        mMapView.setOnTouchListener(new View.OnTouchListener(){
             @Override
             public boolean onTouch(View v, MotionEvent event){
                 int X = (int) event.getX();
                 int Y = (int) event.getY();
                 int eventaction = event.getAction();
                 switch (eventaction) {
-                    case MotionEvent.ACTION_DOWN:
-
-                        //canvas.drawCircle(X, Y, 50, paint);
-                        Toast.makeText(mActivity, "picker now AT COORDS X: " + X + " Y: " + Y,
-                                Toast.LENGTH_SHORT).show();
-                        pickerView.setLocation(X, Y);
-                        pickerView.invalidate();
-                        break;
                     case MotionEvent.ACTION_MOVE:
-                        Toast.makeText(mActivity, "picker now AT COORDS X: " + X + " Y: " + Y,
-                                Toast.LENGTH_SHORT).show();
-                        pickerView.setLocation(X, Y);
+                        WarehouseMapView mapView = (WarehouseMapView)v;
+                        mapView.setLocationFromViewCoords(X,Y);
+                        //int[] pos = mapView.getRawLocation();
+                        pickerView.setLocation(X,Y);//pos[0], pos[1]);
+                        //pickerView.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.touch_indicator));
                         pickerView.invalidate();
-                        break;
-                    case MotionEvent.ACTION_UP:
                         break;
                 }
-
                 return true;
             }
-
-
         });
 
 

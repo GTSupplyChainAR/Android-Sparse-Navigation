@@ -20,7 +20,6 @@ public class GlassMainActivity extends Activity {
         setContentView(R.layout.navigation_layout);
     }
 
-
     @Override
     public void onDestroy(){
         super.onDestroy();
