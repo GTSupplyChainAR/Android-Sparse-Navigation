@@ -1,20 +1,26 @@
 package com.thad.sparse_nav_lib.UI;
 
 import android.content.Context;
-import android.preference.PreferenceScreen;
-import android.support.v7.widget.LinearLayoutCompat;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.thad.sparse_nav_lib.R;
+import com.thad.sparse_nav_lib.Static.Prefs;
 import com.thad.sparse_nav_lib.Utils.Vec;
 import com.thad.sparse_nav_lib.WarehouseLocation;
 import com.thad.sparse_nav_lib.WarehouseMap;
+
+import static android.widget.LinearLayout.HORIZONTAL;
+import static android.widget.LinearLayout.VERTICAL;
 
 
 /**
@@ -23,18 +29,20 @@ import com.thad.sparse_nav_lib.WarehouseMap;
  * All the other UI elements and controls should be on the UserInterface Handler instead.
  */
 
-public class WarehouseMapView extends LinearLayout {
+public class WarehouseMapView extends RelativeLayout {
     private static final String TAG = "|MapView|";
 
     private static final int MP = ViewGroup.LayoutParams.MATCH_PARENT;
     private static final int WC = ViewGroup.LayoutParams.WRAP_CONTENT;
     //All in pixels
-    private int SCREEN_WIDTH, SCREEN_HEIGHT;
-    private int width, height, map_rows, map_cols;
-    float cell_width, cell_height;
+    private float width, height, cell_width, cell_height;
+    private int map_rows, map_cols;
+
 
     private Context mContext;
     private WarehouseMap mMap;
+
+    private boolean isRotated;
 
     private WarehouseLocation lastLocation;
 
@@ -54,14 +62,17 @@ public class WarehouseMapView extends LinearLayout {
         if(mMap == null) return false;
 
         //This function generates the Map UI
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, height);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int)width, (int)height);
         layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
-        this.setLayoutParams(layoutParams);
-        this.setOrientation(VERTICAL);
 
-        LayoutParams lp = new LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT, 1f);
+        this.setLayoutParams(layoutParams);
+        this.setBackgroundColor(Color.RED);
+
+        LinearLayout grid = new LinearLayout(mContext);
+        grid.setLayoutParams(new LayoutParams(MP, MP));
+        grid.setOrientation(VERTICAL);
+
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(MP, MP, 1f);
 
         for(int i = 0 ; i < map_rows ; i++){
             LinearLayout ll_row = new LinearLayout(mContext);
@@ -74,57 +85,163 @@ public class WarehouseMapView extends LinearLayout {
                 cell.setImageResource(R.drawable.grid_cell);
                 cell.setTag(i+","+j);
 
-                //Here you could also set an OnClick Listener to every cell.
-                //That way we know which cell the user taps (recognize through Tag)
-
-
                 ll_row.addView(cell);
             }
-            this.addView(ll_row);
+            grid.addView(ll_row);
         }
-        // END OF SAMPLE CODE
+
+        Drawable warehouseDrawable = mContext.getResources().getDrawable(R.drawable.map_realistic);
+        if(isRotated)
+            warehouseDrawable = mContext.getResources().getDrawable(R.drawable.map_realistic_glass);
+
+        ImageView warehouseImg = new ImageView(mContext);
+        warehouseImg.setLayoutParams(new LayoutParams(MP, MP));
+        warehouseImg.setBackground(warehouseDrawable);
+
+        this.addView(grid);
+        this.addView(warehouseImg);
 
         return true;
     }
 
-    public void setLocationFromViewCoords(int x, int y){
-        float[] normalized = new float[]{((float)x)/width, ((float)y)/height};
+    public void setLocation(WarehouseLocation loc){
+        lastLocation = new WarehouseLocation(loc);
+        if(isRotated){
+            lastLocation.setCell(map_rows-loc.getCell()[1]-1, loc.getCell()[0]);
+            Vec rotatedV = new Vec(-loc.getDisplacement().y, loc.getDisplacement().x);
+            lastLocation.setDisplacement(rotatedV);
+        }
+    }
 
-        int r = (int)(normalized[1]*mMap.getGridDims()[0]);
-        int c = (int)(normalized[0]*mMap.getGridDims()[1]);
-        lastLocation.setCell(r,c);
+    public void setLocationFromViewCoords(int x, int y){
+
+        if(x < 0){
+            setLocationFromViewCoords(0, y);
+            return;
+        }else if (x >= width){
+            setLocationFromViewCoords((int)width-1, y);
+            return;
+        }
+        if(y < 0){
+            setLocationFromViewCoords(x, 0);
+            return;
+        }else if (y >= height){
+            setLocationFromViewCoords(x, (int)height-1);
+            return;
+        }
+
+
+        float[] normalized = new float[]{x/width, y/height};
+
+        int r = (int)(normalized[1]*map_rows);
+        int c = (int)(normalized[0]*map_cols);
+
+        boolean isValid = !mMap.isObstacle(r,c);
+
+        if(isValid)
+            lastLocation.setCell(r,c);
 
         Vec locationFromTopLeft = new Vec(x,y);
         Vec cellFromTopLeft = new Vec(cell_width*(c+0.5), cell_height*(r+0.5));
         Vec displacement = locationFromTopLeft.sub(cellFromTopLeft);
         displacement.x = 2 * displacement.x / cell_width;
         displacement.y = -2 * displacement.y / cell_height;
-        lastLocation.setDisplacement(displacement);
+
+
+        //Find the closest position if cursor is over an obstacle.
+        if(!isValid) {
+            Vec ref = new Vec(cell_width*(c+0.5), cell_height*(r+0.5)).add(
+                    new Vec( displacement.x * cell_width / 2, -displacement.y * cell_height / 2));
+
+            Vec[] dir = new Vec[4];
+            dir[0] = new Vec(-1,0);
+            dir[1] = new Vec(1,0);
+            dir[2] = new Vec(0,-1);
+            dir[3] = new Vec(0,1);
+
+            float min_d = Float.MAX_VALUE;
+            int min_ind = -1;
+            int[] closestCell = new int[2];
+            for(int i = 0 ; i < 4 ; i++) {
+                int cur_r = r, cur_c = c;
+                float dist = -1;
+                while (cur_r >= 0 && cur_c >= 0 &&
+                        cur_r < map_rows && cur_c < map_cols) {
+                    cur_c += dir[i].x;
+                    cur_r -= dir[i].y;
+                    if (!mMap.isObstacle(cur_r, cur_c)) {
+                        dist = ref.distance(new Vec(cell_width*(cur_c+0.5),
+                                        cell_height*(cur_r+0.5)));
+                        break;
+                    }
+                }
+                if (dist == -1) {
+                    continue;
+                } else if (dist < min_d){
+                    min_d = dist;
+                    min_ind = i;
+                    closestCell = new int[]{cur_r, cur_c};
+                }
+            }
+            if(min_ind == -1) {
+                return;
+            }
+
+            lastLocation.setCell(closestCell[0], closestCell[1]);
+
+            Vec n_displacement = new Vec(displacement);
+            if(dir[min_ind].x != 0)
+                n_displacement.x = -dir[min_ind].x;
+            else if (dir[min_ind].y != 0)
+                n_displacement.y = -dir[min_ind].y;
+
+            lastLocation.setDisplacement(n_displacement);
+        }else
+            lastLocation.setDisplacement(displacement);
     }
 
     public void setMap(WarehouseMap map){
         mMap = map;
-        map_rows = mMap.getGridDims()[0];
-        map_cols = mMap.getGridDims()[1];
 
         double ratio = mMap.getRatio();
-        width = (ratio < 1)?(int)(SCREEN_HEIGHT*ratio):SCREEN_WIDTH;
-        height = (ratio < 1)?SCREEN_HEIGHT:(int)(SCREEN_WIDTH/ratio);
+        double screen_ratio = ((double)Prefs.SCREEN_WIDTH)/Prefs.SCREEN_HEIGHT;
 
-        cell_width = ((float)width)/map_cols;
-        cell_height = ((float)height)/map_rows;
+
+        if((ratio-1)*(screen_ratio-1)<0){
+            isRotated = true;
+
+            map_rows = mMap.getGridDims()[1];
+            map_cols = mMap.getGridDims()[0];
+
+            width = (ratio < 1)? Prefs.SCREEN_WIDTH :(float) (Prefs.SCREEN_HEIGHT / ratio);
+            height = (ratio < 1)? (float)(Prefs.SCREEN_WIDTH * ratio): Prefs.SCREEN_HEIGHT;
+
+        }else{
+            isRotated = false;
+
+            map_rows = mMap.getGridDims()[0];
+            map_cols = mMap.getGridDims()[1];
+
+            width = (ratio < 1)? (float) (Prefs.SCREEN_HEIGHT * ratio) :Prefs.SCREEN_WIDTH;
+            height = (ratio < 1)?Prefs.SCREEN_HEIGHT: (float) (Prefs.SCREEN_WIDTH / ratio);
+        }
+
+        cell_width = width/map_cols;
+        cell_height = height/map_rows;
     }
-
-    public void setSize(int width, int height){SCREEN_WIDTH = width; SCREEN_HEIGHT = height;}
 
     public WarehouseLocation getLocation(){
         return lastLocation;
     }
     public int[] getRawLocation(){
-        Vec canvasToView = new Vec(0, (SCREEN_HEIGHT-height)/2);
+        Vec canvasToView = new Vec(0, (Prefs.SCREEN_HEIGHT-height)/2);
+        if(mMap.getRatio() < 1 || isRotated)
+            canvasToView = new Vec((Prefs.SCREEN_WIDTH-width)/2, 0);
+
+
         int[] pos = lastLocation.getCell();
         Vec vCell = new Vec(cell_width*(pos[1]+0.5), cell_height*(pos[0]+0.5));
-        Vec displacement = lastLocation.getDisplacement();
+        Vec displacement = new Vec(lastLocation.getDisplacement());
         displacement.x = displacement.x * cell_width / 2;
         displacement.y = -displacement.y * cell_height / 2;
 

@@ -1,20 +1,14 @@
 package com.thad.locationtracker.UI;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.thad.locationtracker.AndroidClient;
-import com.thad.locationtracker.Prefs;
 import com.thad.locationtracker.R;
+import com.thad.sparse_nav_lib.Static.Prefs;
 import com.thad.sparse_nav_lib.UI.WarehouseMapView;
 import com.thad.sparse_nav_lib.WarehouseLocation;
 import com.thad.sparse_nav_lib.WarehouseMap;
@@ -36,13 +30,13 @@ public class UserInterfaceHandler {
 
     private PickerView pickerView;
 
-    @SuppressLint("ClickableViewAccessibility")
+
     public UserInterfaceHandler(final Context context, AndroidClient androidClient){
         mActivity = (Activity) context;
         mClient = androidClient;
 
         mMapView = new WarehouseMapView(mActivity);
-        mMapView.setSize(Prefs.SCREEN_WIDTH, Prefs.SCREEN_HEIGHT);
+        //mMapView.setSize(Prefs.SCREEN_WIDTH, Prefs.SCREEN_HEIGHT);
 
         pickerView = new PickerView(context,200,500);
         RelativeLayout layout = mActivity.findViewById(R.id.main_layout);
@@ -60,10 +54,12 @@ public class UserInterfaceHandler {
                     case MotionEvent.ACTION_MOVE:
                         WarehouseMapView mapView = (WarehouseMapView)v;
                         mapView.setLocationFromViewCoords(X,Y);
-                        //int[] pos = mapView.getRawLocation();
-                        pickerView.setLocation(X,Y);//pos[0], pos[1]);
-                        //pickerView.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.touch_indicator));
+                        int[] pos = mapView.getRawLocation();
+                        pickerView.setLocation(pos[0], pos[1]);
+                        //pickerView.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.cursor));
                         pickerView.invalidate();
+                        //Log.d(TAG, "Truth: "+X+","+Y);
+                        //Log.d(TAG, "Approx: "+pos[0]+","+pos[1]);
                         break;
                 }
                 return true;

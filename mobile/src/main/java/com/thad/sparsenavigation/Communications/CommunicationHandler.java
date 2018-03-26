@@ -42,7 +42,7 @@ public class CommunicationHandler {
     public void onMapReceived(String mapJSON){
         mGlassHandler.sendMap(mapJSON);
 
-        WarehouseMap map = Decoder.decodeMap(mapJSON);
+        WarehouseMap map = new WarehouseMap();//Decoder.decodeMap(mapJSON);
         mClient.onMapReceived(map);
     }
 }

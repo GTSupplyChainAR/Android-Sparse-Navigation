@@ -1,4 +1,4 @@
-package com.thad.sparse_nav_lib.Utils;
+package com.thad.sparse_nav_lib.Static;
 
 import android.content.Context;
 

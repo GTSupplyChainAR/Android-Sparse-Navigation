@@ -3,7 +3,10 @@ package com.thad.locationtracker;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Window;
+
+import com.thad.sparse_nav_lib.Static.Prefs;
 
 
 /**
@@ -27,9 +30,16 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
 
+        int statusBarHeight = 0;
+        int resource = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resource > 0)
+            statusBarHeight = getResources().getDimensionPixelSize(resource);
+        Log.d(TAG, "Status Bar: "+statusBarHeight);
+
+
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        Prefs.SCREEN_HEIGHT = displayMetrics.heightPixels;
+        Prefs.SCREEN_HEIGHT = displayMetrics.heightPixels - statusBarHeight;
         Prefs.SCREEN_WIDTH = displayMetrics.widthPixels;
 
         mClient = new AndroidClient(this);

@@ -2,6 +2,7 @@ package com.thad.locationtracker;
 
 import android.content.Context;
 
+import com.thad.locationtracker.Communications.CommunicationHandler;
 import com.thad.locationtracker.UI.UserInterfaceHandler;
 import com.thad.sparse_nav_lib.WarehouseLocation;
 import com.thad.sparse_nav_lib.WarehouseMap;
@@ -11,6 +12,7 @@ import com.thad.sparse_nav_lib.WarehouseMap;
  */
 
 public class AndroidClient {
+    private static final String TAG = "|AndroidClient|";
 
     private WarehouseMap mMap;
     private UserInterfaceHandler mUI;
@@ -32,8 +34,6 @@ public class AndroidClient {
         mCommHandler.shutdown();
     }
 
-
-
     //This function is called when the Map is received by the Communication Handler
     public void onMapReceived(WarehouseMap map){
         mMap = map;
@@ -47,16 +47,11 @@ public class AndroidClient {
      * It sends a new Location at set intervals (broadcast_frequency)
      */
     private class LocationThread extends Thread{
-        private final Long broadcast_frequency = Long.valueOf(1000);
+        private final Long broadcast_frequency = Long.valueOf(100);
         private Long prev_send_time;
 
-        public LocationThread(){}
-
-        public void start(){
-            prev_send_time = System.currentTimeMillis();
-        }
-
         public void run(){
+            prev_send_time = System.currentTimeMillis();
             while(true) {
                 Long curr_time = System.currentTimeMillis();
                 if (curr_time - prev_send_time >= broadcast_frequency) {

@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.thad.sparsenavigation">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="com.google.android.glass.permission.DEVELOPMENT" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,6 +18,7 @@
             android:icon="@drawable/ic_glass_logo"
             android:label="@string/title_activity_glass_main">
             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
             </intent-filter>
 
