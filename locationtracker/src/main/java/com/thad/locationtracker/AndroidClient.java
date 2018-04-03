@@ -25,9 +25,8 @@ public class AndroidClient {
         mCommHandler = new CommunicationHandler(this);
         locationThread = new LocationThread();
 
-
-        // PLACEHOLDER
-        mCommHandler.receiveMap();
+        //Placeholder
+        setMap(new WarehouseMap());
     }
 
     public void onDestroy(){
@@ -36,6 +35,14 @@ public class AndroidClient {
 
     //This function is called when the Map is received by the Communication Handler
     public void onMapReceived(WarehouseMap map){
+        setMap(map);
+    }
+
+    public void changeBackground(){
+        mUI.changeBackground();
+    }
+
+    private void setMap(WarehouseMap map){
         mMap = map;
         mUI.setMap(mMap);
         locationThread.start();

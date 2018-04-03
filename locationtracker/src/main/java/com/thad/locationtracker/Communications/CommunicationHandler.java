@@ -27,28 +27,28 @@ public class CommunicationHandler {
     private AndroidClient mClient;
     private ServerBluetooth bluetooth;
 
+
     public CommunicationHandler(AndroidClient client) {
         mClient = client;
-        bluetooth = new ServerBluetooth(this);
-        bluetooth.setAddress(Prefs.GLASS_ADDRESS, Prefs.GLASS_UUID);
-        bluetooth.listen();
+        //bluetooth = new ServerBluetooth(this);
+        //bluetooth.setAddress(Prefs.GLASS_ADDRESS, Prefs.GLASS_UUID);
+       // bluetooth.listen();
     }
 
     public void shutdown(){
         //Close sockets, databases etc.
-        bluetooth.disconnect();
+        //bluetooth.disconnect();
     }
 
     public void sendLocation(WarehouseLocation loc){
         //Send Location via Firebase/Socket/...
         Log.d(TAG, "Sending -> "+loc.toString());
-        bluetooth.sendMessage(Decoder.MSG_TAG.LOC, Decoder.encodeWarehouseLocation(loc));
+        //bluetooth.sendMessage(Decoder.MSG_TAG.LOC, Decoder.encodeWarehouseLocation(loc));
     }
 
     public void receiveMap(){
         //Receive Map via Firebase/Socket/...
-        WarehouseMap map = new WarehouseMap();
-        mClient.onMapReceived(map);
+        //mClient.onMapReceived();
     }
 
     public void onMessageReceived(Decoder.MSG_TAG tag, String msg){

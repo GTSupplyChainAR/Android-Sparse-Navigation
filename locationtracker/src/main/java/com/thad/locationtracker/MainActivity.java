@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 
 import com.thad.sparse_nav_lib.Static.Prefs;
@@ -43,6 +44,10 @@ public class MainActivity extends Activity {
         Prefs.SCREEN_WIDTH = displayMetrics.widthPixels;
 
         mClient = new AndroidClient(this);
+    }
+
+    public void changeBackground(View v){
+        mClient.changeBackground();
     }
 
     @Override

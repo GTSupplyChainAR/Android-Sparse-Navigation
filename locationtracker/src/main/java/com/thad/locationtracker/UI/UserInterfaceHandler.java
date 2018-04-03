@@ -40,8 +40,8 @@ public class UserInterfaceHandler {
 
         pickerView = new PickerView(context,200,500);
         RelativeLayout layout = mActivity.findViewById(R.id.main_layout);
-        layout.addView(mMapView);
-        layout.addView(pickerView);
+        layout.addView(mMapView, 0);
+        layout.addView(pickerView, 1);
 
 
         mMapView.setOnTouchListener(new View.OnTouchListener(){
@@ -83,6 +83,9 @@ public class UserInterfaceHandler {
         });
     }
 
+    public void changeBackground(){
+        mMapView.changeBackground();
+    }
 
 
 

@@ -45,6 +45,8 @@ public class WarehouseMapView extends RelativeLayout {
     private boolean isRotated;
 
     private WarehouseLocation lastLocation;
+    private ImageView warehouseBackgroundImg;
+    private boolean minimal = false;
 
 
     public WarehouseMapView(Context context){
@@ -94,12 +96,12 @@ public class WarehouseMapView extends RelativeLayout {
         if(isRotated)
             warehouseDrawable = mContext.getResources().getDrawable(R.drawable.map_realistic_glass);
 
-        ImageView warehouseImg = new ImageView(mContext);
-        warehouseImg.setLayoutParams(new LayoutParams(MP, MP));
-        warehouseImg.setBackground(warehouseDrawable);
+        warehouseBackgroundImg = new ImageView(mContext);
+        warehouseBackgroundImg.setLayoutParams(new LayoutParams(MP, MP));
+        warehouseBackgroundImg.setBackground(warehouseDrawable);
 
         this.addView(grid);
-        this.addView(warehouseImg);
+        this.addView(warehouseBackgroundImg);
 
         return true;
     }
@@ -118,7 +120,7 @@ public class WarehouseMapView extends RelativeLayout {
         if(x < 0){
             setLocationFromViewCoords(0, y);
             return;
-        }else if (x >= width){
+        } else if (x >= width){
             setLocationFromViewCoords((int)width-1, y);
             return;
         }
@@ -247,5 +249,19 @@ public class WarehouseMapView extends RelativeLayout {
 
         Vec canvasPos = canvasToView.add(vCell.add(displacement));
         return new int[]{(int)canvasPos.x, (int)canvasPos.y};
+    }
+
+    public void changeBackground() {
+        Drawable warehouseDrawable;
+        if (minimal){
+            warehouseDrawable = mContext.getResources().getDrawable(R.drawable.map_realistic);
+            if(isRotated)
+                warehouseDrawable = mContext.getResources().getDrawable(R.drawable.map_realistic_glass);
+            minimal = false;
+        }else{
+            warehouseDrawable = mContext.getResources().getDrawable(R.drawable.map_minimal);
+            minimal = true;
+        }
+        warehouseBackgroundImg.setBackground(warehouseDrawable);
     }
 }

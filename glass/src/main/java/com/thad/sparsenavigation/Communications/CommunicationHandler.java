@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.thad.sparse_nav_lib.Decoder;
 import com.thad.sparse_nav_lib.Static.Prefs;
+import com.thad.sparse_nav_lib.WarehouseLocation;
 import com.thad.sparsenavigation.Communications.ClientBluetooth;
 import com.thad.sparsenavigation.GlassClient;
 
@@ -21,19 +22,25 @@ public class CommunicationHandler {
 
     private GlassClient mClient;
 
-    private ClientBluetooth bluetooth;
+    //-- TING --
+    //These 2 variables should be updated with the latest data from Firebase/ Websocket.
+    private WarehouseLocation currentLocation;
+    //private PickPath currentPickPath;
+
+    //private ClientBluetooth bluetooth;
+
 
     public CommunicationHandler(GlassClient client){
         mClient = client;
-        bluetooth = new ClientBluetooth(this);
-        bluetooth.setAddress(Prefs.PHONE_ADDRESS, Prefs.GLASS_UUID);
+        //bluetooth = new ClientBluetooth(this);
+        //bluetooth.setAddress(Prefs.PHONE_ADDRESS, Prefs.GLASS_UUID);
 
-        bluetooth.connect();
+        //bluetooth.connect();
     }
 
-    public void shutdown(){
-        bluetooth.disconnect();
-    }
+    //public void shutdown(){
+    //    bluetooth.disconnect();
+    //}
 
 
     public void onMessageReceived(Decoder.MSG_TAG msgTag, String msgString) {
@@ -44,7 +51,8 @@ public class CommunicationHandler {
                 break;
             case LOC:
                 Log.d(TAG, "Received a new location. "+msgString);
-                mClient.onLocationUpdate(Decoder.decodeWarehouseLocation(msgString));
+                currentLocation = Decoder.decodeWarehouseLocation(msgString);
+                //mClient.onLocationUpdate(Decoder.decodeWarehouseLocation(msgString));
                 break;
         }
     }

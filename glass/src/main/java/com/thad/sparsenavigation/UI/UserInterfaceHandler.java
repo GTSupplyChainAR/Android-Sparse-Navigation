@@ -58,6 +58,7 @@ public class UserInterfaceHandler {
         mMapView.generateUI();
     }
 
+
     public void onHeadingChanged(float heading){
         //updateCompassView(heading);
         positionIndicator.setHeading(heading);
