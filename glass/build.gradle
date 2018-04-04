@@ -27,5 +27,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.google.firebase:firebase-database:12.0.1'
     compile project(path: ':sparse_nav_lib')
 }
+apply plugin: 'com.google.gms.google-services'

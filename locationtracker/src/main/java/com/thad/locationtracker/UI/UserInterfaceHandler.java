@@ -67,6 +67,8 @@ public class UserInterfaceHandler {
         });
 
 
+
+
     }
 
     //This function is called when the Map is received from the Server

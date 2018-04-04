@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 
+import com.thad.locationtracker.Communications.CommunicationHandler;
 import com.thad.sparse_nav_lib.Static.Prefs;
 
 
@@ -21,6 +22,7 @@ public class MainActivity extends Activity {
 
     private AndroidClient mClient;
 
+
     //Function called in the start of the application
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.activity_main);
+
 
         int statusBarHeight = 0;
         int resource = getResources().getIdentifier("status_bar_height", "dimen", "android");
