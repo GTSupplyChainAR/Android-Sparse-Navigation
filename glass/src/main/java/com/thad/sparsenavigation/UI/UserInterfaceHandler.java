@@ -1,11 +1,14 @@
 package com.thad.sparsenavigation.UI;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.ConfigurationInfo;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -13,6 +16,8 @@ import com.thad.sparse_nav_lib.Static.Prefs;
 import com.thad.sparse_nav_lib.UI.WarehouseMapView;
 import com.thad.sparse_nav_lib.WarehouseLocation;
 import com.thad.sparse_nav_lib.WarehouseMap;
+import com.thad.sparsenavigation.Graphics.GLRenderer;
+import com.thad.sparsenavigation.Graphics.GraphicsGLView;
 import com.thad.sparsenavigation.R;
 
 /**
@@ -24,6 +29,7 @@ public class UserInterfaceHandler {
 
     private Activity activity;
     private WarehouseMapView mMapView;
+    private GraphicsGLView glView;
 
     private float currentHeading;
 
@@ -46,11 +52,16 @@ public class UserInterfaceHandler {
         positionIndicator = new PositionIndicator(activity);
 
         RelativeLayout layout = (RelativeLayout) activity.findViewById(R.id.main_layout);
-        layout.addView(mMapView);
-        layout.addView(positionIndicator);
+        //layout.addView(mMapView);
+        //layout.addView(positionIndicator);
 
         //headingTitleView = (TextView) activity.findViewById(R.id.heading_title);
         //compassView = (ImageView) activity.findViewById(R.id.compass);
+
+        //LinearLayout container = activity.findViewById(R.id.graphics_container);
+
+        glView = new GraphicsGLView(activity);
+        layout.addView(glView);
     }
 
     public void setMap(WarehouseMap map){
@@ -62,6 +73,7 @@ public class UserInterfaceHandler {
     public void onHeadingChanged(float heading){
         //updateCompassView(heading);
         positionIndicator.setHeading(heading);
+        glView.setHeading(heading);
     }
     public void onLocationUpdate(WarehouseLocation loc) {
         mMapView.setLocation(loc);
