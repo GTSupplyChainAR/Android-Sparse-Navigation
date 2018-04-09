@@ -42,4 +42,6 @@ public class WarehouseLocation {
 
     public String toString(){return row+","+col+" : ("+
             Math.floor(displacement.x*100)/100+", "+Math.floor(displacement.y*100)/100+")";}
+
+
 }

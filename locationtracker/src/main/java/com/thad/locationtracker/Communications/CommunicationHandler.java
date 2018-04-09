@@ -58,8 +58,8 @@ public class CommunicationHandler {
 
         Map<String, Object> childUpdates = new HashMap<String, Object>();
 
-        childUpdates.put("/warehouseLayout/currentLocation/row",loc.getCell()[0]);
-        childUpdates.put("/warehouseLayout/currentLocation/col",loc.getCell()[1]);
+        childUpdates.put("/warehouseLayout/currentLocation/row", loc.getCell()[0]);
+        childUpdates.put("/warehouseLayout/currentLocation/col", loc.getCell()[1]);
         //dataToSave.put("/warehouseLayout/currentLocation/row",42);
         //dataToSave.put("/warehouseLayout/currentLocation/col",42);
         mDatabase.updateChildren(childUpdates);

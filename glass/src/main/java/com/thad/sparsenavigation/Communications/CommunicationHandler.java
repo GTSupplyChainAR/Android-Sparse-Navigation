@@ -10,6 +10,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.thad.sparse_nav_lib.Decoder;
 import com.thad.sparse_nav_lib.Static.Prefs;
+import com.thad.sparse_nav_lib.Utils.Vec;
 import com.thad.sparse_nav_lib.WarehouseLocation;
 import com.thad.sparsenavigation.Communications.ClientBluetooth;
 import com.thad.sparsenavigation.GlassClient;
@@ -42,6 +43,7 @@ public class CommunicationHandler {
 
     public CommunicationHandler(GlassClient client){
         mClient = client;
+        currentLocation = new WarehouseLocation();
         //bluetooth = new ClientBluetooth(this);
         //bluetooth.setAddress(Prefs.PHONE_ADDRESS, Prefs.GLASS_UUID);
 
@@ -56,7 +58,15 @@ public class CommunicationHandler {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
-                currentLocation.setCell(dataSnapshot.child("row").val(), dataSnapshot.child("col").val());
+                Long cellRow = (Long) dataSnapshot.child("row").getValue();
+                Long cellCol = (Long) dataSnapshot.child("col").getValue();
+                //Float vecX = (Float) dataSnapshot.child("vecx").getValue();
+                //Float vecY = (Float) dataSnapshot.child("vecx").getValue();
+
+                currentLocation.setCell( cellRow.intValue(), cellCol.intValue());
+                //currentLocation.setDisplacement(new Vec(vecX, vecY));
+
+                Log.d(TAG, "Location: " +currentLocation.toString());
                 // [END_EXCLUDE]
             }
 
@@ -70,8 +80,6 @@ public class CommunicationHandler {
         };
         mPostReference.addValueEventListener(postListener);
         // [END post_value_event_listener]
-
-
 
     }
 
