@@ -9,6 +9,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.thad.sparse_nav_lib.Decoder;
+import com.thad.sparse_nav_lib.PickPath;
+import com.thad.sparse_nav_lib.PickRoute;
 import com.thad.sparse_nav_lib.Static.Prefs;
 import com.thad.sparse_nav_lib.Utils.Vec;
 import com.thad.sparse_nav_lib.WarehouseLocation;
@@ -106,4 +108,7 @@ public class CommunicationHandler {
     public void onConnectionLost(){
         mClient.onConnectionLost();
     }
+
+    //public PickPath getNextPickPath(){ return new PickPath();}
+    public PickRoute getNextPickRoute(){return new PickRoute();}
 }
