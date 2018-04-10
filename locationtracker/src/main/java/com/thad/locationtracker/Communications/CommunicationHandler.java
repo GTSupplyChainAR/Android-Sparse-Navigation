@@ -54,12 +54,16 @@ public class CommunicationHandler {
     public void sendLocation(WarehouseLocation loc){
         //Send Location via Firebase/Socket/...
         Log.d(TAG, "Sending -> "+loc.toString());
+        Log.d(TAG, "The displacement! "+loc.getDisplacement());
         //bluetooth.sendMessage(Decoder.MSG_TAG.LOC, Decoder.encodeWarehouseLocation(loc));
 
         Map<String, Object> childUpdates = new HashMap<String, Object>();
 
+
         childUpdates.put("/warehouseLayout/currentLocation/row", loc.getCell()[0]);
         childUpdates.put("/warehouseLayout/currentLocation/col", loc.getCell()[1]);
+        childUpdates.put("/warehouseLayout/currentLocation/vecx",loc.getDisplacement().x+"");
+        childUpdates.put("/warehouseLayout/currentLocation/vecy",loc.getDisplacement().y+"");
         //dataToSave.put("/warehouseLayout/currentLocation/row",42);
         //dataToSave.put("/warehouseLayout/currentLocation/col",42);
         mDatabase.updateChildren(childUpdates);

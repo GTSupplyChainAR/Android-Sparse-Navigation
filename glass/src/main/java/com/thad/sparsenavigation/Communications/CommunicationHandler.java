@@ -37,10 +37,10 @@ public class CommunicationHandler {
     //-- TING --
     //These 2 variables should be updated with the latest data from Firebase/ Websocket.
     private WarehouseLocation currentLocation;
-    private DatabaseReference mPostReference;
     //private PickPath currentPickPath;
 
     //private ClientBluetooth bluetooth;
+    private DatabaseReference mPostReference;
 
 
     public CommunicationHandler(GlassClient client){
@@ -62,11 +62,15 @@ public class CommunicationHandler {
                 // Get Post object and use the values to update the UI
                 Long cellRow = (Long) dataSnapshot.child("row").getValue();
                 Long cellCol = (Long) dataSnapshot.child("col").getValue();
-                //Float vecX = (Float) dataSnapshot.child("vecx").getValue();
-                //Float vecY = (Float) dataSnapshot.child("vecx").getValue();
-
+                Log.d(TAG, "row: " +dataSnapshot.child("row"));
+                Log.d(TAG, "VectorX: " +dataSnapshot.child("vecx"));
+                String vecX = (String) dataSnapshot.child("vecx").getValue();
+                String vecY = (String) dataSnapshot.child("vecy").getValue();
+                Float vecx = Float.parseFloat(vecX);
+                Float vecy = Float.parseFloat(vecY);
                 currentLocation.setCell( cellRow.intValue(), cellCol.intValue());
-                //currentLocation.setDisplacement(new Vec(vecX, vecY));
+                currentLocation.setDisplacement(new Vec(vecx.floatValue(), vecy.floatValue()
+                ));
 
                 Log.d(TAG, "Location: " +currentLocation.toString());
                 // [END_EXCLUDE]
