@@ -16,7 +16,7 @@ public class AndroidClient {
     private static final String TAG = "|AndroidClient|";
 
     //If QUICK_START is true the application immediately attempts to connect.
-    private static final boolean QUICK_START = true;
+    private static final boolean QUICK_START = false;
 
     private UserInterfaceHandler mUI;
     private CommunicationHandler mCommHandler;
@@ -34,6 +34,7 @@ public class AndroidClient {
         if(QUICK_START){
             mCommHandler.connect();
         }
+        onMapReceived(new WarehouseMap());
     }
 
     public void onDestroy(){
