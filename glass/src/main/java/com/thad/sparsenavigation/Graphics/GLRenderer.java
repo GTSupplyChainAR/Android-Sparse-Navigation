@@ -6,7 +6,9 @@ import android.opengl.GLSurfaceView.Renderer;
 import android.opengl.Matrix;
 import android.util.Log;
 
+import com.thad.sparse_nav_lib.Static.UtilFunctions;
 import com.thad.sparse_nav_lib.Utils.Vec3D;
+import com.thad.sparse_nav_lib.WarehouseLocation;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -36,6 +38,7 @@ public class GLRenderer implements Renderer {
     private final float[] mViewMatrix = new float[16];
 
     private final float[] mCurrentRotation = new float[16];
+    private final float[] mTranslationMatrix = new float[16];
 
 
     public GLRenderer(Context context){
@@ -88,14 +91,17 @@ public class GLRenderer implements Renderer {
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
         warehouseMap3D.draw(mMVPMatrix);
 
-        Matrix.setIdentityM(mModelMatrix, 0);
-        //Matrix.translateM(mModelMatrix, 0, 0.0f, 0.8f, -3.5f);
+        Matrix.setIdentityM(mTranslationMatrix, 0);
+        Matrix.translateM(mTranslationMatrix, 0, (float)pos.x, (float)pos.y, 0f);
 
         // Set a matrix that contains the current rotation.
         Matrix.setIdentityM(mCurrentRotation, 0);
         Matrix.rotateM(mCurrentRotation, 0, lastHeading, 0.0f, 0.0f, 1.0f);
 
-        System.arraycopy(mCurrentRotation, 0, mModelMatrix, 0, 16);
+        Matrix.setIdentityM(mModelMatrix, 0);
+        Matrix.multiplyMM(mModelMatrix, 0, mCurrentRotation, 0, mModelMatrix, 0);
+        Matrix.multiplyMM(mModelMatrix, 0, mTranslationMatrix, 0, mModelMatrix, 0);
+        //System.arraycopy(mCurrentRotation, 0, mModelMatrix, 0, 16);
 
         // Calculate the projection and view transformation
         Matrix.multiplyMM(mMVMatrix, 0, mViewMatrix, 0, mModelMatrix, 0);
@@ -107,7 +113,10 @@ public class GLRenderer implements Renderer {
     public void setHeading(float heading){
         lastHeading = -heading;
     }
-
+    public void setLocation(WarehouseLocation loc){
+        Log.d(TAG, "New Location - "+loc.toString());
+        pos = UtilFunctions.get3DLocation(loc);
+    }
 
     public static int loadShader(int type, String shaderCode){
 

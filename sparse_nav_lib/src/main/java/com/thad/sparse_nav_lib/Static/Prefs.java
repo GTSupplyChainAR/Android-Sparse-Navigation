@@ -13,4 +13,5 @@ public class Prefs {
     public static final String GLASS_UUID = "00001101-0000-1000-8000-00805F9B34FB";
 
     public static int SCREEN_WIDTH, SCREEN_HEIGHT;
+    public static int MAP_WIDTH = 30, MAP_HEIGHT = 60;
 }

@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.util.Log;
 
+import com.thad.sparse_nav_lib.Static.Prefs;
 import com.thad.sparsenavigation.R;
 
 import java.nio.FloatBuffer;
@@ -28,17 +29,17 @@ public class WarehouseMap3D {
     private FloatBuffer vertexBuffer, textureBuffer, colorBuffer;
     private ShortBuffer indexBuffer;
 
-    private final float width = 30, height = 60;
+    private final float width = Prefs.MAP_WIDTH, height = Prefs.MAP_HEIGHT;
     private final float vertices[] = {
             -width/2,  height/2, 0.0f,   // top left
             -width/2, -height/2, 0.0f,   // bottom left
             width/2, -height/2, 0.0f,   // bottom right
             width/2,  height/2, 0.0f }; // top right
     private final float tex_coords[] = {
-            1.0f, 1.0f,
-            1.0f, 0.0f,
             0.0f, 0.0f,
-            0.0f, 1.0f
+            0.0f, 1.0f,
+            1.0f, 1.0f,
+            1.0f, 0.0f
     };
     private final float colors[] = {
             1.0f, 1.0f, 0.0f, 1.0f,

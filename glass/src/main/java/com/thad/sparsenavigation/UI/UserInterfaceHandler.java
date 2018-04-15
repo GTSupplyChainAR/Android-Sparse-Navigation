@@ -16,9 +16,12 @@ import com.thad.sparse_nav_lib.Static.Prefs;
 import com.thad.sparse_nav_lib.UI.WarehouseMapView;
 import com.thad.sparse_nav_lib.WarehouseLocation;
 import com.thad.sparse_nav_lib.WarehouseMap;
+import com.thad.sparsenavigation.GlassClient;
 import com.thad.sparsenavigation.Graphics.GLRenderer;
 import com.thad.sparsenavigation.Graphics.GraphicsGLView;
 import com.thad.sparsenavigation.R;
+
+import javax.microedition.khronos.opengles.GL;
 
 /**
  * Created by theo on 3/25/18.
@@ -28,6 +31,8 @@ public class UserInterfaceHandler {
     private static final String TAG = "|UserInterfaceHandler|";
 
     private Activity activity;
+    private GlassClient mClient;
+
     private WarehouseMapView mMapView;
     private GraphicsGLView glView;
 
@@ -38,8 +43,9 @@ public class UserInterfaceHandler {
     private ImageView compassView;
     private PositionIndicator positionIndicator;
 
-    public UserInterfaceHandler(Activity activity){
-        this.activity = activity;
+    public UserInterfaceHandler(GlassClient client){
+        this.activity = (Activity)client.getContext();
+        mClient = client;
         init();
     }
 
@@ -60,7 +66,7 @@ public class UserInterfaceHandler {
 
         //LinearLayout container = activity.findViewById(R.id.graphics_container);
 
-        glView = new GraphicsGLView(activity);
+        glView = new GraphicsGLView(this);
         layout.addView(glView);
     }
 
@@ -75,6 +81,13 @@ public class UserInterfaceHandler {
         positionIndicator.setHeading(heading);
         glView.setHeading(heading);
     }
+
+
+    public Context getContext(){return activity;}
+    public GLRenderer getRenderer(){return mClient.getRenderer(); }
+
+
+    /*
     public void onLocationUpdate(WarehouseLocation loc) {
         mMapView.setLocation(loc);
         activity.runOnUiThread(new Runnable() {
@@ -86,7 +99,6 @@ public class UserInterfaceHandler {
             }
         });
     }
-
 
 
 
@@ -109,5 +121,6 @@ public class UserInterfaceHandler {
         compassView.startAnimation(ra);
         currentHeading = -heading;
     }
+    */
 
 }

@@ -69,10 +69,10 @@ public class CommunicationHandler {
                 Float vecx = Float.parseFloat(vecX);
                 Float vecy = Float.parseFloat(vecY);
                 currentLocation.setCell( cellRow.intValue(), cellCol.intValue());
-                currentLocation.setDisplacement(new Vec(vecx.floatValue(), vecy.floatValue()
-                ));
+                currentLocation.setDisplacement(new Vec(vecx.floatValue(), vecy.floatValue()));
 
-                Log.d(TAG, "Location: " +currentLocation.toString());
+                mClient.onLocationUpdate(currentLocation);
+                //Log.d(TAG, "Location: " +currentLocation.toString());
                 // [END_EXCLUDE]
             }
 

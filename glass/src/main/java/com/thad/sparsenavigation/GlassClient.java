@@ -31,8 +31,10 @@ public class GlassClient {
     }
 
     private void init(){
+        mRenderer = new GLRenderer(context);
+
         mSensorListener = new SensorListener(this);
-        mUI = new UserInterfaceHandler((Activity)context);
+        mUI = new UserInterfaceHandler(this);
         mCommHandler = new CommunicationHandler(this);
 
         mMap = new WarehouseMap();
@@ -48,7 +50,8 @@ public class GlassClient {
 
     public void onLocationUpdate(WarehouseLocation loc){
         Log.d(TAG, "Received "+loc.toString());
-        mUI.onLocationUpdate(loc);
+        //mUI.onLocationUpdate(loc);
+        mRenderer.setLocation(loc);
     }
 
     public void onConnected(){}

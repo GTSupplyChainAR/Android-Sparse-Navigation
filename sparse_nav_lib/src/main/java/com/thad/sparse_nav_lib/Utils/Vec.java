@@ -30,6 +30,8 @@ public class Vec {
     }
     public Vec reverse(){return new Vec(-x, -y);}
 
+    public Vec3D toVec3D(){return new Vec3D(x, y, 0);}
+
     public String toString(){
         return x+", "+y;
     }
