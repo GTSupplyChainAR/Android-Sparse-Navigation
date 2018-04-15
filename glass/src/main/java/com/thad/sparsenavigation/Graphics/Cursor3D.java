@@ -28,12 +28,12 @@ public class Cursor3D {
     private FloatBuffer vertexBuffer, textureBuffer;
     private ShortBuffer indexBuffer;
 
-    private final float size = 5;
+    private final float size = 5, elevation = 0.05f;
     private final float vertices[] = {
-            -size/2,  size/2, 0.5f,   // top left
-            -size/2, -size/2, 0.5f,   // bottom left
-            size/2, -size/2, 0.5f,   // bottom right
-            size/2,  size/2, 0.5f }; // top right
+            -size/2,  size/2, elevation,   // top left
+            -size/2, -size/2, elevation,   // bottom left
+            size/2, -size/2, elevation,   // bottom right
+            size/2,  size/2, elevation }; // top right
     private final float tex_coords[] = {
             0.0f, 1.0f,
             1.0f, 1.0f,

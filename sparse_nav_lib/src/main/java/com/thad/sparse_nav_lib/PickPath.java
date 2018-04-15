@@ -9,5 +9,18 @@ import java.util.ArrayList;
  */
 
 public class PickPath {
-    ArrayList<PickRoute> orderedRoutes;
+    private ArrayList<PickRoute> orderedRoutes;
+
+    private int index = 0;
+
+    public PickPath(){
+        orderedRoutes = new ArrayList<PickRoute>();
+    }
+
+    public void addRoute(PickRoute route){orderedRoutes.add(route);}
+    public PickRoute getNextRoute(){
+        if(orderedRoutes == null || index >= orderedRoutes.size())
+            return new PickRoute();
+        return orderedRoutes.get(index++);
+    }
 }

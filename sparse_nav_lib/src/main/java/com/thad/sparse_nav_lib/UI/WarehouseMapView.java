@@ -46,8 +46,7 @@ public class WarehouseMapView extends RelativeLayout {
 
     private WarehouseLocation lastLocation;
     private ImageView warehouseBackgroundImg;
-    private boolean minimal = false;
-
+    private boolean show_grid = false;
 
     public WarehouseMapView(Context context){
         super(context);
@@ -63,33 +62,35 @@ public class WarehouseMapView extends RelativeLayout {
     public boolean generateUI(){
         if(mMap == null) return false;
 
+        this.removeAllViews();
         //This function generates the Map UI
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int)width, (int)height);
         layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
 
         this.setLayoutParams(layoutParams);
-        this.setBackgroundColor(Color.RED);
 
         LinearLayout grid = new LinearLayout(mContext);
-        grid.setLayoutParams(new LayoutParams(MP, MP));
-        grid.setOrientation(VERTICAL);
+        if(show_grid) {
+            grid.setLayoutParams(new LayoutParams(MP, MP));
+            grid.setOrientation(VERTICAL);
 
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(MP, MP, 1f);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(MP, MP, 1f);
 
-        for(int i = 0 ; i < map_rows ; i++){
-            LinearLayout ll_row = new LinearLayout(mContext);
-            ll_row.setLayoutParams(lp);
-            ll_row.setOrientation(HORIZONTAL);
+            for (int i = 0; i < map_rows; i++) {
+                LinearLayout ll_row = new LinearLayout(mContext);
+                ll_row.setLayoutParams(lp);
+                ll_row.setOrientation(HORIZONTAL);
 
-            for(int j = 0 ; j < map_cols ; j++){
-                ImageView cell = new ImageView(mContext);
-                cell.setLayoutParams(lp);
-                cell.setImageResource(R.drawable.grid_cell);
-                cell.setTag(i+","+j);
+                for (int j = 0; j < map_cols; j++) {
+                    ImageView cell = new ImageView(mContext);
+                    cell.setLayoutParams(lp);
+                    cell.setImageResource(R.drawable.grid_cell);
+                    cell.setTag(i + "," + j);
 
-                ll_row.addView(cell);
+                    ll_row.addView(cell);
+                }
+                grid.addView(ll_row);
             }
-            grid.addView(ll_row);
         }
 
         Drawable warehouseDrawable = mContext.getResources().getDrawable(R.drawable.map_realistic);
@@ -100,8 +101,9 @@ public class WarehouseMapView extends RelativeLayout {
         warehouseBackgroundImg.setLayoutParams(new LayoutParams(MP, MP));
         warehouseBackgroundImg.setBackground(warehouseDrawable);
 
-        this.addView(grid);
         this.addView(warehouseBackgroundImg);
+        if(show_grid)
+            this.addView(grid);
 
         return true;
     }
@@ -152,6 +154,7 @@ public class WarehouseMapView extends RelativeLayout {
 
         //Find the closest position if cursor is over an obstacle.
         if(!isValid) {
+            Log.d(TAG, "Cursor is on obstacle. Finding closest valid cell.");
             Vec ref = new Vec(cell_width*(c+0.5), cell_height*(r+0.5)).add(
                     new Vec( displacement.x * cell_width / 2, -displacement.y * cell_height / 2));
 
@@ -252,16 +255,7 @@ public class WarehouseMapView extends RelativeLayout {
     }
 
     public void changeBackground() {
-        Drawable warehouseDrawable;
-        if (minimal){
-            warehouseDrawable = mContext.getResources().getDrawable(R.drawable.map_realistic);
-            if(isRotated)
-                warehouseDrawable = mContext.getResources().getDrawable(R.drawable.map_realistic_glass);
-            minimal = false;
-        }else{
-            warehouseDrawable = mContext.getResources().getDrawable(R.drawable.map_minimal);
-            minimal = true;
-        }
-        warehouseBackgroundImg.setBackground(warehouseDrawable);
+        show_grid = !show_grid;
+        generateUI();
     }
 }

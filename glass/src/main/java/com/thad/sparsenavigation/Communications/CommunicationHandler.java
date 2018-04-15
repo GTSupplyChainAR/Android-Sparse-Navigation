@@ -37,7 +37,7 @@ public class CommunicationHandler {
     //-- TING --
     //These 2 variables should be updated with the latest data from Firebase/ Websocket.
     private WarehouseLocation currentLocation;
-    //private PickPath currentPickPath;
+    private PickPath currentPickPath;
 
     //private ClientBluetooth bluetooth;
     private DatabaseReference mPostReference;
@@ -86,6 +86,13 @@ public class CommunicationHandler {
         };
         mPostReference.addValueEventListener(postListener);
         // [END post_value_event_listener]
+
+        //POOJA -> populate PickPath currentPickPath
+        // ..add code
+        //Book book new Book(...);
+        //PickRoute route = new PickRoute();
+        //route.setTargetBook(book);
+        //currentPickPath.add(route);
 
     }
 

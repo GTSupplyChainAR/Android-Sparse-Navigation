@@ -5,6 +5,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ConfigurationInfo;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
@@ -68,6 +69,7 @@ public class UserInterfaceHandler {
 
         glView = new GraphicsGLView(this);
         layout.addView(glView);
+
     }
 
     public void setMap(WarehouseMap map){
