@@ -28,7 +28,7 @@ public class Cursor3D {
     private FloatBuffer vertexBuffer, textureBuffer;
     private ShortBuffer indexBuffer;
 
-    private final float size = 2;
+    private final float size = 5;
     private final float vertices[] = {
             -size/2,  size/2, 0.5f,   // top left
             -size/2, -size/2, 0.5f,   // bottom left

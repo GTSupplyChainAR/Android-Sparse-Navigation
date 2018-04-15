@@ -87,6 +87,9 @@ public class UserInterfaceHandler {
         });
     }
 
+
+
+
     private void updateCompassView(float heading){
         headingTitleView.setText("Heading: " + Float.toString(heading) + " degrees");
 

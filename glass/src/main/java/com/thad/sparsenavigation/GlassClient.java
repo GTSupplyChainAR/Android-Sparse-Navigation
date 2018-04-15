@@ -7,6 +7,7 @@ import android.util.Log;
 import com.thad.sparse_nav_lib.WarehouseLocation;
 import com.thad.sparse_nav_lib.WarehouseMap;
 import com.thad.sparsenavigation.Communications.CommunicationHandler;
+import com.thad.sparsenavigation.Graphics.GLRenderer;
 import com.thad.sparsenavigation.UI.UserInterfaceHandler;
 
 /**
@@ -19,6 +20,7 @@ public class GlassClient {
     private Context context;
     private WarehouseMap mMap;
 
+    private GLRenderer mRenderer;
     private UserInterfaceHandler mUI;
     private CommunicationHandler mCommHandler;
     private SensorListener mSensorListener;
@@ -32,8 +34,8 @@ public class GlassClient {
         mSensorListener = new SensorListener(this);
         mUI = new UserInterfaceHandler((Activity)context);
         mCommHandler = new CommunicationHandler(this);
-        mMap = new WarehouseMap();
 
+        mMap = new WarehouseMap();
         mUI.setMap(mMap);
     }
 
@@ -54,5 +56,5 @@ public class GlassClient {
 
 
     public Context getContext(){ return context; }
-
+    public GLRenderer getRenderer(){ return mRenderer; }
 }

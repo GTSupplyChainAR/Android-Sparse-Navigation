@@ -15,7 +15,7 @@ public class WarehouseMap {
     private double ratio;
     private boolean[][] isObstacle;
 
-    public WarehouseMap(){this(15,30);}
+    public WarehouseMap(){this(30,60);}
     public WarehouseMap(int w, int h){
         grid_rows = h;
         grid_cols = w;
@@ -24,7 +24,7 @@ public class WarehouseMap {
         isObstacle = new boolean[h][w];
         for(int i = 0 ; i < h ; i++)
             for(int j = 0 ; j < w ; j++)
-                isObstacle[i][j] = hardcoded_map_data[i][j] == 1;
+                isObstacle[i][j] = false;//hardcoded_map_data[i][j] == 1;
 
     }
 

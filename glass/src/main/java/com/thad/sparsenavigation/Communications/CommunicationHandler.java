@@ -89,6 +89,11 @@ public class CommunicationHandler {
 
     }
 
+
+
+
+    //BLUETOOTH
+
     //public void shutdown(){
     //    bluetooth.disconnect();
     //}

@@ -25,7 +25,7 @@ public class GLRenderer implements Renderer {
     private WarehouseMap3D warehouseMap3D;
     private Cursor3D cursor3D;
     private Vec3D dir, pos;
-    private float behindDistance = 10, upDistance = 10;
+    private float behindDistance = 12, upDistance = 15;
     private float th = 0, lastHeading = 0;
 
     // mMVPMatrix is an abbreviation for "Model View Projection Matrix"
@@ -35,7 +35,6 @@ public class GLRenderer implements Renderer {
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
 
-    private final float[] mAccumulatedRotation = new float[16];
     private final float[] mCurrentRotation = new float[16];
 
 
@@ -46,7 +45,7 @@ public class GLRenderer implements Renderer {
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {
         Log.d(TAG, "Version: "+GLES20.glGetString(GLES20.GL_VERSION));
 
-        Matrix.setIdentityM(mAccumulatedRotation, 0);
+        Matrix.setIdentityM(mCurrentRotation, 0);
 
         // Set the background frame color
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
