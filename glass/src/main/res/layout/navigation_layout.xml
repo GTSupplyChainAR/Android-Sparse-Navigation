@@ -6,26 +6,5 @@
     android:background="#000">
 
 
-    <LinearLayout
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/heading_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="20dp"
-            android:text="Heading"
-            android:textSize="20dp"/>
-
-        <ImageView
-            android:id="@+id/compass"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:background="@drawable/compass"/>
-    </LinearLayout>
 
 </RelativeLayout>

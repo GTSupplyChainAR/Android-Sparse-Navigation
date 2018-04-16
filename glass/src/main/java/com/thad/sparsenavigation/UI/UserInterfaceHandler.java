@@ -21,6 +21,7 @@ import com.thad.sparsenavigation.GlassClient;
 import com.thad.sparsenavigation.Graphics.GLRenderer;
 import com.thad.sparsenavigation.Graphics.GraphicsGLView;
 import com.thad.sparsenavigation.R;
+import com.thad.sparsenavigation.UI.VerticalShelfView;
 
 import javax.microedition.khronos.opengles.GL;
 
@@ -36,6 +37,7 @@ public class UserInterfaceHandler {
 
     private WarehouseMapView mMapView;
     private GraphicsGLView glView;
+    private VerticalShelfView vsView;
 
     private float currentHeading;
 
@@ -70,6 +72,22 @@ public class UserInterfaceHandler {
         glView = new GraphicsGLView(this);
         layout.addView(glView);
 
+        vsView = new VerticalShelfView(getContext());
+        layout.addView(vsView);
+        vsView.setVisibility(View.GONE);
+
+    }
+
+    public void addVerticalShelfView(){
+        glView.setVisibility(View.GONE);
+        vsView.setVisibility(View.VISIBLE);
+       // Log.d(TAG,"visible now hahahah");
+    }
+
+    public void deleteVerticalShelfView() {
+        vsView.setVisibility(View.GONE);
+        glView.setVisibility(View.VISIBLE);
+        // Log.d(TAG, "invisible meow");
     }
 
     public void setMap(WarehouseMap map){

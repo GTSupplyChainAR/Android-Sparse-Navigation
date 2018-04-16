@@ -42,6 +42,14 @@ public class GlassClient {
         mUI.setMap(mMap);
     }
 
+    public void addVerticalShelfView(){
+        mUI.addVerticalShelfView();
+    };
+
+    public void deleteVerticalShelfView(){
+        mUI.deleteVerticalShelfView();
+    };
+
     public void resume(){ mSensorListener.resume(); }
     public void pause(){ mSensorListener.pause(); }
 
@@ -61,8 +69,8 @@ public class GlassClient {
 
     public void onConnected(){}
     public void onConnectionLost(){}
-
-
+    // update firebase
+    public void confirmPicked(){mCommHandler.confirmPickedFirebase();}
     public Context getContext(){ return context; }
     public GLRenderer getRenderer(){ return mRenderer; }
 }
