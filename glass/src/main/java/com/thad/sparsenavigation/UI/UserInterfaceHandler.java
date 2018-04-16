@@ -72,8 +72,6 @@ public class UserInterfaceHandler {
         glView = new GraphicsGLView(this);
         layout.addView(glView);
 
-<<<<<<< Updated upstream
-=======
         vsView = new VerticalShelfView(getContext());
         layout.addView(vsView);
         vsView.setVisibility(View.GONE);
@@ -86,12 +84,10 @@ public class UserInterfaceHandler {
        // Log.d(TAG,"visible now hahahah");
     }
 
-    public void deleteVerticalShelfView(){
+    public void deleteVerticalShelfView() {
         vsView.setVisibility(View.GONE);
         glView.setVisibility(View.VISIBLE);
-       // Log.d(TAG, "invisible meow");
-
->>>>>>> Stashed changes
+        // Log.d(TAG, "invisible meow");
     }
 
     public void setMap(WarehouseMap map){
