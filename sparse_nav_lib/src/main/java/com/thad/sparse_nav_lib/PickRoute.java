@@ -16,5 +16,22 @@ public class PickRoute {
 
     public PickRoute(){
 
+
+    }
+
+    public void setTargetBook(Book book) {
+        this.targetBook = book;
+    }
+
+    public void setOrderedCells(ArrayList<Vec> pick_cells) {
+        this.orderedCells = pick_cells;
+    }
+
+    public Book getTargetBook() {
+        return targetBook;
+    }
+
+    public ArrayList<Vec> getOrderedCells() {
+        return orderedCells;
     }
 }

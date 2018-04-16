@@ -14,9 +14,11 @@ import com.thad.sparse_nav_lib.PickRoute;
 import com.thad.sparse_nav_lib.Static.Prefs;
 import com.thad.sparse_nav_lib.Utils.Vec;
 import com.thad.sparse_nav_lib.WarehouseLocation;
+import com.thad.sparse_nav_lib.Book;
 import com.thad.sparsenavigation.Communications.ClientBluetooth;
 import com.thad.sparsenavigation.GlassClient;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,6 +41,7 @@ public class CommunicationHandler {
     private WarehouseLocation currentLocation;
     private PickPath currentPickPath;
 
+
     //private ClientBluetooth bluetooth;
     private DatabaseReference mPostReference;
 
@@ -53,27 +56,80 @@ public class CommunicationHandler {
 
         // Add value event listener to the post
         // [START post_value_event_listener]
-        mPostReference = FirebaseDatabase.getInstance().getReference()
-                .child("warehouseLayout").child("currentLocation");
+        mPostReference = FirebaseDatabase.getInstance().getReference();
+//                .child("warehouseLayout").child("currentLocation");
 
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
-                Long cellRow = (Long) dataSnapshot.child("row").getValue();
-                Long cellCol = (Long) dataSnapshot.child("col").getValue();
-                Log.d(TAG, "row: " +dataSnapshot.child("row"));
-                Log.d(TAG, "VectorX: " +dataSnapshot.child("vecx"));
-                String vecX = (String) dataSnapshot.child("vecx").getValue();
-                String vecY = (String) dataSnapshot.child("vecy").getValue();
+                Long cellRow = (Long) dataSnapshot.child("warehouseLayout").child("currentLocation").child("row").getValue();
+                Long cellCol = (Long) dataSnapshot.child("warehouseLayout").child("currentLocation").child("col").getValue();
+                Log.d(TAG, "row: " +dataSnapshot.child("warehouseLayout").child("currentLocation").child("row"));
+                Log.d(TAG, "VectorX: " +dataSnapshot.child("warehouseLayout").child("currentLocation").child("vecx"));
+                String vecX = (String) dataSnapshot.child("warehouseLayout").child("currentLocation").child("vecx").getValue();
+                String vecY = (String)dataSnapshot.child("warehouseLayout").child("currentLocation").child("vecx").getValue();
                 Float vecx = Float.parseFloat(vecX);
                 Float vecy = Float.parseFloat(vecY);
+                int pick_path_index = 0;
+                int book_index = 0;
+
+                for (book_index = 0; book_index < 11; book_index++) {
+                    Book targetBook = new Book();
+                    ArrayList<Vec> ordered_cells = new ArrayList<Vec>();
+                    int cell_index = 0;
+                    String author = (String) dataSnapshot.child("pickPaths").child(pick_path_index+"").child("pickPathInformation").child("orderedPickPath").child(book_index+"").child("targetBookAndTargetBookLocation").child("book").child("author").getValue();
+                    String tag = (String) dataSnapshot.child("pickPaths").child(pick_path_index+"").child("pickPathInformation").child("orderedPickPath").child(book_index+"").child("targetBookAndTargetBookLocation").child("book").child("tag").getValue();
+                    String title = (String) dataSnapshot.child("pickPaths").child(pick_path_index+"").child("pickPathInformation").child("orderedPickPath").child(book_index+"").child("targetBookAndTargetBookLocation").child("book").child("title").getValue();
+                    Long bookRow = (Long) dataSnapshot.child("pickPaths").child(pick_path_index+"").child("pickPathInformation").child("orderedPickPath").child(book_index+"").child("targetBookAndTargetBookLocation").child("location").child("0").getValue();
+                    Long bookCol = (Long) dataSnapshot.child("pickPaths").child(pick_path_index+"").child("pickPathInformation").child("orderedPickPath").child(book_index+"").child("targetBookAndTargetBookLocation").child("location").child("1").getValue();
+                    if(book_index!=10) {
+                        targetBook.setAuthor(author);
+                        targetBook.setLocationTag(tag);
+                        targetBook.setTitle(title);
+                        targetBook.setCell(bookRow.intValue(), bookCol.intValue());
+
+                    }
+
+
+                    while((Long) dataSnapshot.child("pickPaths").child(pick_path_index+"").child("pickPathInformation").child("orderedPickPath").child(book_index+"").child("cellByCellPathToTargetBookLocation").child(cell_index+"").child("0").getValue() != null) {
+                        Long x = (Long) dataSnapshot.child("pickPaths").child(pick_path_index+"").child("pickPathInformation").child("orderedPickPath").child(book_index+"").child("cellByCellPathToTargetBookLocation").child(cell_index+"").child("0").getValue();
+                        Long y = (Long) dataSnapshot.child("pickPaths").child(pick_path_index+"").child("pickPathInformation").child("orderedPickPath").child(book_index+"").child("cellByCellPathToTargetBookLocation").child(cell_index+"").child("1").getValue();
+
+                        Log.d(TAG, "x: " + x);
+                        ordered_cells.add(new Vec((float)x.intValue(), (float)y.intValue()));
+                        cell_index++;
+
+                    }
+
+                    PickRoute route = new PickRoute();
+
+                    route.setTargetBook(targetBook);
+                    route.setOrderedCells(ordered_cells);
+//                    Log.d(TAG, "bookrow: " + bookRow.intValue());
+//
+//                    Log.d(TAG, "author: " + route.getTargetBook().getAuthor());
+//
+//                    Log.d(TAG, "cells: " + route.getOrderedCells());
+
+
+
+
+                }
+
+
+
+
+
+
+
+
                 currentLocation.setCell( cellRow.intValue(), cellCol.intValue());
                 currentLocation.setDisplacement(new Vec(vecx.floatValue(), vecy.floatValue()));
 
                 mClient.onLocationUpdate(currentLocation);
-                //Log.d(TAG, "Location: " +currentLocation.toString());
-                // [END_EXCLUDE]
+
+
             }
 
             @Override
