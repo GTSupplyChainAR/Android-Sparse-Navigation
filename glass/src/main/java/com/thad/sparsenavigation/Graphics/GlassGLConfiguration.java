@@ -2,6 +2,7 @@ package com.thad.sparsenavigation.Graphics;
 
 
 import android.opengl.GLSurfaceView;
+import android.util.Log;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
@@ -12,6 +13,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
  */
 
 public class GlassGLConfiguration implements GLSurfaceView.EGLConfigChooser {
+    private static final String TAG = "|GlassGLConfiguration|";
 
     @Override
     public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eglDisplay) {
@@ -33,6 +35,7 @@ public class GlassGLConfiguration implements GLSurfaceView.EGLConfigChooser {
 
         if (configCounts[0] == 0) {
             // Failed! Error handling.
+            Log.e(TAG, "No configs found!");
             return null;
         } else {
             return configs[0];

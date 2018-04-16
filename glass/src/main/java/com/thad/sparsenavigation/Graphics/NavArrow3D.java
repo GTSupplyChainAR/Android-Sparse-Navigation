@@ -69,7 +69,7 @@ public class NavArrow3D {
             (float)p[3].x, (float)p[3].y, elevation
         };
 
-        float texture_coord = length;
+        float texture_coord = 1f;//length;
         tex_coords = new float[]{
             0.0f, texture_coord,
             1.0f, texture_coord,
@@ -88,7 +88,7 @@ public class NavArrow3D {
         textureBuffer = getByteBuffer(tex_coords);
         bindShaders();
 
-        Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), R.drawable.nav_arrow_body);
+        Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), R.drawable.nav_arrow_body_ld);
         mTextureHandle = GraphicsUtils.loadTexture(bmp);
         bmp.recycle();
 
