@@ -46,6 +46,8 @@ public class CommunicationHandler {
     private DatabaseReference mPostReference;
 
 
+
+
     public CommunicationHandler(GlassClient client){
         mClient = client;
         currentLocation = new WarehouseLocation();
@@ -163,7 +165,14 @@ public class CommunicationHandler {
                 break;
         }
     }
-
+    // update some value in Firebase after user tap. TODO:change the parameters
+    public void confirmPickedFirebase(){
+        //Log.d(TAG,"update firebase meow");
+        Map<String, Object> childUpdates = new HashMap<String, Object>();
+        childUpdates.put("/row", 42);
+        childUpdates.put("/col", 42);
+        mPostReference.updateChildren(childUpdates);
+    }
     public void onConnected(){mClient.onConnected();}
     public void onConnectionLost(){
         mClient.onConnectionLost();
