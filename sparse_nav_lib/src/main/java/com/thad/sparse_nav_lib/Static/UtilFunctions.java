@@ -20,17 +20,18 @@ public class UtilFunctions {
         Vec3D pos = new Vec3D(0, 0, 0);
 
         int r = loc.getCell()[0], c = loc.getCell()[1];
-        pos.x = c - Prefs.MAP_WIDTH/2 + 0.5f;
-        pos.y = -(r - Prefs.MAP_HEIGHT/2 + 0.5f);
+        pos.x = c - Prefs.MAP_WIDTH/2f + 0.5f;
+        pos.y = -(r - Prefs.MAP_HEIGHT/2f + 0.5f);
 
-        return pos.add(loc.getDisplacement().toVec3D().mult(0.5f));
+        Vec3D displacement = loc.getDisplacement().toVec3D().mult(0.5f);
+        return pos.add(displacement);
     }
     public static Vec3D get3DLocation(Vec cell2D){
         Vec3D pos = new Vec3D(0, 0, 0);
 
         int r = (int)cell2D.x, c = (int)cell2D.y;
-        pos.x = c - Prefs.MAP_WIDTH/2 + 0.5f;
-        pos.y = -(r - Prefs.MAP_HEIGHT/2 + 0.5f);
+        pos.x = c - Prefs.MAP_WIDTH/2f + 0.5f;
+        pos.y = -(r - Prefs.MAP_HEIGHT/2f + 0.5f);
 
 
         return pos;

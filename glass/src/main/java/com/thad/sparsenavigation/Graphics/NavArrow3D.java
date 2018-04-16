@@ -23,6 +23,7 @@ public class NavArrow3D {
     private static final String TAG = "|NavArrow3D|";
     private Context context;
     private Vec3D pos;
+    public Vec3D start, end;
 
     private int mProgram;
     private int mPositionHandle, mMVPMatrixHandle,
@@ -34,22 +35,50 @@ public class NavArrow3D {
     private boolean meshGenerated;
     private final float width = 1, elevation = 0.03f;
 
-    private float[] vertices;//[] = {
-            //-size/2,  size/2, elevation,   // top left
-            //-size/2, -size/2, elevation,   // bottom left
-            //size/2, -size/2, elevation,   // bottom right
-            //size/2,  size/2, elevation }; // top right
-    private float[] tex_coords;//[] = {
-    //        0.0f, 1.0f,
-    //        1.0f, 1.0f,
-    //        1.0f, 0.0f,
-    //        0.0f, 0.0f
-    //};
+    private float[] vertices;
+    private float[] tex_coords;
     private final short indices[] = { 0, 1, 2, 1, 3, 2 };
+
+    private Vec3D[] arrowEnd;
 
     public NavArrow3D(Context context) {
         this.context = context;
         meshGenerated = false;
+    }
+
+    public void createArrow(Vec3D prev1, Vec3D prev2, Vec3D start, Vec3D end){
+        Vec3D dir = end.sub(start).normalize();
+        float length = start.distance(end);
+        Vec3D perp = new Vec3D(-dir.y, dir.x, dir.z);
+
+        this.start = new Vec3D(start);
+        this.end = new Vec3D(end);
+
+        Vec3D[] p = new Vec3D[4];
+        p[0] = start.add(perp.mult(width/2));
+        p[1] = start.add(perp.mult(-width/2));
+        p[2] = end.add(perp.mult(width/2));
+        p[3] = end.add(perp.mult(-width/2));
+
+        arrowEnd = new Vec3D[]{new Vec3D(p[2]), new Vec3D(p[3])};
+
+        vertices = new float[]{
+                (float)p[0].x, (float)p[0].y, elevation,
+                (float)p[1].x, (float)p[1].y, elevation,
+                (float)p[2].x, (float)p[2].y, elevation,
+                (float)p[3].x, (float)p[3].y, elevation
+        };
+
+        float texture_coord = length;
+        tex_coords = new float[]{
+                0.0f, texture_coord,
+                1.0f, texture_coord,
+                0.0f, 0.0f,
+                1.0f, 0.0f
+        };
+
+        generateMesh();
+
     }
 
     public void createArrow(Vec3D start, Vec3D end){
@@ -57,27 +86,9 @@ public class NavArrow3D {
         float length = start.distance(end);
         Vec3D perp = new Vec3D(-dir.y, dir.x, dir.z);
 
-        Vec3D[] p = new Vec3D[4];
-        p[0] = start.add(perp.mult(width/2));
-        p[1] = start.add(perp.mult(-width/2));
-        p[2] = end.add(perp.mult(width/2));
-        p[3] = end.add(perp.mult(-width/2));
-        vertices = new float[]{
-            (float)p[0].x, (float)p[0].y, elevation,
-            (float)p[1].x, (float)p[1].y, elevation,
-            (float)p[2].x, (float)p[2].y, elevation,
-            (float)p[3].x, (float)p[3].y, elevation
-        };
-
-        float texture_coord = 1f;//length;
-        tex_coords = new float[]{
-            0.0f, texture_coord,
-            1.0f, texture_coord,
-            0.0f, 0.0f,
-            1.0f, 0.0f
-        };
-
-        generateMesh();
+        createArrow(start.add(perp.mult(width/2))
+                , start.add(perp.mult(-width/2)),
+                start, end);
     }
 
     private void generateMesh(){
@@ -145,4 +156,5 @@ public class NavArrow3D {
 
     public void setPosition(Vec3D pos){this.pos = pos;}
     public Vec3D getPosition(){return pos;}
+    public Vec3D[] getArrowEnd(){return arrowEnd;}
 }

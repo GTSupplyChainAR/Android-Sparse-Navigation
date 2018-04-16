@@ -1,5 +1,7 @@
 package com.thad.sparse_nav_lib;
 
+import android.util.Log;
+
 import com.thad.sparse_nav_lib.Utils.Vec;
 
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.ArrayList;
  */
 
 public class PickPath {
+    private static final String TAG = "|PickPath|";
     private ArrayList<PickRoute> orderedRoutes;
 
     private int index = -1;
@@ -23,6 +26,8 @@ public class PickPath {
             return null;
         if(orderedRoutes == null || index >= orderedRoutes.size())
             return new PickRoute();
-        return orderedRoutes.get(++index);
+        index ++;
+        Log.d(TAG, "Proceeded to Route "+index);
+        return orderedRoutes.get(index);
     }
 }

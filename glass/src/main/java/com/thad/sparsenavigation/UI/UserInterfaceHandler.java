@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.thad.sparse_nav_lib.PickRoute;
 import com.thad.sparse_nav_lib.Static.Prefs;
 import com.thad.sparse_nav_lib.UI.WarehouseMapView;
 import com.thad.sparse_nav_lib.WarehouseLocation;
@@ -95,11 +96,19 @@ public class UserInterfaceHandler {
         mMapView.generateUI();
     }
 
+    public void setRoute(PickRoute newRoute){
+        if(newRoute == null)
+            return;
+        vsView.setTargetBook(newRoute.getTargetBook());
+    }
 
-    public void onHeadingChanged(float heading){
+    public void onHeadingChanged(float heading, boolean isFake){
         //updateCompassView(heading);
         positionIndicator.setHeading(heading);
-        glView.setHeading(heading);
+        if(isFake)
+            glView.addHeading(heading);
+        else
+            glView.setHeading(heading);
     }
 
 

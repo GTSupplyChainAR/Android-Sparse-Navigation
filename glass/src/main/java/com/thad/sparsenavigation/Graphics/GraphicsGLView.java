@@ -34,4 +34,5 @@ public class GraphicsGLView extends GLSurfaceView {
     public void setHeading(float heading){
         mRenderer.setHeading(heading);
     }
+    public void addHeading(float heading) {mRenderer.addHeading(heading);}
 }

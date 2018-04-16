@@ -71,7 +71,7 @@ public class CommunicationHandler {
                 Log.d(TAG, "row: " +dataSnapshot.child("warehouseLayout").child("currentLocation").child("row"));
                 Log.d(TAG, "VectorX: " +dataSnapshot.child("warehouseLayout").child("currentLocation").child("vecx"));
                 String vecX = (String) dataSnapshot.child("warehouseLayout").child("currentLocation").child("vecx").getValue();
-                String vecY = (String)dataSnapshot.child("warehouseLayout").child("currentLocation").child("vecx").getValue();
+                String vecY = (String)dataSnapshot.child("warehouseLayout").child("currentLocation").child("vecy").getValue();
                 Float vecx = Float.parseFloat(vecX);
                 Float vecy = Float.parseFloat(vecY);
                 int pick_path_index = 0;

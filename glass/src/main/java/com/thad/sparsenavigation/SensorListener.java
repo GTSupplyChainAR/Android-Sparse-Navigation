@@ -36,6 +36,7 @@ public class SensorListener implements SensorEventListener {
         // initialize your android device sensor capabilities
         this.client = client;
         mSensorManager = (SensorManager) this.client.getContext().getSystemService(SENSOR_SERVICE);
+        resume();
     }
 
     public void resume() {

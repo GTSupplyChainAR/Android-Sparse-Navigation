@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.thad.sparse_nav_lib.PickPath;
 import com.thad.sparse_nav_lib.PickRoute;
+import com.thad.sparse_nav_lib.Static.Prefs;
 import com.thad.sparse_nav_lib.Static.UtilFunctions;
 import com.thad.sparse_nav_lib.Utils.Vec;
 import com.thad.sparse_nav_lib.Utils.Vec3D;
@@ -39,6 +40,7 @@ public class GLRenderer implements Renderer {
     private float behindDistance = 12, upDistance = 15;
     private float th = 0, lastHeading = 0;
     private PickRoute activeRoute;
+    private boolean arrowsCreated = false;
 
     // mMVPMatrix is an abbreviation for "Model View Projection Matrix"
     private final float[] mMVPMatrix = new float[16];
@@ -68,7 +70,8 @@ public class GLRenderer implements Renderer {
         navArrows3D = new ArrayList<NavArrow3D>();
 
         dir = new Vec3D(0, -1, 0);
-        pos = new Vec3D(0, 0, 0);
+        pos = UtilFunctions.get3DLocation(new Vec(0,0));
+
     }
 
     public void onSurfaceChanged(GL10 unused, int width, int height) {
@@ -83,24 +86,22 @@ public class GLRenderer implements Renderer {
 
     private void populateNavArrows3D(PickRoute route){
         navArrows3D.clear();
-        if(route != null && route.getOrderedCells() != null){
-            ArrayList<Vec> pathCells = route.getOrderedCells();
-            for(int i = 1; i < pathCells.size() ; i++){
-                NavArrow3D navArrow3D = new NavArrow3D(context);
-                Vec3D start = UtilFunctions.get3DLocation(pathCells.get(i-1));
-                Vec3D end = UtilFunctions.get3DLocation(pathCells.get(i));
+        ArrayList<Vec> pathCells = route.getOrderedCells();
+        for(int i = 1; i < pathCells.size() ; i++){
+            NavArrow3D navArrow3D = new NavArrow3D(context);
+            Vec3D start = UtilFunctions.get3DLocation(pathCells.get(i-1));
+            Vec3D end = UtilFunctions.get3DLocation(pathCells.get(i));
+            if(i == 1)
                 navArrow3D.createArrow(start, end);
-                navArrows3D.add(navArrow3D);
-            }
+            else
+                navArrow3D.createArrow(navArrows3D.get(navArrows3D.size()-1).getArrowEnd()[0],
+                        navArrows3D.get(navArrows3D.size()-1).getArrowEnd()[1], start, end);
+            navArrows3D.add(navArrow3D);
         }
+
     }
 
     public void onDrawFrame(GL10 unused) {
-        if(activeRoute == null){
-            activeRoute = client.getNextPickRoute();
-            if(activeRoute != null)
-                populateNavArrows3D(activeRoute);
-        }
         //th += 0.0001;
         dir.x = Math.cos(Math.toRadians(lastHeading));
         dir.y = Math.sin(Math.toRadians(lastHeading));
@@ -122,8 +123,11 @@ public class GLRenderer implements Renderer {
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
         warehouseMap3D.draw(mMVPMatrix);
 
-        for(NavArrow3D arrow3D : navArrows3D){
-            arrow3D.draw(mMVPMatrix);
+        if(arrowsCreated)
+            populateNavArrows3D(activeRoute);
+        if(navArrows3D.size() != 0){
+            for (NavArrow3D arrow3D : navArrows3D)
+                arrow3D.draw(mMVPMatrix);
         }
 
 
@@ -146,12 +150,16 @@ public class GLRenderer implements Renderer {
         cursor3D.draw(mMVPMatrix);
     }
 
-    public void setHeading(float heading){
-        lastHeading = -heading;
+    public void setHeading(float heading){lastHeading = -heading;
     }
+    public void addHeading(float heading){ lastHeading -= heading;}
     public void setLocation(WarehouseLocation loc){
-        Log.d(TAG, "New Location - "+loc.toString());
         pos = UtilFunctions.get3DLocation(loc);
+        Log.d(TAG, "New Location "+pos.toString());
+    }
+    public void setRoute(PickRoute newRoute){
+        arrowsCreated = true;
+        activeRoute = newRoute;
     }
 
     public static int loadShader(int type, String shaderCode){

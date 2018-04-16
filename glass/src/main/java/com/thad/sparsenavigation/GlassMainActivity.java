@@ -3,12 +3,15 @@ package com.thad.sparsenavigation;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import com.google.android.glass.touchpad.Gesture;
 import com.google.android.glass.touchpad.GestureDetector;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -22,6 +25,9 @@ public class GlassMainActivity extends Activity {
 
     private GlassClient mClient;
     private GestureDetector mGestureDetector;
+
+    private boolean shows3D = true, emulator = false;
+    private int last_x = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,19 +46,46 @@ public class GlassMainActivity extends Activity {
         mClient = new GlassClient(this);
         mGestureDetector = createGestureDetector(this);
 
+        View main_layout = findViewById(R.id.main_layout);
+        main_layout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                int x = (int)event.getX();
+                int y = (int)event.getY();
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        Log.d(TAG, "Touch Down");
+                        last_x = x;
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        float normalizedX = (((float)(x-last_x))/Prefs.SCREEN_WIDTH - 0.5f)*2;
+                        Log.d(TAG, "Touch Move -> heading "+normalizedX);
+                        mClient.onSensorUpdate(normalizedX*360f, true);
+                        last_x = x;
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        Log.d(TAG, "Touch Up");
+                        int offset = 200;
+                        if(x < offset && y < offset) {
+                            Log.d(TAG, "Switch Views");
+                            if (shows3D)
+                                mClient.addVerticalShelfView();
+                            else
+                                mClient.deleteVerticalShelfView();
+                            shows3D = !shows3D;
+                        } else if (x > Prefs.SCREEN_WIDTH - offset && y < offset) {
+                            Log.d(TAG, "Get Next Pick Path.");
+                            mClient.glassTapped();
+                        }
+                        break;
+                }
+                //Log.d(TAG, "x,y = "+x+','+y);
+                return false;
+            }
+        });
     }
 
-    @Override
-    protected void onResume(){
-        mClient.resume();
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause(){
-        mClient.pause();
-        super.onPause();
-    }
+    public void onMainClick(View v){}
 
     @Override
     public void onDestroy(){
@@ -61,11 +94,10 @@ public class GlassMainActivity extends Activity {
 
     @Override
     public boolean onKeyDown(int keycode, KeyEvent event) {
-        Log.d(TAG,"ouchouchouch");
         if (keycode == KeyEvent.KEYCODE_DPAD_CENTER) {
-           Log.d(TAG,"tapped, tapped, tapped");
+           Log.d(TAG,"Glass Tapped");
             // if tapped, update firebase to make one item is picked
-            mClient.confirmPicked();
+            mClient.glassTapped();
             return true;
         }
 
@@ -75,10 +107,14 @@ public class GlassMainActivity extends Activity {
     private GestureDetector createGestureDetector(Context context){
         try {
             Class.forName( "com.google.android.glass.touchpad.GestureDetector" );
+            emulator = false;
         } catch( ClassNotFoundException e ) {
-            Log.e(TAG, "GDK not found.");
+            Log.e(TAG, "GDK not found. You are probably running this on an emulator.");
+            emulator = true;
+            mClient.pause();
             return null;
         }
+
         GestureDetector gestureDetector = new GestureDetector(context);
         //Create a base listener for generic gestures
         gestureDetector.setBaseListener( new GestureDetector.BaseListener() {
@@ -86,15 +122,16 @@ public class GlassMainActivity extends Activity {
             public boolean onGesture(Gesture gesture) {
                 if (gesture == Gesture.SWIPE_RIGHT) {
                     // do something on right (forward) swipe
-                    Log.d(TAG,"oops, in");
+                    Log.d(TAG,"Swiped Right");
                     mClient.deleteVerticalShelfView();
                     return true;
                 } else if (gesture == Gesture.SWIPE_LEFT) {
                     // do something on left (backwards) swipe
-                    Log.d(TAG,"oops, out");
+                    Log.d(TAG,"Swiped Left");
                     mClient.addVerticalShelfView();
                     return true;
                 }
+
                 return false;
             }
 

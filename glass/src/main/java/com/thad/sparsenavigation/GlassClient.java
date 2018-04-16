@@ -42,19 +42,34 @@ public class GlassClient {
         mUI.setMap(mMap);
     }
 
+    public void glassTapped(){
+        Log.d(TAG, "Glass Tapped");
+        PickRoute nextRoute = mCommHandler.getNextPickRoute();
+        if(nextRoute == null)
+            return;
+
+        mUI.setRoute(nextRoute);
+        mRenderer.setRoute(nextRoute);
+    }
+
     public void addVerticalShelfView(){
         mUI.addVerticalShelfView();
-    };
+    }
 
     public void deleteVerticalShelfView(){
         mUI.deleteVerticalShelfView();
-    };
+    }
 
     public void resume(){ mSensorListener.resume(); }
     public void pause(){ mSensorListener.pause(); }
 
-    public void onSensorUpdate(float heading){
-        mUI.onHeadingChanged(heading);
+    public void onSensorUpdate(float heading){onSensorUpdate(heading, false);}
+    public void onSensorUpdate(float heading, boolean isFake){
+        if(isFake)
+            mRenderer.addHeading(heading);
+        else
+            mRenderer.setHeading(heading);
+        //mUI.onHeadingChanged(heading, isFake);
     }
 
     public void onLocationUpdate(WarehouseLocation loc){
@@ -70,7 +85,6 @@ public class GlassClient {
     public void onConnected(){}
     public void onConnectionLost(){}
     // update firebase
-    public void confirmPicked(){mCommHandler.confirmPickedFirebase();}
     public Context getContext(){ return context; }
     public GLRenderer getRenderer(){ return mRenderer; }
 }
