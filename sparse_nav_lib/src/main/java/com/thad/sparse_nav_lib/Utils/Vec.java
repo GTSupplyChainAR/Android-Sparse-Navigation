@@ -28,7 +28,9 @@ public class Vec {
     public Vec sub(Vec v){
         return new Vec(x-v.x, y - v.y);
     }
+    public Vec mult(float m){return new Vec(x*m, y*m);}
     public Vec reverse(){return new Vec(-x, -y);}
+    public Vec perpendicular(){return new Vec(-y, x);}
 
     public Vec3D toVec3D(){return new Vec3D(x, y, 0);}
 

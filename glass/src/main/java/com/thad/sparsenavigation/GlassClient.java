@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
+import com.thad.sparse_nav_lib.PickRoute;
 import com.thad.sparse_nav_lib.WarehouseLocation;
 import com.thad.sparse_nav_lib.WarehouseMap;
 import com.thad.sparsenavigation.Communications.CommunicationHandler;
@@ -31,7 +32,7 @@ public class GlassClient {
     }
 
     private void init(){
-        mRenderer = new GLRenderer(context);
+        mRenderer = new GLRenderer(this);
 
         mSensorListener = new SensorListener(this);
         mUI = new UserInterfaceHandler(this);
@@ -52,6 +53,10 @@ public class GlassClient {
         Log.d(TAG, "Received "+loc.toString());
         //mUI.onLocationUpdate(loc);
         mRenderer.setLocation(loc);
+    }
+
+    public PickRoute getNextPickRoute(){
+        return mCommHandler.getNextPickRoute();
     }
 
     public void onConnected(){}

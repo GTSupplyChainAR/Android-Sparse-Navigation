@@ -20,6 +20,7 @@ public class GraphicsGLView extends GLSurfaceView {
 
         // Create an OpenGL ES 2.0 context
         setEGLContextClientVersion(2);
+        setEGLConfigChooser(new GlassGLConfiguration());
 
         mRenderer = mUI.getRenderer();//new GLRenderer(context);
 

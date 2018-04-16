@@ -15,8 +15,7 @@ public class PickRoute {
     private Book targetBook;
 
     public PickRoute(){
-
-
+        orderedCells = new ArrayList<Vec>();
     }
 
     public void setTargetBook(Book book) {

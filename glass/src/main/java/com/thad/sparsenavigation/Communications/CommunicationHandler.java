@@ -49,9 +49,10 @@ public class CommunicationHandler {
     public CommunicationHandler(GlassClient client){
         mClient = client;
         currentLocation = new WarehouseLocation();
+        currentPickPath = new PickPath();
+
         //bluetooth = new ClientBluetooth(this);
         //bluetooth.setAddress(Prefs.PHONE_ADDRESS, Prefs.GLASS_UUID);
-
         //bluetooth.connect();
 
         // Add value event listener to the post
@@ -88,15 +89,12 @@ public class CommunicationHandler {
                         targetBook.setLocationTag(tag);
                         targetBook.setTitle(title);
                         targetBook.setCell(bookRow.intValue(), bookCol.intValue());
-
                     }
-
 
                     while((Long) dataSnapshot.child("pickPaths").child(pick_path_index+"").child("pickPathInformation").child("orderedPickPath").child(book_index+"").child("cellByCellPathToTargetBookLocation").child(cell_index+"").child("0").getValue() != null) {
                         Long x = (Long) dataSnapshot.child("pickPaths").child(pick_path_index+"").child("pickPathInformation").child("orderedPickPath").child(book_index+"").child("cellByCellPathToTargetBookLocation").child(cell_index+"").child("0").getValue();
                         Long y = (Long) dataSnapshot.child("pickPaths").child(pick_path_index+"").child("pickPathInformation").child("orderedPickPath").child(book_index+"").child("cellByCellPathToTargetBookLocation").child(cell_index+"").child("1").getValue();
 
-                        Log.d(TAG, "x: " + x);
                         ordered_cells.add(new Vec((float)x.intValue(), (float)y.intValue()));
                         cell_index++;
 
@@ -111,18 +109,8 @@ public class CommunicationHandler {
 //                    Log.d(TAG, "author: " + route.getTargetBook().getAuthor());
 //
 //                    Log.d(TAG, "cells: " + route.getOrderedCells());
-
-
-
-
+                    currentPickPath.addRoute(route);
                 }
-
-
-
-
-
-
-
 
                 currentLocation.setCell( cellRow.intValue(), cellCol.intValue());
                 currentLocation.setDisplacement(new Vec(vecx.floatValue(), vecy.floatValue()));
@@ -181,6 +169,5 @@ public class CommunicationHandler {
         mClient.onConnectionLost();
     }
 
-    //public PickPath getNextPickPath(){ return new PickPath();}
-    public PickRoute getNextPickRoute(){return new PickRoute();}
+    public PickRoute getNextPickRoute(){return currentPickPath.getNextRoute();}
 }
