@@ -73,6 +73,12 @@ public class GlassMainActivity extends Activity {
     }
 
     private GestureDetector createGestureDetector(Context context){
+        try {
+            Class.forName( "com.google.android.glass.touchpad.GestureDetector" );
+        } catch( ClassNotFoundException e ) {
+            Log.e(TAG, "GDK not found.");
+            return null;
+        }
         GestureDetector gestureDetector = new GestureDetector(context);
         //Create a base listener for generic gestures
         gestureDetector.setBaseListener( new GestureDetector.BaseListener() {
