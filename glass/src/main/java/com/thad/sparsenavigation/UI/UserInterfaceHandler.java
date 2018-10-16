@@ -38,7 +38,9 @@ public class UserInterfaceHandler {
 
     private WarehouseMapView mMapView;
     private GraphicsGLView glView;
+    private AisleView aiView;
     private VerticalShelfView vsView;
+
 
     private float currentHeading;
 
@@ -70,8 +72,11 @@ public class UserInterfaceHandler {
 
         //LinearLayout container = activity.findViewById(R.id.graphics_container);
 
-        glView = new GraphicsGLView(this);
-        layout.addView(glView);
+        //glView = new GraphicsGLView(this);
+        //layout.addView(glView);
+
+        aiView = new AisleView(getContext());
+        layout.addView(aiView);
 
         vsView = new VerticalShelfView(getContext());
         layout.addView(vsView);
@@ -80,14 +85,14 @@ public class UserInterfaceHandler {
     }
 
     public void addVerticalShelfView(){
-        glView.setVisibility(View.GONE);
+        aiView.setVisibility(View.GONE);
         vsView.setVisibility(View.VISIBLE);
        // Log.d(TAG,"visible now hahahah");
     }
 
     public void deleteVerticalShelfView() {
         vsView.setVisibility(View.GONE);
-        glView.setVisibility(View.VISIBLE);
+        aiView.setVisibility(View.VISIBLE);
         // Log.d(TAG, "invisible meow");
     }
 

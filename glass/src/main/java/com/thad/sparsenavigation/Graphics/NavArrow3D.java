@@ -99,7 +99,7 @@ public class NavArrow3D {
         textureBuffer = getByteBuffer(tex_coords);
         bindShaders();
 
-        Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), R.drawable.nav_arrow_body_ld);
+        Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), R.drawable.nav_arrow_body);
         mTextureHandle = GraphicsUtils.loadTexture(bmp);
         bmp.recycle();
 
