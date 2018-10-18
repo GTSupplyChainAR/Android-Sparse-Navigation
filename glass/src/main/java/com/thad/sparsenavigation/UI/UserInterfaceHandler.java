@@ -105,6 +105,7 @@ public class UserInterfaceHandler {
         if(newRoute == null)
             return;
         vsView.setTargetBook(newRoute.getTargetBook());
+        aiView.setTargetBook(newRoute.getTargetBook());
     }
 
     public void onHeadingChanged(float heading, boolean isFake){
