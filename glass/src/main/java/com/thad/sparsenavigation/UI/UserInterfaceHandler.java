@@ -41,6 +41,10 @@ public class UserInterfaceHandler {
     private AisleView aiView;
     private VerticalShelfView vsView;
 
+    private UserSelectView usView;
+    private PhaseSelectView phView;
+    private PathSelectView paView;
+
 
     private float currentHeading;
 
@@ -74,13 +78,17 @@ public class UserInterfaceHandler {
 
         //glView = new GraphicsGLView(this);
         //layout.addView(glView);
+        usView = new UserSelectView(getContext());
+        layout.addView(usView);
 
         aiView = new AisleView(getContext());
         layout.addView(aiView);
+        aiView.setVisibility(View.GONE);
 
         vsView = new VerticalShelfView(getContext());
         layout.addView(vsView);
         vsView.setVisibility(View.GONE);
+        //Log.d(TAG, product);
 
     }
 

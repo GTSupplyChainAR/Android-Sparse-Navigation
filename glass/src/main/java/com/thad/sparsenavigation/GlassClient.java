@@ -19,7 +19,7 @@ public class GlassClient {
     private static final String TAG = "|GlassClient|";
 
     private Context context;
-    private WarehouseMap mMap;
+    //private WarehouseMap mMap;
 
     private GLRenderer mRenderer;
     private UserInterfaceHandler mUI;
@@ -38,12 +38,13 @@ public class GlassClient {
         mUI = new UserInterfaceHandler(this);
         mCommHandler = new CommunicationHandler(this);
 
-        mMap = new WarehouseMap();
-        mUI.setMap(mMap);
+        //mMap = new WarehouseMap();
+        //mUI.setMap(mMap);
     }
 
     public void glassTapped(){
         Log.d(TAG, "Glass Tapped");
+        mCommHandler.postToApi();
         PickRoute nextRoute = mCommHandler.getNextPickRoute();
         if(nextRoute == null)
             return;
