@@ -56,7 +56,7 @@ public class AisleView extends LinearLayout {
 //        lp.gravity = Gravity.CENTER;
 //        columnTag.setLayoutParams(lp);
         applyTextStyle(aisle_letter_view );
-        aisle_letter_view.setText("A");
+        aisle_letter_view.setText("");
         this.addView(aisle_letter_view);
 
 

@@ -108,7 +108,7 @@ public class VerticalShelfView extends LinearLayout {
     public void setTargetBook(Book newBook){
 
         author_view.setText("Author: " + newBook.getAuthor().toUpperCase());
-        title_view.setText("Title: "+newBook.getTitle().toUpperCase());
+        title_view.setText("Title: "+ newBook.getTitle().toUpperCase());
         String tag = newBook.getLocationTag();
         Log.d(TAG, tag);
         char vertTag = tag.charAt(tag.length()-1);

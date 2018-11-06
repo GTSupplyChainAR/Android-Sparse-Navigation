@@ -94,11 +94,18 @@ public class GlassMainActivity extends Activity {
 
     @Override
     public boolean onKeyDown(int keycode, KeyEvent event) {
-        if (keycode == KeyEvent.KEYCODE_DPAD_CENTER) {
-           Log.d(TAG,"Glass Tapped");
+        Log.d(TAG,Integer.toString(keycode));
+        if (keycode == 96) { //96 is A on joycon
+           Log.d(TAG,"Glass Tapped 96");
             // if tapped, update firebase to make one item is picked
             mClient.glassTapped();
-            return true;
+            //return true;
+        }
+        else if (keycode == 98) {//98 is B on joycon
+            Log.d(TAG,"Glass Tapped 98");
+            // if tapped, update firebase to make one item is picked
+            mClient.switchView();
+            //return true;
         }
 
         return super.onKeyDown(keycode, event);
@@ -120,6 +127,7 @@ public class GlassMainActivity extends Activity {
         gestureDetector.setBaseListener( new GestureDetector.BaseListener() {
             @Override
             public boolean onGesture(Gesture gesture) {
+
                 if (gesture == Gesture.SWIPE_RIGHT) {
                     // do something on right (forward) swipe
                     Log.d(TAG,"Swiped Right");
