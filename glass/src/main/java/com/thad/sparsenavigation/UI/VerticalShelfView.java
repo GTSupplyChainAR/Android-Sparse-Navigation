@@ -57,13 +57,13 @@ public class VerticalShelfView extends LinearLayout {
         author_view = new TextView(context);
         author_view.setLayoutParams(new LayoutParams(WC, WC));
         applyTextStyle(author_view);
-        author_view.setText("Author");
+        author_view.setText("Book Title");
         book_info_layout.addView(author_view);
 
         title_view = new TextView(context);
         title_view.setLayoutParams(new LayoutParams(WC, WC));
         applyTextStyle(title_view);
-        title_view.setText("Book Title");
+        title_view.setText("Book Author");
         book_info_layout.addView(title_view);
 
         LinearLayout vertical_rack_layout = new LinearLayout(context);

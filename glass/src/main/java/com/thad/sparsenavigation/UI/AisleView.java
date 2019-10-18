@@ -29,14 +29,14 @@ public class AisleView extends LinearLayout {
     private static final String TAG = "|AisleView|";
 
     private Context context;
-    private TextView columnTag, author_view, title_view, aisle_letter_view;
+    private TextView columnTag, rowTag, author_view, title_view, aisle_letter_view;
     private TextView[] rackNumTag;
     //private LinearLayout[] racks;
     private ImageView[] shelves;
 
     private int MP = ViewGroup.LayoutParams.MATCH_PARENT;
     private int WC = ViewGroup.LayoutParams.WRAP_CONTENT;
-    int[] colors = {Color.RED, Color.YELLOW, Color.GREEN, Color.CYAN, Color.BLUE, Color.MAGENTA};
+    int[] colors = {Color.RED, Color.rgb(255,165,0), Color.YELLOW, Color.GREEN, Color.BLUE, Color.MAGENTA, Color.RED, Color.RED};
     // CONSTRUCTOR
     public AisleView(Context context) {
         super(context);
@@ -64,7 +64,7 @@ public class AisleView extends LinearLayout {
 //        book_info_layout.setLayoutParams(new LayoutParams(0, MP, 0.7f));
 //        book_info_layout.setOrientation(VERTICAL);
 //        book_info_layout.setGravity(Gravity.CENTER);
-        int padding_px = 5;
+        int padding_px = 20;
 //        book_info_layout.setPadding(padding_px, padding_px, padding_px, padding_px);
 
 //        author_view = new TextView(context);
@@ -88,14 +88,17 @@ public class AisleView extends LinearLayout {
             LinearLayout vertical_rack_layout = new LinearLayout(context);
             vertical_rack_layout.setLayoutParams(new LayoutParams(0, MP, 0.3f));
             vertical_rack_layout.setOrientation(VERTICAL);
-            vertical_rack_layout.setPadding(padding_px, padding_px, padding_px, padding_px);
+            vertical_rack_layout.setPadding(-80, 80, padding_px, padding_px);
 
             columnTag = new TextView(context);
             LayoutParams lp = new LayoutParams(WC, WC);
             lp.gravity = Gravity.CENTER;
             columnTag.setLayoutParams(lp);
             applyTextStyle(columnTag);
-            columnTag.setText("");
+            if (j > 0) {
+                columnTag.setText("" + (j));
+            }
+            columnTag.setTextSize(TypedValue.COMPLEX_UNIT_PX, 14);
             vertical_rack_layout.addView(columnTag);
             rackNumTag[j] = columnTag;
 
@@ -104,18 +107,27 @@ public class AisleView extends LinearLayout {
             for (int i = 0; i < Prefs.VERTICAL_HEIGHT; i++) {
                 ImageView shelf = new ImageView(context);
                 LayoutParams lpi = new LayoutParams(MP, 0, 1f);
-                int margins = 10;
-                lpi.setMargins(margins, margins, margins, margins);
+                int margins = 5;
+                lpi.setMargins(0, margins, 0, margins);
                 shelf.setLayoutParams(lpi);
+
+                if(j == 0) {
+                    rowTag = new TextView(context);
+                    rowTag.setLayoutParams(lp);
+                    applyTextStyle(rowTag);
+                    rowTag.setText("Aisle " + (char)(i + 1 + 64));
+                    rowTag.setTextSize(TypedValue.COMPLEX_UNIT_PX, 12);
+                    vertical_rack_layout.addView(rowTag);
+                }
 
                 //shelf.setBackgroundColor(Color.WHITE);
                 //draw the border on the imageView
-                Bitmap bitmap = Bitmap.createBitmap(26,10, Bitmap.Config.ARGB_8888);
+                Bitmap bitmap = Bitmap.createBitmap(15,5, Bitmap.Config.ARGB_8888);
                 Canvas canvas = new Canvas(bitmap);
                 Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
                 paint.setColor(colors[i]);
                 paint.setStyle(Paint.Style.STROKE);
-                canvas.drawRect(0, 0,   26, 10, paint);
+                canvas.drawRect(0, 0,   15, 5, paint);
                 shelf.setImageBitmap(bitmap);
 
 

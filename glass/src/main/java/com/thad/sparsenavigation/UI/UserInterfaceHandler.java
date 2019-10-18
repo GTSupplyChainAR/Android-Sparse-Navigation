@@ -181,7 +181,7 @@ public class UserInterfaceHandler {
                 phaseSelectListView.setVisibility(View.GONE);
                 pathSelectListView.setVisibility(View.GONE);
                 selectHintView.setVisibility(View.GONE);
-                selectHintView.setText("Please select User ID");
+                selectHintView.setText("Press Trigger for Next Book, Bumper for Change View");
                 selectValues = new String[] {"","1", "2", "3", "4", "5", "6",
                         "7", "8", "9", "10", "11", "12"};
                 //userSelectListView.setVisibility(View.VISIBLE);
