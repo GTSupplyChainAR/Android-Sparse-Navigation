@@ -13,6 +13,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+
 
 /**
  * Created by tinggu on 4/15/18.
@@ -50,33 +53,31 @@ public class PhaseSelectView extends LinearLayout {
 
         userSelectHintView = new TextView(context);
         applyTextStyle(userSelectHintView);
-        userSelectHintView.setText("Please select User ID");
+        userSelectHintView.setText("Press Trigger to select Phase");
         this.addView(userSelectHintView);
 
         userSelectListView = new ListView(context);
 
-//        final ArrayList<String> lists = new ArrayList<String>();
-//        for (int i = 0; i < userIdValues.length; ++i) {
-//            lists.add(userIdValues[i]);
-//        }
+        final ArrayList<String> lists = new ArrayList<String>();
+        for (int i = 0; i < userIdValues.length; ++i) {
+            lists.add(userIdValues[i]);
+        }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(context,
-                android.R.layout.simple_list_item_1, userIdValues);
+                android.R.layout.simple_list_item_1, lists);
 
         userSelectListView.setAdapter(adapter);
-
-
-        userSelectListView .setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // selected item
-                String product = ((TextView) view).getText().toString();
-
-                Toast.makeText(context, "Selected User :" +product, Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
+        userSelectListView.setBackgroundColor(0xff0000ff);
+//        userSelectListView .setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                                    int position, long id) {
+//                // selected item
+//                String product = ((TextView) view).getText().toString();
+//
+//                Toast.makeText(context, "Selected User :" + product, Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
         this.addView(userSelectListView);
     }
 

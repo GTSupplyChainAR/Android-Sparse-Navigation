@@ -64,42 +64,41 @@ public class UserSelectView extends LinearLayout {
 
         userSelectHintView = new TextView(context);
         applyTextStyle(userSelectHintView);
-        userSelectHintView.setText("Please select User ID");
+        userSelectHintView.setText("Swipe up and down to pick user\nPress trigger to select user");
         this.addView(userSelectHintView);
-
         userSelectListView = new ListView(context);
-
-//        final ArrayList<String> lists = new ArrayList<String>();
-//        for (int i = 0; i < userIdValues.length; ++i) {
-//            lists.add(userIdValues[i]);
-//        }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context,
-                android.R.layout.simple_list_item_1, userIdValues);
-
+        final ArrayList<String> lists = new ArrayList<String>();
+        for (int i = 0; i < userIdValues.length; ++i) {
+            lists.add(userIdValues[i]);
+            Log.d(TAG, "Adding Users");
+        }
+        Log.d(TAG, lists.toString());
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, lists);
+        userSelectListView.setVisibility(0);
+        userSelectListView.setTranslationY(40);
+        userSelectListView.setBackgroundColor(0xff0000ff);
         userSelectListView.setAdapter(adapter);
 
-
-        userSelectListView .setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // selected item
-                String product = ((TextView) view).getText().toString();
-
-                Toast.makeText(context, "Selected User :" +product, Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
         this.addView(userSelectListView);
+
+//        userSelectListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                                    int position, long id) {
+//                // selected item
+//                Log.d(TAG, "On click workding");
+//                String product = ((TextView) view).getText().toString();
+//                Toast.makeText(context, "Selected User :" + product, Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     private void applyTextStyle(TextView textView){
         textView.setTextColor(Color.rgb(255,255,255));
         textView.setTypeface(null, Typeface.BOLD);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f);
-
     }
+
 
 
 }

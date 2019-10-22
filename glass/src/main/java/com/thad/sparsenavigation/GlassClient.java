@@ -177,12 +177,17 @@ public class GlassClient {
     public void switchView(){
         mUI.switchView();
     }
-    public void addVerticalShelfView(){
+    public void tap() {
+        mUI.tap();
+    }
+    public void swipeLeft(){
         mUI.addVerticalShelfView();
     }
-
-    public void deleteVerticalShelfView(){
+    public void swipeRight(){
         mUI.deleteVerticalShelfView();
+    }
+    public void addUserView(){
+        mUI.addUserView();
     }
 
     public void resume(){ mSensorListener.resume(); }

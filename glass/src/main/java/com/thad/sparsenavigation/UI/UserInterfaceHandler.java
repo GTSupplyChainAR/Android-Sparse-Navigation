@@ -40,6 +40,7 @@ public class UserInterfaceHandler {
 
     private UserSelectView usView;
     private PhaseSelectView phView;
+
     private PathSelectView paView;
 
 
@@ -97,29 +98,27 @@ public class UserInterfaceHandler {
 
 
 
-        selectHintView = new TextView(getContext());
-        applyTextStyle(selectHintView);
-        selectHintView.setText("Please select User ID");
-        layout.addView(selectHintView);
-
-
+//        selectHintView = new TextView(getContext());
+//        applyTextStyle(selectHintView);
+//        selectHintView.setText("Please select User ID");
+//        layout.addView(selectHintView);
+//
+//
         userSelectListView = new ListView(getContext());
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_list_item_1, selectValues);
-
         userSelectListView.setAdapter(adapter);
         layout.addView(userSelectListView);
-
-        phaseSelectListView = new ListView(getContext());
-        phaseSelectListView.setVisibility(View.GONE);
-        phaseSelectListView.setAdapter(adapter);
-        layout.addView(phaseSelectListView);
-
-        pathSelectListView = new ListView(getContext());
-        pathSelectListView.setVisibility(View.GONE);
-        pathSelectListView.setAdapter(adapter);
-        layout.addView(pathSelectListView);
+//
+//        phaseSelectListView = new ListView(getContext());
+//        phaseSelectListView.setVisibility(View.GONE);
+//        phaseSelectListView.setAdapter(adapter);
+//        layout.addView(phaseSelectListView);
+//
+//        pathSelectListView = new ListView(getContext());
+//        pathSelectListView.setVisibility(View.GONE);
+//        pathSelectListView.setAdapter(adapter);
+//        layout.addView(pathSelectListView);
 
         aiView = new AisleView(getContext());
         layout.addView(aiView);
@@ -129,69 +128,89 @@ public class UserInterfaceHandler {
         layout.addView(vsView);
         vsView.setVisibility(View.GONE);
 
-        userSelectListView .setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // selected item
-                userId = ((TextView) view).getText().toString();
-                userIdPhasePathId[0] = userId;
-                Toast.makeText(getContext(), "Selected User :" +userId, Toast.LENGTH_SHORT).show();
-                userSelectListView.setVisibility(View.GONE);
-                selectHintView.setText("Please select phase");
-                selectValues = new String[] {"", "1", "2"};
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                        android.R.layout.simple_list_item_1, selectValues);
-                phaseSelectListView.setAdapter(adapter);
-                phaseSelectListView.setVisibility(View.VISIBLE);
+        phView = new PhaseSelectView(getContext());
+        layout.addView(phView);
+        phView.setVisibility(View.GONE);
+
+        usView = new UserSelectView(getContext());
+        layout.addView(usView);
+        usView.setVisibility(View.GONE);
+
+        paView = new PathSelectView(getContext());
+        layout.addView(paView);
+        paView.setVisibility(View.GONE);
 
 
+        usView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "HERE");
             }
         });
 
-        phaseSelectListView .setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // selected item
-                phase= ((TextView) view).getText().toString();
-                userIdPhasePathId[1] = phase;
-                Toast.makeText(getContext(), "Selected phase :" +phase, Toast.LENGTH_SHORT).show();
-                userSelectListView.setVisibility(View.GONE);
-                phaseSelectListView.setVisibility(View.GONE);
-                selectHintView.setText("Please select pathID");
-                if (phase == "training"){selectValues = new String[] {"","1", "2", "3", "4", "5", "6",
-                        "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17","18","19","20"};}
-                        else {selectValues = new String[] {"","21","22","23","24","25","26","27","28",
-                "29","30","31","32","33","34","35","36","37","38","39","40"};}
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                        android.R.layout.simple_list_item_1, selectValues);
-                pathSelectListView.setAdapter(adapter);
-                pathSelectListView.setVisibility(View.VISIBLE);
-
-            }
-        });
-
-        pathSelectListView .setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // selected item
-                pathId = ((TextView) view).getText().toString();
-                userIdPhasePathId[2] = pathId;
-                Toast.makeText(getContext(), "Selected path :" +pathId, Toast.LENGTH_SHORT).show();
-                userSelectListView.setVisibility(View.GONE);
-                phaseSelectListView.setVisibility(View.GONE);
-                pathSelectListView.setVisibility(View.GONE);
-                selectHintView.setVisibility(View.GONE);
-                selectHintView.setText("Press Trigger for Next Book, Bumper for Change View");
-                selectValues = new String[] {"","1", "2", "3", "4", "5", "6",
-                        "7", "8", "9", "10", "11", "12"};
-                //userSelectListView.setVisibility(View.VISIBLE);
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                        android.R.layout.simple_list_item_1, selectValues);
-                userSelectListView.setAdapter(adapter);
-                aiView.setVisibility(View.VISIBLE);
-
-            }
-        });
+//        userSelectListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                                    int position, long id) {
+//                // selected item
+//                userId = ((TextView) view).getText().toString();
+//                userIdPhasePathId[0] = userId;
+//                Toast.makeText(getContext(), "Selected User :" + userId, Toast.LENGTH_SHORT).show();
+//                userSelectListView.setVisibility(View.GONE);
+//                selectHintView.setText("Please select phase");
+//                selectValues = new String[] {"", "1", "2"};
+//                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+//                        android.R.layout.simple_list_item_1, selectValues);
+//                phaseSelectListView.setAdapter(adapter);
+//                phaseSelectListView.setVisibility(View.VISIBLE);
+//
+//
+//            }
+//        });
+//
+//        phaseSelectListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                                    int position, long id) {
+//                // selected item
+//                phase= ((TextView) view).getText().toString();
+//                userIdPhasePathId[1] = phase;
+//                Toast.makeText(getContext(), "Selected phase :" +phase, Toast.LENGTH_SHORT).show();
+//                userSelectListView.setVisibility(View.GONE);
+//                phaseSelectListView.setVisibility(View.GONE);
+//                selectHintView.setText("Please select pathID");
+//                if (phase == "training"){selectValues = new String[] {"","1", "2", "3", "4", "5", "6",
+//                        "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17","18","19","20"};}
+//                        else {selectValues = new String[] {"","21","22","23","24","25","26","27","28",
+//                "29","30","31","32","33","34","35","36","37","38","39","40"};}
+//                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+//                        android.R.layout.simple_list_item_1, selectValues);
+//                pathSelectListView.setAdapter(adapter);
+//                pathSelectListView.setVisibility(View.VISIBLE);
+//
+//            }
+//        });
+//
+//        pathSelectListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                                    int position, long id) {
+//                // selected item
+//                pathId = ((TextView) view).getText().toString();
+//                userIdPhasePathId[2] = pathId;
+//                Toast.makeText(getContext(), "Selected path :" +pathId, Toast.LENGTH_SHORT).show();
+//                userSelectListView.setVisibility(View.GONE);
+//                phaseSelectListView.setVisibility(View.GONE);
+//                pathSelectListView.setVisibility(View.GONE);
+//                selectHintView.setVisibility(View.GONE);
+//                selectHintView.setText("Press Trigger for Next Book, Bumper for Change View");
+//                selectValues = new String[] {"","1", "2", "3", "4", "5", "6",
+//                        "7", "8", "9", "10", "11", "12"};
+//                //userSelectListView.setVisibility(View.VISIBLE);
+//                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+//                        android.R.layout.simple_list_item_1, selectValues);
+//                userSelectListView.setAdapter(adapter);
+//                aiView.setVisibility(View.VISIBLE);
+//
+//            }
+//        });
 
         //Log.d(TAG, product);
 
@@ -207,34 +226,43 @@ public class UserInterfaceHandler {
         vsView.setVisibility(View.GONE);
         userSelectListView.setVisibility(View.VISIBLE);
         selectHintView.setVisibility(View.VISIBLE);
+        Log.d(TAG,"Menu");
     }
-
-    public void switchView(){
-        if(aiView.getVisibility() == View.VISIBLE){
-            aiView.setVisibility(View.GONE);
+    public void addUserView() {
+        usView.setVisibility(View.VISIBLE);
+    }
+    public void tap() {
+        if(usView.getVisibility() == View.VISIBLE) {
+            usView.setVisibility(View.GONE);
+            phView.setVisibility(View.VISIBLE);
+        } else if (phView.getVisibility() == View.VISIBLE) {
+            phView.setVisibility(View.GONE);
+            paView.setVisibility(View.VISIBLE);
+        } else if (paView.getVisibility() == View.VISIBLE) {
+            paView.setVisibility(View.GONE);
             vsView.setVisibility(View.VISIBLE);
         }
-        else {
-            vsView.setVisibility(View.GONE);
-            aiView.setVisibility(View.VISIBLE);
-        }
+    }
+    public void switchView(){
+
     }
 
     public void addVerticalShelfView(){
-        aiView.setVisibility(View.GONE);
-        vsView.setVisibility(View.VISIBLE);
-       // Log.d(TAG,"visible now hahahah");
+        vsView.setVisibility(View.GONE);
+        aiView.setVisibility(View.VISIBLE);
+       Log.d(TAG,"Swipe Left");
     }
 
     public void deleteVerticalShelfView() {
-        vsView.setVisibility(View.GONE);
-        aiView.setVisibility(View.VISIBLE);
-        // Log.d(TAG, "invisible meow");
+        aiView.setVisibility(View.GONE);
+        vsView.setVisibility(View.VISIBLE);
+        Log.d(TAG, "Swipe Right");
     }
 
     public void setMap(WarehouseMap map){
         mMapView.setMap(map);
         mMapView.generateUI();
+        Log.d(TAG, "set map");
     }
 
     public void setRoute(PickRoute newRoute){
@@ -242,6 +270,8 @@ public class UserInterfaceHandler {
             return;
         vsView.setTargetBook(newRoute.getTargetBook());
         aiView.setTargetBook(newRoute.getTargetBook());
+        Log.d(TAG, "set route");
+
     }
 
     public void onHeadingChanged(float heading, boolean isFake){
