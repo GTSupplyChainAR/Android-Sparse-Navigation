@@ -26,7 +26,7 @@ public class PhaseSelectView extends LinearLayout {
 
     private TextView userSelectHintView;
     private ListView userSelectListView;
-    private String[] userIdValues = new String[] {"training","testing"};
+    private String[] userIdValues = new String[] {"Training","Testing"};
 
     private Context context;
     //private TextView columnTag, author_view, title_view, aisle_letter_view;
@@ -64,10 +64,24 @@ public class PhaseSelectView extends LinearLayout {
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(context,
-                android.R.layout.simple_list_item_1, lists);
+                android.R.layout.simple_list_item_1, lists) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                // Get the Item from ListView
+                View view = super.getView(position, convertView, parent);
+
+                // Initialize a TextView for ListView each Item
+                TextView tv = (TextView) view.findViewById(android.R.id.text1);
+
+                // Set the text color of TextView (ListView Item)
+                tv.setTextColor(Color.WHITE);
+
+                // Generate ListView Item using TextView
+                return view;
+            }
+        };;
 
         userSelectListView.setAdapter(adapter);
-        userSelectListView.setBackgroundColor(0xff0000ff);
 //        userSelectListView .setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            public void onItemClick(AdapterView<?> parent, View view,
 //                                    int position, long id) {

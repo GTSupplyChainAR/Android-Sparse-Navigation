@@ -248,14 +248,18 @@ public class UserInterfaceHandler {
     }
 
     public void addVerticalShelfView(){
-        vsView.setVisibility(View.GONE);
-        aiView.setVisibility(View.VISIBLE);
+        if (vsView.getVisibility() == View.VISIBLE) {
+            vsView.setVisibility(View.GONE);
+            aiView.setVisibility(View.VISIBLE);
+        }
        Log.d(TAG,"Swipe Left");
     }
 
     public void deleteVerticalShelfView() {
-        aiView.setVisibility(View.GONE);
-        vsView.setVisibility(View.VISIBLE);
+        if (aiView.getVisibility() == View.VISIBLE) {
+            aiView.setVisibility(View.GONE);
+            vsView.setVisibility(View.VISIBLE);
+        }
         Log.d(TAG, "Swipe Right");
     }
 

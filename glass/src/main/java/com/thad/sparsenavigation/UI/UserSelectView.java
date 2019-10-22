@@ -74,10 +74,24 @@ public class UserSelectView extends LinearLayout {
         }
         Log.d(TAG, lists.toString());
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, lists);
+                new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, lists) {
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        // Get the Item from ListView
+                        View view = super.getView(position, convertView, parent);
+
+                        // Initialize a TextView for ListView each Item
+                        TextView tv = (TextView) view.findViewById(android.R.id.text1);
+
+                        // Set the text color of TextView (ListView Item)
+                        tv.setTextColor(Color.WHITE);
+
+                        // Generate ListView Item using TextView
+                        return view;
+                    }
+                };
         userSelectListView.setVisibility(0);
         userSelectListView.setTranslationY(40);
-        userSelectListView.setBackgroundColor(0xff0000ff);
         userSelectListView.setAdapter(adapter);
 
         this.addView(userSelectListView);
