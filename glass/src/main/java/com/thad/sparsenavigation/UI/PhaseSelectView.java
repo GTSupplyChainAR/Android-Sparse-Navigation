@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -82,6 +83,8 @@ public class PhaseSelectView extends LinearLayout {
         };;
 
         userSelectListView.setAdapter(adapter);
+        userSelectListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        userSelectListView.setSelector(android.R.color.darker_gray);
 //        userSelectListView .setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            public void onItemClick(AdapterView<?> parent, View view,
 //                                    int position, long id) {
@@ -99,8 +102,16 @@ public class PhaseSelectView extends LinearLayout {
         textView.setTextColor(Color.rgb(255,255,255));
         textView.setTypeface(null, Typeface.BOLD);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f);
-
     }
+    public void changePhase(int selection){
+        Log.d(TAG, "Change PHase");
+        userSelectListView.clearFocus();
+        userSelectListView.setSelection(userSelectListView.getSelectedItemPosition() + selection);
+        Log.d(TAG, Integer.toString(userSelectListView.getSelectedItemPosition()));
+        userSelectListView.setSelector(android.R.color.darker_gray);
+        //userSelectListView.setItemChecked(, true);
+    }
+
 
 
 }

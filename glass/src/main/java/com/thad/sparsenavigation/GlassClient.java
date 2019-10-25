@@ -181,11 +181,13 @@ public class GlassClient {
         mUI.tap();
     }
     public void swipeLeft(){
-        mUI.addVerticalShelfView();
+        mUI.swipeLeft();
     }
     public void swipeRight(){
-        mUI.deleteVerticalShelfView();
+        mUI.swipeRight();
     }
+
+
     public void addUserView(){
         mUI.addUserView();
     }

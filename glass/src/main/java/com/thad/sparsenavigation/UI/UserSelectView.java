@@ -93,6 +93,8 @@ public class UserSelectView extends LinearLayout {
         userSelectListView.setVisibility(0);
         userSelectListView.setTranslationY(40);
         userSelectListView.setAdapter(adapter);
+        userSelectListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        userSelectListView.setSelector(android.R.color.darker_gray);
 
         this.addView(userSelectListView);
 
@@ -111,6 +113,15 @@ public class UserSelectView extends LinearLayout {
         textView.setTextColor(Color.rgb(255,255,255));
         textView.setTypeface(null, Typeface.BOLD);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f);
+    }
+
+    public void changePhase(int selection){
+        Log.d(TAG, "Change PHase");
+        userSelectListView.clearFocus();
+        userSelectListView.setSelection(userSelectListView.getSelectedItemPosition() + selection);
+        Log.d(TAG, Integer.toString(userSelectListView.getSelectedItemPosition()));
+        userSelectListView.setSelector(android.R.color.darker_gray);
+        //userSelectListView.setItemChecked(, true);
     }
 
 
