@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.thad.sparse_nav_lib.Book;
 import com.thad.sparse_nav_lib.Static.Prefs;
 
+import org.w3c.dom.Text;
+
 /**
  * Created by tinggu on 4/15/18.
  */
@@ -27,7 +29,7 @@ public class VerticalShelfView extends LinearLayout {
     private static final String TAG = "|VerticalShelfView|";
 
     private Context context;
-    private TextView columnTag, author_view, title_view;
+    private TextView columnTag, author_view, title_view, instructions_view;
     private ImageView[] shelves;
 
     private int MP = ViewGroup.LayoutParams.MATCH_PARENT;
@@ -45,7 +47,7 @@ public class VerticalShelfView extends LinearLayout {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
         ));
-        this.setOrientation(HORIZONTAL);
+        this.setOrientation(LinearLayout.HORIZONTAL);
 
         LinearLayout book_info_layout = new LinearLayout(context);
         book_info_layout.setLayoutParams(new LayoutParams(0, MP, 0.7f));
@@ -53,50 +55,57 @@ public class VerticalShelfView extends LinearLayout {
         book_info_layout.setGravity(Gravity.CENTER);
         int padding_px = 30;
         book_info_layout.setPadding(padding_px, padding_px, padding_px, padding_px);
+        
+        instructions_view = new TextView(context);
+        instructions_view.setLayoutParams(new LayoutParams(WC, WC));
+        applyTextStyle(instructions_view);
+        instructions_view.setText("Press Trigger for Next Book, Bumper for Change View");
+        instructions_view.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
+        book_info_layout.addView(instructions_view);
 
         author_view = new TextView(context);
         author_view.setLayoutParams(new LayoutParams(WC, WC));
         applyTextStyle(author_view);
         author_view.setText("Book Title");
+        author_view.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
         book_info_layout.addView(author_view);
 
         title_view = new TextView(context);
         title_view.setLayoutParams(new LayoutParams(WC, WC));
         applyTextStyle(title_view);
         title_view.setText("Book Author");
+        title_view.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
         book_info_layout.addView(title_view);
-
-        LinearLayout vertical_rack_layout = new LinearLayout(context);
-        vertical_rack_layout.setLayoutParams(new LayoutParams(0, MP, 0.3f));
-        vertical_rack_layout.setOrientation(VERTICAL);
-        vertical_rack_layout.setPadding(padding_px, padding_px, padding_px, padding_px);
-
-        columnTag = new TextView(context);
-        LayoutParams lp = new LayoutParams(WC, WC);
-        lp.gravity = Gravity.CENTER;
-        columnTag.setLayoutParams(lp);
-        applyTextStyle(columnTag);
-        columnTag.setText("1");
-        vertical_rack_layout.addView(columnTag);
-
-
-        int n = Prefs.VERTICAL_HEIGHT;
-        shelves = new ImageView[n];
-        for(int i = 0; i < Prefs.VERTICAL_HEIGHT ; i++){
-            ImageView shelf = new ImageView(context);
-            LayoutParams lpi = new LayoutParams(MP,0, 1f);
-            int margins = 15;
-            lpi.setMargins(margins, margins, margins, margins);
-            shelf.setLayoutParams(lpi);
-
-            shelf.setBackgroundColor(Color.RED);
-            shelves[i] = shelf;
-            vertical_rack_layout.addView(shelf);
-        }
-
-
         this.addView(book_info_layout);
-        this.addView(vertical_rack_layout);
+
+
+        int rows = Prefs.ROWS_SHELF_VIEW;
+        int cols = Prefs.COLUMNS_SHELF_VIEW;
+        for(int i = 0; i  < cols; i++) {
+            LinearLayout vertical_layout  = new LinearLayout(context);
+            vertical_layout.setLayoutParams(new LayoutParams(0, MP, 0.3f));
+            vertical_layout.setOrientation(VERTICAL);
+            vertical_layout.setPadding(padding_px, padding_px, padding_px, padding_px);
+            columnTag = new TextView(context);
+            LayoutParams lp = new LayoutParams(WC, WC);
+            lp.gravity = Gravity.CENTER;
+            columnTag.setLayoutParams(lp);
+            applyTextStyle(columnTag);
+            columnTag.setText(Integer.toString(i +  1));
+            vertical_layout.addView(columnTag);
+            shelves = new ImageView[rows];
+            for (int j = 0; j < rows; j++) {
+                ImageView shelf = new ImageView(context);
+                LayoutParams lpi = new LayoutParams(MP, 0, 1f);
+                int margins = 15;
+                lpi.setMargins(margins, margins, margins, margins);
+                shelf.setLayoutParams(lpi);
+                shelf.setBackgroundColor(Color.RED);
+                shelves[j] = shelf;
+                vertical_layout.addView(shelf);
+            }
+            this.addView(vertical_layout);
+        }
     }
 
     private void applyTextStyle(TextView textView){

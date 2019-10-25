@@ -29,7 +29,7 @@ public class AisleView extends LinearLayout {
     private static final String TAG = "|AisleView|";
 
     private Context context;
-    private TextView columnTag, rowTag, author_view, title_view, aisle_letter_view;
+    private TextView columnTag, rowTag, author_view, title_view, aisle_letter_view, instructions_view;
     private TextView[] rackNumTag;
     //private LinearLayout[] racks;
     private ImageView[] shelves;
@@ -50,6 +50,14 @@ public class AisleView extends LinearLayout {
                 ViewGroup.LayoutParams.MATCH_PARENT
         ));
         this.setOrientation(HORIZONTAL);
+
+        instructions_view = new TextView(context);
+        instructions_view.setLayoutParams(new LayoutParams(WC, WC));
+        applyTextStyle(instructions_view);
+        instructions_view.setText("P");
+        instructions_view.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
+        this.addView(instructions_view);
+
 
         aisle_letter_view = new TextView(context);
 //        LayoutParams lp = new LayoutParams(WC, WC);

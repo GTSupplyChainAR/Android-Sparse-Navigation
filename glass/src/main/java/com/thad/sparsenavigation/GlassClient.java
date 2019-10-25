@@ -174,9 +174,6 @@ public class GlassClient {
 //       Log.d(TAG, userIdPhasePathId[2]);
 
 
-    public void switchView(){
-        mUI.switchView();
-    }
     public void tap() {
         mUI.tap();
     }

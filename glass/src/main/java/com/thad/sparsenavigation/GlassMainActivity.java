@@ -109,7 +109,6 @@ public class GlassMainActivity extends Activity {
 //            mClient.switchView();
 //            //return true;
 //        }
-        mClient.switchView();
 
 
         return super.onKeyDown(keycode, event);

@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -40,8 +41,8 @@ public class UserInterfaceHandler {
 
     private UserSelectView usView;
     private PhaseSelectView phView;
-
     private PathSelectView paView;
+    private CompletionView comView;
 
 
     private float currentHeading;
@@ -140,13 +141,10 @@ public class UserInterfaceHandler {
         layout.addView(paView);
         paView.setVisibility(View.GONE);
 
+        comView = new CompletionView(getContext());
+        layout.addView(comView);
+        comView.setVisibility(View.GONE);
 
-        usView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "HERE");
-            }
-        });
 
 //        userSelectListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            public void onItemClick(AdapterView<?> parent, View view,
@@ -241,10 +239,16 @@ public class UserInterfaceHandler {
         } else if (paView.getVisibility() == View.VISIBLE) {
             paView.setVisibility(View.GONE);
             vsView.setVisibility(View.VISIBLE);
+        } else if (vsView.getVisibility() == View.VISIBLE)  {
+            vsView.setVisibility(View.GONE);
+            comView.setVisibility(View.VISIBLE);
+        } else if (aiView.getVisibility() == View.VISIBLE)  {
+            aiView.setVisibility(View.GONE);
+            comView.setVisibility(View.VISIBLE);
+        } else if (comView.getVisibility() == View.VISIBLE) {
+            comView.setVisibility(View.GONE);
+            vsView.setVisibility(View.VISIBLE);
         }
-    }
-    public void switchView(){
-
     }
 
     public void swipeLeft(){
