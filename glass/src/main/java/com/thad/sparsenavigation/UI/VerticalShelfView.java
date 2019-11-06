@@ -53,7 +53,7 @@ public class VerticalShelfView extends LinearLayout {
         book_info_layout.setLayoutParams(new LayoutParams(0, MP, 0.7f));
         book_info_layout.setOrientation(VERTICAL);
         book_info_layout.setGravity(Gravity.CENTER);
-        int padding_px = 30;
+        int padding_px = 10;
         book_info_layout.setPadding(padding_px, padding_px, padding_px, padding_px);
         
         instructions_view = new TextView(context);
@@ -97,8 +97,8 @@ public class VerticalShelfView extends LinearLayout {
             for (int j = 0; j < rows; j++) {
                 ImageView shelf = new ImageView(context);
                 LayoutParams lpi = new LayoutParams(MP, 0, 1f);
-                int margins = 15;
-                lpi.setMargins(margins, margins, margins, margins);
+                int margins = 10;
+                lpi.setMargins( 0, margins, 0, margins);
                 shelf.setLayoutParams(lpi);
                 shelf.setBackgroundColor(Color.RED);
                 shelves[j] = shelf;

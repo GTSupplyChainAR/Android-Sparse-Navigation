@@ -64,12 +64,12 @@ public class UserSelectView extends LinearLayout {
 
         userSelectHintView = new TextView(context);
         applyTextStyle(userSelectHintView);
-        userSelectHintView.setText("Swipe up and down to pick user\nPress trigger to select user");
+        userSelectHintView.setText("Swipe (↑) and (↓) to pick user\nPress Trigger to select user");
         this.addView(userSelectHintView);
         userSelectListView = new ListView(context);
         final ArrayList<String> lists = new ArrayList<String>();
         for (int i = 0; i < userIdValues.length; ++i) {
-            lists.add(userIdValues[i]);
+            lists.add("User " + userIdValues[i]);
             Log.d(TAG, "Adding Users");
         }
         Log.d(TAG, lists.toString());
@@ -116,7 +116,7 @@ public class UserSelectView extends LinearLayout {
     }
 
     public void changePhase(int selection){
-        Log.d(TAG, "Change PHase");
+        Log.d(TAG, "Change Phase");
         userSelectListView.clearFocus();
         userSelectListView.setSelection(userSelectListView.getSelectedItemPosition() + selection);
         Log.d(TAG, Integer.toString(userSelectListView.getSelectedItemPosition()));

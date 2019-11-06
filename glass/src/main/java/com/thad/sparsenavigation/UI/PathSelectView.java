@@ -51,7 +51,7 @@ public class PathSelectView extends LinearLayout {
 
         userSelectHintView = new TextView(context);
         applyTextStyle(userSelectHintView);
-        userSelectHintView.setText("PRESS TRIGGER TO CONTINUE TO NEW PATH");
+        userSelectHintView.setText("Press Trigger to Continue to New Path");
         this.addView(userSelectHintView);
 
         userSelectListView = new ListView(context);

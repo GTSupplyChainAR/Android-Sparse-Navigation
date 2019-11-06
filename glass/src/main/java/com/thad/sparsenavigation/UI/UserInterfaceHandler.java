@@ -44,7 +44,6 @@ public class UserInterfaceHandler {
     private PathSelectView paView;
     private CompletionView comView;
 
-
     private float currentHeading;
 
     //UI Elements
@@ -67,6 +66,8 @@ public class UserInterfaceHandler {
     private TextView headingTitleView;
     private ImageView compassView;
     private PositionIndicator positionIndicator;
+
+    private int currentBookInPath = 1;
 
     public UserInterfaceHandler(GlassClient client){
         this.activity = (Activity)client.getContext();
@@ -240,14 +241,29 @@ public class UserInterfaceHandler {
             paView.setVisibility(View.GONE);
             vsView.setVisibility(View.VISIBLE);
         } else if (vsView.getVisibility() == View.VISIBLE)  {
-            vsView.setVisibility(View.GONE);
-            comView.setVisibility(View.VISIBLE);
+            if (currentBookInPath % 10 == 0) {
+                vsView.setVisibility(View.GONE);
+                comView.setVisibility(View.VISIBLE);
+                Toast.makeText(getContext(), "Completed Pick Path", Toast.LENGTH_SHORT).show();
+                currentBookInPath = 1;
+            } else {
+                currentBookInPath++;
+                Toast.makeText(getContext(), "On to Book " + currentBookInPath, Toast.LENGTH_SHORT).show();
+            }
         } else if (aiView.getVisibility() == View.VISIBLE)  {
-            aiView.setVisibility(View.GONE);
-            comView.setVisibility(View.VISIBLE);
+            if (currentBookInPath % 10 == 0) {
+                aiView.setVisibility(View.GONE);
+                comView.setVisibility(View.VISIBLE);
+                Toast.makeText(getContext(), "Completed Pick Path", Toast.LENGTH_SHORT).show();
+                currentBookInPath = 1o;
+            } else {
+                currentBookInPath++;
+                Toast.makeText(getContext(), "On to Book " + currentBookInPath, Toast.LENGTH_SHORT).show();
+            }
+
         } else if (comView.getVisibility() == View.VISIBLE) {
             comView.setVisibility(View.GONE);
-            vsView.setVisibility(View.VISIBLE);
+            phView.setVisibility(View.VISIBLE);
         }
     }
 

@@ -72,7 +72,7 @@ public class AisleView extends LinearLayout {
 //        book_info_layout.setLayoutParams(new LayoutParams(0, MP, 0.7f));
 //        book_info_layout.setOrientation(VERTICAL);
 //        book_info_layout.setGravity(Gravity.CENTER);
-        int padding_px = 20;
+        int padding_px = 10;
 //        book_info_layout.setPadding(padding_px, padding_px, padding_px, padding_px);
 
 //        author_view = new TextView(context);
@@ -96,7 +96,7 @@ public class AisleView extends LinearLayout {
             LinearLayout vertical_rack_layout = new LinearLayout(context);
             vertical_rack_layout.setLayoutParams(new LayoutParams(0, MP, 0.3f));
             vertical_rack_layout.setOrientation(VERTICAL);
-            vertical_rack_layout.setPadding(-80, 80, padding_px, padding_px);
+            vertical_rack_layout.setPadding(0, padding_px, 0, padding_px);
 
             columnTag = new TextView(context);
             LayoutParams lp = new LayoutParams(WC, WC);
@@ -104,9 +104,9 @@ public class AisleView extends LinearLayout {
             columnTag.setLayoutParams(lp);
             applyTextStyle(columnTag);
             if (j > 0) {
-                columnTag.setText("" + (j));
+                columnTag.setText("" + j);
             }
-            columnTag.setTextSize(TypedValue.COMPLEX_UNIT_PX, 14);
+            columnTag.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
             vertical_rack_layout.addView(columnTag);
             rackNumTag[j] = columnTag;
 
@@ -115,8 +115,8 @@ public class AisleView extends LinearLayout {
             for (int i = 0; i < Prefs.VERTICAL_HEIGHT; i++) {
                 ImageView shelf = new ImageView(context);
                 LayoutParams lpi = new LayoutParams(MP, 0, 1f);
-                int margins = 5;
-                lpi.setMargins(0, margins, 0, margins);
+                int margins = 10;
+                lpi.setMargins(margins, margins, margins, margins);
                 shelf.setLayoutParams(lpi);
 
                 if(j == 0) {
@@ -124,21 +124,20 @@ public class AisleView extends LinearLayout {
                     rowTag.setLayoutParams(lp);
                     applyTextStyle(rowTag);
                     rowTag.setText("Aisle " + (char)(i + 1 + 64));
-                    rowTag.setTextSize(TypedValue.COMPLEX_UNIT_PX, 12);
+                    rowTag.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
                     vertical_rack_layout.addView(rowTag);
                 }
 
-                //shelf.setBackgroundColor(Color.WHITE);
                 //draw the border on the imageView
-                Bitmap bitmap = Bitmap.createBitmap(15,5, Bitmap.Config.ARGB_8888);
-                Canvas canvas = new Canvas(bitmap);
-                Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-                paint.setColor(colors[i]);
-                paint.setStyle(Paint.Style.STROKE);
-                canvas.drawRect(0, 0,   15, 5, paint);
-                shelf.setImageBitmap(bitmap);
-
-
+                if (j != 0) {
+                    Bitmap bitmap = Bitmap.createBitmap(15, 5, Bitmap.Config.ARGB_8888);
+                    Canvas canvas = new Canvas(bitmap);
+                    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+                    paint.setColor(colors[i]);
+                    paint.setStyle(Paint.Style.STROKE);
+                    canvas.drawRect(0, 0, 15, 5, paint);
+                    shelf.setImageBitmap(bitmap);
+                }
                 shelves[j*6+i] = shelf;
                 vertical_rack_layout.addView(shelf);
             }
