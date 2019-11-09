@@ -75,7 +75,7 @@ public class GlassMainActivity extends Activity {
 //                                mClient.deleteVerticalShelfView();
 //                            shows3D = !shows3D;
 //                        } else if (x > Prefs.SCREEN_WIDTH - offset && y < offset) {
-//                            Log.d(TAG, "Get Next Pick Path.");
+//                            Log.d(TAG, "Get Next Pick PathReader.");
 //                            mClient.glassTapped();
 //                        }
 //                        break;

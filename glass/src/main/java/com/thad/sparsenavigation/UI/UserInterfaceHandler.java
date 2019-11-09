@@ -244,7 +244,7 @@ public class UserInterfaceHandler {
             if (currentBookInPath % 10 == 0) {
                 vsView.setVisibility(View.GONE);
                 comView.setVisibility(View.VISIBLE);
-                Toast.makeText(getContext(), "Completed Pick Path", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Completed Pick PathReader", Toast.LENGTH_SHORT).show();
                 currentBookInPath = 1;
             } else {
                 currentBookInPath++;
@@ -254,8 +254,8 @@ public class UserInterfaceHandler {
             if (currentBookInPath % 10 == 0) {
                 aiView.setVisibility(View.GONE);
                 comView.setVisibility(View.VISIBLE);
-                Toast.makeText(getContext(), "Completed Pick Path", Toast.LENGTH_SHORT).show();
-                currentBookInPath = 1o;
+                Toast.makeText(getContext(), "Completed Pick PathReader", Toast.LENGTH_SHORT).show();
+                currentBookInPath = 1;
             } else {
                 currentBookInPath++;
                 Toast.makeText(getContext(), "On to Book " + currentBookInPath, Toast.LENGTH_SHORT).show();

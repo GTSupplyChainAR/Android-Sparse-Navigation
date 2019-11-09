@@ -33,6 +33,7 @@ public class AisleView extends LinearLayout {
     private TextView[] rackNumTag;
     //private LinearLayout[] racks;
     private ImageView[] shelves;
+    private ViewGroup shelving;
 
     private int MP = ViewGroup.LayoutParams.MATCH_PARENT;
     private int WC = ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -49,7 +50,7 @@ public class AisleView extends LinearLayout {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
         ));
-        this.setOrientation(HORIZONTAL);
+        this.setOrientation(VERTICAL);
 
         instructions_view = new TextView(context);
         instructions_view.setLayoutParams(new LayoutParams(WC, WC));
@@ -58,6 +59,13 @@ public class AisleView extends LinearLayout {
         instructions_view.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
         this.addView(instructions_view);
 
+
+        shelving = new ViewGroup() {
+            @Override
+            protected void onLayout(boolean changed, int l, int t, int r, int b) {
+
+            }
+        }
 
         aisle_letter_view = new TextView(context);
 //        LayoutParams lp = new LayoutParams(WC, WC);
