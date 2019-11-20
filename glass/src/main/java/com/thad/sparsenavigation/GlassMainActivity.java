@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import com.thad.sparsenavigation.Scripts.Converter;
 
 import com.thad.sparse_nav_lib.Static.Prefs;
 
@@ -48,6 +49,10 @@ public class GlassMainActivity extends Activity {
 
         View main_layout = findViewById(R.id.main_layout);
         mClient.addUserView();
+//        Converter converter = new Converter(this);
+//        converter.parseExperiments();
+
+
 //        main_layout.setOnTouchListener(new View.OnTouchListener() {
 //            @Override
 //            public boolean onTouch(View view, MotionEvent event) {
