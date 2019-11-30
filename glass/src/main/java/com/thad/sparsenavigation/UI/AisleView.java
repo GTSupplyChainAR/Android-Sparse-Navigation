@@ -29,7 +29,8 @@ public class AisleView extends LinearLayout {
     private static final String TAG = "|AisleView|";
 
     private Context context;
-    private TextView columnTag, rowTag, author_view, title_view, aisle_letter_view, instructions_view;
+    private TextView columnTag, rowTag, author_view, title_view, aisle_letter_view, instructions_view, instructions_view2;
+    private int padding_px;
     private TextView[] rackNumTag;
     //private LinearLayout[] racks;
     private ImageView[] shelves;
@@ -46,114 +47,92 @@ public class AisleView extends LinearLayout {
     }
 
     private void init(){
-        this.setLayoutParams(new LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
+        this.setLayoutParams(new LinearLayout.LayoutParams(
+                LayoutParams.MATCH_PARENT,
+                LayoutParams.MATCH_PARENT
         ));
-        this.setOrientation(HORIZONTAL);
+        this.setOrientation(LinearLayout.VERTICAL);
 
-        instructions_view = new TextView(context);
-        instructions_view.setLayoutParams(new LayoutParams(WC, WC));
-        applyTextStyle(instructions_view);
-//        instructions_view.setText("P");
-        instructions_view.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
-        this.addView(instructions_view);
-
-
-//        shelving = new ViewGroup() {
-//            @Override
-//            protected void onLayout(boolean changed, int l, int t, int r, int b) {
-//
-//            }
-//        }
-
-        aisle_letter_view = new TextView(context);
-//        LayoutParams lp = new LayoutParams(WC, WC);
-//        lp.gravity = Gravity.CENTER;
-//        columnTag.setLayoutParams(lp);
-        applyTextStyle(aisle_letter_view );
-        aisle_letter_view.setText("");
-        this.addView(aisle_letter_view);
+        instructions_view2 = new TextView(context);
+        instructions_view2.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 35));
+        applyTextStyle(instructions_view2);
+        instructions_view2.setText("Press G for Next Book, Press C for Change View");
+        instructions_view2.setTextSize(TypedValue.COMPLEX_UNIT_PX, 30);
+        this.addView(instructions_view2);
 
 
-//        LinearLayout book_info_layout = new LinearLayout(context);
-//        book_info_layout.setLayoutParams(new LayoutParams(0, MP, 0.7f));
-//        book_info_layout.setOrientation(VERTICAL);
-//        book_info_layout.setGravity(Gravity.CENTER);
-        int padding_px = 10;
-//        book_info_layout.setPadding(padding_px, padding_px, padding_px, padding_px);
+        LinearLayout layout2 = new LinearLayout(context);
+        layout2.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        layout2.setOrientation(LinearLayout.HORIZONTAL);
+        padding_px = 10;
 
-//        author_view = new TextView(context);
-//        author_view.setLayoutParams(new LayoutParams(WC, WC));
-//        applyTextStyle(author_view);
-//        author_view.setText("The other view");
-//        book_info_layout.addView(author_view);
-//
-//        title_view = new TextView(context);
-//        title_view.setLayoutParams(new LayoutParams(WC, WC));
-//        applyTextStyle(title_view);
-//        title_view.setText("Book Title");
-//        book_info_layout.addView(title_view);
-        //racks = new LinearLayout[6];
-        rackNumTag = new TextView[6];
 
-        int n = Prefs.VERTICAL_HEIGHT;
-        shelves = new ImageView[n*6];
+
+        rackNumTag = new TextView[Prefs.SHELVES_PER_AISLE];
+
+
+//        int n = Prefs.VERTICAL_HEIGHT;
+        shelves = new ImageView[Prefs.SHELVES_PER_AISLE*Prefs.VERTICAL_HEIGHT];
+        Log.d("TAG", "" + shelves.length);
 
         for(int j = 0; j < Prefs.SHELVES_PER_AISLE; j++) {
             LinearLayout vertical_rack_layout = new LinearLayout(context);
             vertical_rack_layout.setLayoutParams(new LayoutParams(0, MP, 0.3f));
             vertical_rack_layout.setOrientation(VERTICAL);
             vertical_rack_layout.setPadding(0, padding_px, 0, padding_px);
+            if (j % 2 == 0) {
+                vertical_rack_layout.setPadding(0, padding_px, 40, padding_px);
+            }
 
             columnTag = new TextView(context);
             LayoutParams lp = new LayoutParams(WC, WC);
             lp.gravity = Gravity.CENTER;
             columnTag.setLayoutParams(lp);
             applyTextStyle(columnTag);
-            if (j > 0) {
-                columnTag.setText("" + j);
-            }
             columnTag.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
             vertical_rack_layout.addView(columnTag);
             rackNumTag[j] = columnTag;
-
-
-
             for (int i = 0; i < Prefs.VERTICAL_HEIGHT; i++) {
                 ImageView shelf = new ImageView(context);
                 LayoutParams lpi = new LayoutParams(MP, 0, 1f);
                 int margins = 10;
-                lpi.setMargins(margins, margins, margins, margins);
+                if (i == 1) {
+                    margins = 0;
+                }
+                lpi.setMargins(0, margins, 0, margins);
                 shelf.setLayoutParams(lpi);
 
-                if(j == 0) {
+
+                if(i == 1) {
                     rowTag = new TextView(context);
                     rowTag.setLayoutParams(lp);
                     applyTextStyle(rowTag);
-                    rowTag.setText("Aisle " + (char)(i + 1 + 64));
-                    rowTag.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
+                    rowTag.setText("" + (char)(j + 1 + 64));
+                    rowTag.setTextSize(TypedValue.COMPLEX_UNIT_PX, 30);
                     vertical_rack_layout.addView(rowTag);
                 }
 
                 //draw the border on the imageView
-                if (j != 0) {
-                    Bitmap bitmap = Bitmap.createBitmap(15, 5, Bitmap.Config.ARGB_8888);
+                if (i != 0 && i != 1) {
+                    Bitmap bitmap = Bitmap.createBitmap(10, 15, Bitmap.Config.ARGB_8888);
                     Canvas canvas = new Canvas(bitmap);
                     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-                    paint.setColor(colors[i]);
+                    paint.setColor(colors[j]);
                     paint.setStyle(Paint.Style.STROKE);
-                    canvas.drawRect(0, 0, 15, 5, paint);
+                    canvas.drawRect(0, 0, 10, 15, paint);
+                    if (i == 2 && j == 3) {
+                        paint.setStyle(Paint.Style.FILL);
+                        canvas.drawRect(0, 0, 10, 15, paint);
+                    }
                     shelf.setImageBitmap(bitmap);
+                    shelves[j * Prefs.VERTICAL_HEIGHT + i] = shelf;
+                    vertical_rack_layout.addView(shelf);
                 }
-                shelves[j*6+i] = shelf;
-                vertical_rack_layout.addView(shelf);
             }
-            //racks[j] = vertical_rack_layout;
-            this.addView(vertical_rack_layout);
+            layout2.addView(vertical_rack_layout);
         }
+        this.addView(layout2);
 
-        //this.addView(book_info_layout);
         //this.setTargetBook();
 
     }
@@ -198,7 +177,7 @@ public class AisleView extends LinearLayout {
 
         }
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < Prefs.VERTICAL_HEIGHT; i++) {
            rackNumTag[i].setText("");
         }
 
@@ -220,7 +199,7 @@ public class AisleView extends LinearLayout {
         for (int i = 0; i < 36; i++) {
             shelves[i].setBackgroundColor(Color.BLACK);
         }
-        shelves[leftIndex*6+vertIndex].setBackgroundColor(colors[vertIndex]);
+        shelves[leftIndex*Prefs.VERTICAL_HEIGHT+vertIndex].setBackgroundColor(colors[vertIndex]);
 
 
 //        for(ImageView shelf : shelves)

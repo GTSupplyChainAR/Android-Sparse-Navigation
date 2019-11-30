@@ -49,7 +49,7 @@ public class CompletionView extends LinearLayout {
         instructions_view = new TextView(context);
         instructions_view.setLayoutParams(new LayoutParams(WC, WC));
         applyTextStyle(instructions_view);
-        instructions_view.setText("Press Trigger for Next Book, Bumper for Change View");
+        instructions_view.setText("You have picked all books in this path. Well done!\nPress G to quit");
         instructions_view.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
         this.addView(instructions_view);
     }

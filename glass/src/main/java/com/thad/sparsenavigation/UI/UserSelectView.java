@@ -38,6 +38,7 @@ public class UserSelectView extends LinearLayout {
     private ListView userSelectListView;
     private String[] userIdValues = new String[] {"1", "2", "3", "4", "5", "6",
                                             "7", "8", "9", "10", "11", "12"};
+    private Integer userId;
 
     private Context context;
     //private TextView columnTag, author_view, title_view, aisle_letter_view;
@@ -56,6 +57,7 @@ public class UserSelectView extends LinearLayout {
     }
 
     private void init(){
+        userId = 0;
         this.setLayoutParams(new LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
@@ -64,7 +66,11 @@ public class UserSelectView extends LinearLayout {
 
         userSelectHintView = new TextView(context);
         applyTextStyle(userSelectHintView);
-        userSelectHintView.setText("Swipe (↑) and (↓) to pick user\nPress Trigger to select user");
+        userSelectHintView.setText("F for up and H for down to pick user\nPress G to select user");
+        userSelectHintView.setTextSize(TypedValue.COMPLEX_UNIT_PX, 30);
+
+
+
         this.addView(userSelectHintView);
         userSelectListView = new ListView(context);
         final ArrayList<String> lists = new ArrayList<String>();
@@ -115,13 +121,17 @@ public class UserSelectView extends LinearLayout {
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f);
     }
 
-    public void changePhase(int selection){
+    public void changePhase(int selection) {
         Log.d(TAG, "Change Phase");
         userSelectListView.clearFocus();
         userSelectListView.setSelection(userSelectListView.getSelectedItemPosition() + selection);
         Log.d(TAG, Integer.toString(userSelectListView.getSelectedItemPosition()));
+        userId = userSelectListView.getSelectedItemPosition();
         userSelectListView.setSelector(android.R.color.darker_gray);
         //userSelectListView.setItemChecked(, true);
+    }
+    public int getUserId() {
+        return userId;
     }
 
 

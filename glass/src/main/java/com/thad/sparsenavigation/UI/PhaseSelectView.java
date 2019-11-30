@@ -35,6 +35,7 @@ public class PhaseSelectView extends LinearLayout {
     //private LinearLayout[] racks;
     //private ImageView[] shelves;
 
+    private Integer phase;
     private int MP = ViewGroup.LayoutParams.MATCH_PARENT;
     private int WC = ViewGroup.LayoutParams.WRAP_CONTENT;
     //int[] colors = {Color.RED, Color.YELLOW, Color.GREEN, Color.CYAN, Color.BLUE, Color.MAGENTA};
@@ -46,6 +47,7 @@ public class PhaseSelectView extends LinearLayout {
     }
 
     private void init(){
+        phase = 0;
         this.setLayoutParams(new LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
@@ -54,7 +56,8 @@ public class PhaseSelectView extends LinearLayout {
 
         userSelectHintView = new TextView(context);
         applyTextStyle(userSelectHintView);
-        userSelectHintView.setText("Press Trigger to select Phase");
+        userSelectHintView.setText("Press G to select Phase");
+        userSelectHintView.setTextSize(TypedValue.COMPLEX_UNIT_PX, 30);
         this.addView(userSelectHintView);
 
         userSelectListView = new ListView(context);
@@ -108,8 +111,13 @@ public class PhaseSelectView extends LinearLayout {
         userSelectListView.clearFocus();
         userSelectListView.setSelection(userSelectListView.getSelectedItemPosition() + selection);
         Log.d(TAG, Integer.toString(userSelectListView.getSelectedItemPosition()));
+        phase = userSelectListView.getSelectedItemPosition();
         userSelectListView.setSelector(android.R.color.darker_gray);
         //userSelectListView.setItemChecked(, true);
+    }
+
+    public Integer getPhase() {
+        return phase;
     }
 
 

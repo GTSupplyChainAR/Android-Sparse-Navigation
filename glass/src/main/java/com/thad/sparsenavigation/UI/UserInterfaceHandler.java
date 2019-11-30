@@ -23,6 +23,13 @@ import com.thad.sparsenavigation.GlassClient;
 import com.thad.sparsenavigation.Graphics.GLRenderer;
 import com.thad.sparsenavigation.Graphics.GraphicsGLView;
 import com.thad.sparsenavigation.R;
+import com.thad.sparsenavigation.Scripts.Converter;
+import com.thad.sparsenavigation.Scripts.model.Book;
+import com.thad.sparsenavigation.Scripts.model.Experiment;
+import com.thad.sparsenavigation.Scripts.model.PickPath;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by theo on 3/25/18.
@@ -59,15 +66,25 @@ public class UserInterfaceHandler {
     private ListView pathSelectListView;
 
     private String[] userIdPhasePathId = new String[] {"","",""};
-    private String userId;
-    private String phase;
-    private String pathId;
+
 
     private TextView headingTitleView;
     private ImageView compassView;
     private PositionIndicator positionIndicator;
 
     private int currentBookInPath = 1;
+    private int currentPathInPaths = 1;
+
+    private Converter converter;
+    private List<Experiment> experiments;
+    private List<PickPath> pickpaths;
+    private Experiment currentExperiment;
+    private Integer currentPhase; //0 is training 1 is testing
+    private Integer userId;
+    private List<Integer> currentPickPathList;
+    private List<List<Book>> currentPickPaths;
+    private PickPath currentPickPath;
+    private Book currentBook;
 
     public UserInterfaceHandler(GlassClient client){
         this.activity = (Activity)client.getContext();
@@ -212,7 +229,10 @@ public class UserInterfaceHandler {
 //        });
 
         //Log.d(TAG, product);
+        converter = new Converter(getContext());
+        pickpaths = converter.parsePickPaths();
 
+        experiments = converter.parseExperiments();
     }
 
     public String[] getParams(){
@@ -234,36 +254,67 @@ public class UserInterfaceHandler {
         if(usView.getVisibility() == View.VISIBLE) {
             usView.setVisibility(View.GONE);
             phView.setVisibility(View.VISIBLE);
+            userId = usView.getUserId();
+            setCurrentExperiment(userId);
+            Log.d("User", Integer.toString(userId));
         } else if (phView.getVisibility() == View.VISIBLE) {
             phView.setVisibility(View.GONE);
             paView.setVisibility(View.VISIBLE);
+            currentPhase = phView.getPhase();
+            Log.d("Phase", Integer.toString(currentPhase));
+            setPickPathList(currentPhase);
+            setPickPaths(currentPickPathList);
         } else if (paView.getVisibility() == View.VISIBLE) {
             paView.setVisibility(View.GONE);
+            currentBook = currentPickPaths.get(currentPathInPaths - 1).get(currentBookInPath - 1);
+            vsView.setAuthor(currentBook.getAuthor());
+            vsView.setBook(currentBook.getName());
             vsView.setVisibility(View.VISIBLE);
         } else if (vsView.getVisibility() == View.VISIBLE)  {
-            if (currentBookInPath % 10 == 0) {
+            if (currentPathInPaths == 2) {
+                vsView.setVisibility(View.GONE);
+                comView.setVisibility(View.VISIBLE);
+            } else if (currentBookInPath % 10 == 0) {
                 vsView.setVisibility(View.GONE);
                 comView.setVisibility(View.VISIBLE);
                 Toast.makeText(getContext(), "Completed Pick PathReader", Toast.LENGTH_SHORT).show();
                 currentBookInPath = 1;
+                currentPathInPaths++;
             } else {
                 currentBookInPath++;
                 Toast.makeText(getContext(), "On to Book " + currentBookInPath, Toast.LENGTH_SHORT).show();
             }
+            currentBook = currentPickPaths.get(currentPathInPaths - 1).get(currentBookInPath - 1);
+            vsView.setAuthor(currentBook.getAuthor());
+            vsView.setBook(currentBook.getName());
         } else if (aiView.getVisibility() == View.VISIBLE)  {
-            if (currentBookInPath % 10 == 0) {
+            if (currentPathInPaths == 10) {
+                aiView.setVisibility(View.GONE);
+                comView.setVisibility(View.VISIBLE);
+            } else if (currentBookInPath % 10 == 0) {
                 aiView.setVisibility(View.GONE);
                 comView.setVisibility(View.VISIBLE);
                 Toast.makeText(getContext(), "Completed Pick PathReader", Toast.LENGTH_SHORT).show();
                 currentBookInPath = 1;
+                currentPathInPaths++;
             } else {
                 currentBookInPath++;
                 Toast.makeText(getContext(), "On to Book " + currentBookInPath, Toast.LENGTH_SHORT).show();
             }
-
+            currentBook = currentPickPaths.get(currentPathInPaths - 1).get(currentBookInPath - 1);
+            vsView.setAuthor(currentBook.getAuthor());
+            vsView.setBook(currentBook.getName());
         } else if (comView.getVisibility() == View.VISIBLE) {
             comView.setVisibility(View.GONE);
-            phView.setVisibility(View.VISIBLE);
+            vsView.setVisibility(View.VISIBLE);
+            if (currentPathInPaths == 10) {
+                comView.setVisibility(View.GONE);
+                vsView.setVisibility(View.GONE);
+                aiView.setVisibility(View.GONE);
+                phView.setVisibility(View.VISIBLE);
+                currentBookInPath = 1;
+                currentPathInPaths = 1;
+            }
         }
     }
 
@@ -359,7 +410,33 @@ public class UserInterfaceHandler {
         textView.setTextColor(Color.rgb(255,255,255));
         textView.setTypeface(null, Typeface.BOLD);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f);
+    }
+    private void setCurrentExperiment(int userId) {
+        for (Experiment e: experiments) {
+            if (Integer.parseInt(e.getParticipantId()) == userId + 1) {
+                Log.d("EXPERIMENT", "HERE");
+                currentExperiment = e;
+            }
+        }
+    }
 
+    private void setPickPathList(int phase) {
+        if (phase == 0) {
+            currentPickPathList = currentExperiment.getTrainingPathOrder().get("right-center");
+        } else if (phase == 1) {
+            currentPickPathList = currentExperiment.getTestingPathOrder().get("right-center");
+        }
+    }
+
+    private void setPickPaths(List<Integer> currentPickPathList) {
+        currentPickPaths = new ArrayList<>();
+        for (Integer i: currentPickPathList) {
+            for (PickPath p: pickpaths) {
+                if (i == Integer.parseInt(p.getPathId())) {
+                    currentPickPaths.add(p.getBooksInPath());
+                }
+            }
+        }
     }
 
 }

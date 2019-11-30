@@ -53,7 +53,6 @@ public class GlassClient {
 
     private void init() {
         mRenderer = new GLRenderer(this);
-
         mSensorListener = new SensorListener(this);
         mUI = new UserInterfaceHandler(this);
         mCommHandler = new CommunicationHandler(this);

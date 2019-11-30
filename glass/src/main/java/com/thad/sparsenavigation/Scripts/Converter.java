@@ -7,6 +7,10 @@ import android.net.Uri;
 import android.util.Log;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +30,9 @@ public class Converter {
     private File file;
     private String pickPathsFileName;
     private String experimentsFileName;
+    private String packageStructureFromRoot;
     private Context context;
+    private InputStream inputStream;
 
     // constants used in experiments
     private final static int PARTICIPANT_ID_POSITION_IN_TOKEN = 0;
@@ -46,10 +52,19 @@ public class Converter {
 
 
 
-    public Converter() {
-//        context = current;
+    public Converter(Context context) {
+        this.context = context;
         pickPathsFileName = "pickpaths.csv";
         experimentsFileName = "experiment.csv";
+        packageStructureFromRoot = "glass/src/main/java/com/thad/sparsenavigation/Scripts/";
+    }
+
+    private void copyFile(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int read;
+        while ((read = in.read(buffer)) != -1) {
+            out.write(buffer, 0, read);
+        }
     }
 
     public String getPickPathsFileName() {
@@ -68,9 +83,17 @@ public class Converter {
         this.experimentsFileName = experimentsFileName;
     }
 
-    private void openFile(String filePath) {
+    private void openFile(String fileName) {
         try {
-            file = new File(filePath);
+            Log.d("TAG", fileName);
+            if (fileName.compareTo("pickpaths.csv") == 0){
+                inputStream = this.context.getResources().openRawResource(R.raw.pickpaths);
+            } else if (fileName.compareTo("experiment.csv") == 0) {
+                inputStream = this.context.getResources().openRawResource(R.raw.experiment);
+
+            }
+            file = File.createTempFile("pre", "suf");
+            copyFile(inputStream, new FileOutputStream(file));
             scanner = new Scanner(file);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -176,9 +199,14 @@ public class Converter {
     }
 
 
-    public static void main(String[] args) {
-        Converter converter = new Converter();
-        converter.parseExperiments();
-        converter.parsePickPaths();
-    }
+    // For debugging/testing
+//    public static void main(String[] args) {
+//        Converter converter = new Converter();
+//        List<Experiment> experiments = converter.parseExperiments();
+//        List<PickPath> pickpaths = converter.parsePickPaths();
+//        for (Experiment e: experiments) {
+//            System.out.println(e.getParticipantId());
+//            if
+//        }
+//    }
 }

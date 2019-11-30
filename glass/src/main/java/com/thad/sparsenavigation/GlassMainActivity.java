@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import com.thad.sparsenavigation.Scripts.Converter;
+
 
 import com.thad.sparse_nav_lib.Static.Prefs;
 
@@ -36,9 +36,7 @@ public class GlassMainActivity extends Activity {
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
         setContentView(R.layout.navigation_layout);
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         Prefs.SCREEN_HEIGHT = displayMetrics.heightPixels;
@@ -48,6 +46,7 @@ public class GlassMainActivity extends Activity {
         mGestureDetector = createGestureDetector(this);
 
         View main_layout = findViewById(R.id.main_layout);
+
         mClient.addUserView();
 //        Converter converter = new Converter(this);
 //        converter.parseExperiments();
@@ -155,7 +154,6 @@ public class GlassMainActivity extends Activity {
 
         });
         return gestureDetector;
-
     }
 
     /*

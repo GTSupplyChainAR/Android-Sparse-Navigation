@@ -6,7 +6,7 @@ import java.util.Map;
 public class Experiment {
     private String participantId;
     private Map<String, List<Integer>> trainingPathOrder;
-    private Map<String, List<Integer>> testingPathOrder;
+    private Map<String, List<Integer>> testingPathOrder;   //.get("")
 
     public void setParticipantId(String participantId) {
         this.participantId = participantId;

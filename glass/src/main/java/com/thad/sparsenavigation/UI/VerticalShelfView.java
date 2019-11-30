@@ -31,6 +31,8 @@ public class VerticalShelfView extends LinearLayout {
     private Context context;
     private TextView columnTag, author_view, title_view, instructions_view;
     private ImageView[] shelves;
+    private String book;
+    private String author;
 
     private int MP = ViewGroup.LayoutParams.MATCH_PARENT;
     private int WC = ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -43,40 +45,32 @@ public class VerticalShelfView extends LinearLayout {
     }
 
     private void init(){
-        this.setLayoutParams(new LayoutParams(
+        this.setLayoutParams(new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
         ));
-        this.setOrientation(LinearLayout.HORIZONTAL);
+        this.setOrientation(LinearLayout.VERTICAL);
 
-        LinearLayout book_info_layout = new LinearLayout(context);
-        book_info_layout.setLayoutParams(new LayoutParams(0, MP, 0.7f));
-        book_info_layout.setOrientation(VERTICAL);
-        book_info_layout.setGravity(Gravity.CENTER);
+
         int padding_px = 10;
-        book_info_layout.setPadding(padding_px, padding_px, padding_px, padding_px);
-        
+
         instructions_view = new TextView(context);
-        instructions_view.setLayoutParams(new LayoutParams(WC, WC));
+        instructions_view.setLayoutParams(new LayoutParams(MP, 60));
         applyTextStyle(instructions_view);
-        instructions_view.setText("Press Trigger for Next Book, Bumper for Change View");
-        instructions_view.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
-        book_info_layout.addView(instructions_view);
+        instructions_view.setText("Press G for Next Book, Press C for Change View");
+        instructions_view.setTextSize(TypedValue.COMPLEX_UNIT_PX, 30);
+        this.addView(instructions_view);
+
+        LinearLayout layout2 = new LinearLayout(context);
+        layout2.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        layout2.setOrientation(LinearLayout.HORIZONTAL);
 
         author_view = new TextView(context);
         author_view.setLayoutParams(new LayoutParams(WC, WC));
         applyTextStyle(author_view);
-        author_view.setText("Book Title");
-        author_view.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
-        book_info_layout.addView(author_view);
-
-        title_view = new TextView(context);
-        title_view.setLayoutParams(new LayoutParams(WC, WC));
-        applyTextStyle(title_view);
-        title_view.setText("Book Author");
-        title_view.setTextSize(TypedValue.COMPLEX_UNIT_PX, 20);
-        book_info_layout.addView(title_view);
-        this.addView(book_info_layout);
+        author_view.setTextSize(TypedValue.COMPLEX_UNIT_PX, 15);
+        author_view.setPadding(0,80,80,0);
+        layout2.addView(author_view);
 
 
         int rows = Prefs.ROWS_SHELF_VIEW;
@@ -104,8 +98,9 @@ public class VerticalShelfView extends LinearLayout {
                 shelves[j] = shelf;
                 vertical_layout.addView(shelf);
             }
-            this.addView(vertical_layout);
+            layout2.addView(vertical_layout);
         }
+        this.addView(layout2);
     }
 
     private void applyTextStyle(TextView textView){
@@ -144,5 +139,13 @@ public class VerticalShelfView extends LinearLayout {
         rackIndex ++;
         columnTag.setText(rackIndex+"");
         //title_view.setText(tag);
+    }
+
+    public void setBook(String book) {
+        this.book = book;
+        author_view.setText("Book Title \n" + this.book +"\nBook Author \n" + this.author);
+    }
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
