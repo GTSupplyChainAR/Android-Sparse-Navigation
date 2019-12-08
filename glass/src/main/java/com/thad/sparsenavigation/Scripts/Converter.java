@@ -204,9 +204,6 @@ public class Converter {
 //        Converter converter = new Converter();
 //        List<Experiment> experiments = converter.parseExperiments();
 //        List<PickPath> pickpaths = converter.parsePickPaths();
-//        for (Experiment e: experiments) {
-//            System.out.println(e.getParticipantId());
-//            if
-//        }
+//
 //    }
 }

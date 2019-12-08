@@ -21,6 +21,9 @@ import android.widget.Toast;
 import com.thad.sparse_nav_lib.Book;
 import com.thad.sparse_nav_lib.Static.Prefs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by tinggu on 4/15/18.
  */
@@ -35,6 +38,7 @@ public class AisleView extends LinearLayout {
     //private LinearLayout[] racks;
     private ImageView[] shelves;
     private ViewGroup shelving;
+    private List<Canvas> canvases;
 
     private int MP = ViewGroup.LayoutParams.MATCH_PARENT;
     private int WC = ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -47,6 +51,7 @@ public class AisleView extends LinearLayout {
     }
 
     private void init(){
+        canvases = new ArrayList<>();
         this.setLayoutParams(new LinearLayout.LayoutParams(
                 LayoutParams.MATCH_PARENT,
                 LayoutParams.MATCH_PARENT
@@ -120,10 +125,7 @@ public class AisleView extends LinearLayout {
                     paint.setColor(colors[j]);
                     paint.setStyle(Paint.Style.STROKE);
                     canvas.drawRect(0, 0, 10, 15, paint);
-                    if (i == 2 && j == 3) {
-                        paint.setStyle(Paint.Style.FILL);
-                        canvas.drawRect(0, 0, 10, 15, paint);
-                    }
+                    canvases.add(canvas);
                     shelf.setImageBitmap(bitmap);
                     shelves[j * Prefs.VERTICAL_HEIGHT + i] = shelf;
                     vertical_rack_layout.addView(shelf);
@@ -141,6 +143,25 @@ public class AisleView extends LinearLayout {
         textView.setTextColor(Color.rgb(255,255,255));
         textView.setTypeface(null, Typeface.BOLD);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f);
+    }
+
+    public void setTargetShelf(int column, int row) {
+        Canvas canvas = canvases.get(column * (Prefs.VERTICAL_HEIGHT-2) + row);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setColor(colors[column]);
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawRect(0, 0, 10, 15, paint);
+    }
+
+    public void removeTargetShelf(int column, int row) {
+        Canvas canvas = canvases.get(column * (Prefs.VERTICAL_HEIGHT-2) + row);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setColor(Color.BLACK);
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawRect(0, 0, 10, 15, paint);
+        paint.setColor(colors[column]);
+        paint.setStyle(Paint.Style.STROKE);
+        canvas.drawRect(0, 0, 10, 15, paint);
     }
 
     public void setTargetBook(Book newBook){

@@ -266,12 +266,22 @@ public class UserInterfaceHandler {
             setPickPaths(currentPickPathList);
         } else if (paView.getVisibility() == View.VISIBLE) {
             paView.setVisibility(View.GONE);
+            if (currentBook != null) {
+                aiView.removeTargetShelf(Character.getNumericValue(currentBook.getLocationTag().substring(0, 1).toCharArray()[0] - 17), Integer.parseInt(currentBook.getLocationTag().substring(2, 3)) - 1);
+            }
             currentBook = currentPickPaths.get(currentPathInPaths - 1).get(currentBookInPath - 1);
+            Log.d("TAG", currentBook.getLocationTag().substring(0, 1));
+            Log.d("ROW", currentBook.getLocationTag().substring(2, 3));
+            Log.d("TAG", currentBook.getLocationTag().substring(4, 5));
+            Log.d("COLUMN", "" + (char)(currentBook.getLocationTag().substring(0, 1).toCharArray()[0] - 17));
             vsView.setAuthor(currentBook.getAuthor());
             vsView.setBook(currentBook.getName());
+            vsView.clearColumns();
+            vsView.setColumn(Integer.parseInt(currentBook.getLocationTag().substring(2, 3)) - 1);
+            aiView.setTargetShelf(Character.getNumericValue(currentBook.getLocationTag().substring(0, 1).toCharArray()[0] - 17), Integer.parseInt(currentBook.getLocationTag().substring(2, 3)) - 1);
             vsView.setVisibility(View.VISIBLE);
         } else if (vsView.getVisibility() == View.VISIBLE)  {
-            if (currentPathInPaths == 2) {
+            if (currentPathInPaths == 10) {
                 vsView.setVisibility(View.GONE);
                 comView.setVisibility(View.VISIBLE);
             } else if (currentBookInPath % 10 == 0) {
@@ -284,9 +294,18 @@ public class UserInterfaceHandler {
                 currentBookInPath++;
                 Toast.makeText(getContext(), "On to Book " + currentBookInPath, Toast.LENGTH_SHORT).show();
             }
+            aiView.removeTargetShelf(Character.getNumericValue(currentBook.getLocationTag().substring(0, 1).toCharArray()[0] - 17), Integer.parseInt(currentBook.getLocationTag().substring(2, 3)) - 1);
             currentBook = currentPickPaths.get(currentPathInPaths - 1).get(currentBookInPath - 1);
+            Log.d("TAG", currentBook.getLocationTag().substring(0, 1));
+            Log.d("TAG", currentBook.getLocationTag().substring(2, 3));
+            Log.d("TAG", currentBook.getLocationTag().substring(4, 5));
+            Log.d("TAG", "" + (char)(currentBook.getLocationTag().substring(0, 1).toCharArray()[0] - 17));
             vsView.setAuthor(currentBook.getAuthor());
             vsView.setBook(currentBook.getName());
+            vsView.clearColumns();
+            vsView.setColumn(Integer.parseInt(currentBook.getLocationTag().substring(2, 3)) - 1);
+            aiView.setTargetShelf(Character.getNumericValue(currentBook.getLocationTag().substring(0, 1).toCharArray()[0] - 17), Integer.parseInt(currentBook.getLocationTag().substring(2, 3)) - 1);
+
         } else if (aiView.getVisibility() == View.VISIBLE)  {
             if (currentPathInPaths == 10) {
                 aiView.setVisibility(View.GONE);
@@ -301,9 +320,21 @@ public class UserInterfaceHandler {
                 currentBookInPath++;
                 Toast.makeText(getContext(), "On to Book " + currentBookInPath, Toast.LENGTH_SHORT).show();
             }
+            aiView.removeTargetShelf(Character.getNumericValue(currentBook.getLocationTag().substring(0, 1).toCharArray()[0] - 17), Integer.parseInt(currentBook.getLocationTag().substring(2, 3)) - 1);
             currentBook = currentPickPaths.get(currentPathInPaths - 1).get(currentBookInPath - 1);
+            Log.d("TAG", currentBook.getLocationTag().substring(0, 1));
+            Log.d("TAG", currentBook.getLocationTag().substring(2, 3));
+            Log.d("TAG", currentBook.getLocationTag().substring(4, 5));
+            Log.d("TAG", "" + (char)(currentBook.getLocationTag().substring(0, 1).toCharArray()[0] - 17));
             vsView.setAuthor(currentBook.getAuthor());
             vsView.setBook(currentBook.getName());
+            vsView.clearColumns();
+            vsView.setColumn(Integer.parseInt(currentBook.getLocationTag().substring(2, 3)) - 1);
+            aiView.setTargetShelf(Character.getNumericValue(currentBook.getLocationTag().substring(0, 1).toCharArray()[0] - 17), Integer.parseInt(currentBook.getLocationTag().substring(2, 3)) - 1);
+            if (aiView.getVisibility() == View.VISIBLE) {
+                aiView.setVisibility(View.GONE);
+                aiView.setVisibility(View.VISIBLE);
+            }
         } else if (comView.getVisibility() == View.VISIBLE) {
             comView.setVisibility(View.GONE);
             vsView.setVisibility(View.VISIBLE);

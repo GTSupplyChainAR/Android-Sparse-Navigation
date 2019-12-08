@@ -21,6 +21,9 @@ import com.thad.sparse_nav_lib.Static.Prefs;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by tinggu on 4/15/18.
  */
@@ -33,6 +36,7 @@ public class VerticalShelfView extends LinearLayout {
     private ImageView[] shelves;
     private String book;
     private String author;
+    private List<TextView> columnTags;
 
     private int MP = ViewGroup.LayoutParams.MATCH_PARENT;
     private int WC = ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -53,7 +57,7 @@ public class VerticalShelfView extends LinearLayout {
 
 
         int padding_px = 10;
-
+        columnTags = new ArrayList<>();
         instructions_view = new TextView(context);
         instructions_view.setLayoutParams(new LayoutParams(MP, 60));
         applyTextStyle(instructions_view);
@@ -85,8 +89,8 @@ public class VerticalShelfView extends LinearLayout {
             lp.gravity = Gravity.CENTER;
             columnTag.setLayoutParams(lp);
             applyTextStyle(columnTag);
-            columnTag.setText(Integer.toString(i +  1));
             vertical_layout.addView(columnTag);
+            columnTags.add(columnTag);
             shelves = new ImageView[rows];
             for (int j = 0; j < rows; j++) {
                 ImageView shelf = new ImageView(context);
@@ -147,5 +151,15 @@ public class VerticalShelfView extends LinearLayout {
     }
     public void setAuthor(String author) {
         this.author = author;
+    }
+    public void setColumn(Integer column) {
+        TextView columnTag = columnTags.get(column);
+        columnTag.setText("*");
+    }
+
+    public void clearColumns() {
+        for (TextView columnTag: columnTags) {
+            columnTag.setText("");
+        }
     }
 }

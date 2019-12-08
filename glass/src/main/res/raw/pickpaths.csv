@@ -8,11 +8,11 @@
 ,,,,,,,,,,,,,Capacitive Sensors - Design and Applications,Larry K. Baxter,C-3-1,12,6
 ,,,,,,,,,,,,,America Again,Stephen Colbert,F-1-2,5,6
 ,,,,,,,,,,,,,Introduction To Electrical Circuit Analysis,Robert Carter,E-2-3,6,3
-,,,,,,,,,,,,,"Computers: Their Structure, Use, and Influence","Slotnick, Slotnick",E-3-5,6,6
+,,,,,,,,,,,,,Computers: Their Structure Use and Influence,Slotnick Slotnick,E-3-5,6,6
 ,,orderedBooksAndLocations,,,,,,,,,,,Guide to Data Analysis,Jarija J. Norusis,B-2-1,17,3
 ,,,,,,,,,,,,,The Art of Manipulating Fabric,Colette Wolff,C-3-5,12,6
 ,,,,,,,,,,,,,Capacitive Sensors - Design and Applications,Larry K. Baxter,C-3-1,12,6
-,,,,,,,,,,,,,"Computers: Their Structure, Use, and Influence","Slotnick, Slotnick",E-3-5,6,6
+,,,,,,,,,,,,,Computers: Their Structure Use and Influence,Slotnick Slotnick,E-3-5,6,6
 ,,,,,,,,,,,,,Introduction To Electrical Circuit Analysis,Robert Carter,E-2-3,6,3
 ,,,,,,,,,,,,,America Again,Stephen Colbert,F-1-2,5,6
 ,,,,,,,,,,,,,Fun Home,Alison Bechdel,F-2-4,5,3
@@ -33,7 +33,7 @@
 ,,,,13,6,,,,,,,,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,12,6,,,,,,,,,,,,
-,,,4,12,6,,,"Computers: Their Structure, Use, and Influence","Slotnick, Slotnick",E-3-5,6,6,,,,,
+,,,4,12,6,,,Computers: Their Structure Use and Influence,Slotnick Slotnick,E-3-5,6,6,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,13,8,,,,,,,,,,,,
 ,,,,7,8,,,,,,,,,,,,
@@ -71,13 +71,13 @@
 ,,,,19,8,,,,,,,,,,,,
 ,,,,23,0,,,,,,,,,,,,
 ,,,,24,0,,,,,,,,,,,,
-2,training,unorderedBooksAndLocations,,,,,,,,,,,Promised Land,"Connie Willis, Cynthia Felice",C-3-4,12,6
+2,training,unorderedBooksAndLocations,,,,,,,,,,,Promised Land,Connie Willis Cynthia Felice,C-3-4,12,6
 ,,,,,,,,,,,,,Cognitive Science,George F. Luger,G-3-4,0,6
 ,,,,,,,,,,,,,Conquerors Legacy,Timothy Zahn,A-2-5,18,3
 ,,,,,,,,,,,,,Visual Modeling with Rational Rose and UML,Quatrani,C-1-5,12,0
 ,,,,,,,,,,,,,Circuit Encyclopedia,McGraw-Hill,B-1-5,17,6
 ,,,,,,,,,,,,,Applied Combinatorics with Problem Solving,Jackson Thoro,A-3-2,18,6
-,,,,,,,,,,,,,Statistics for Experimenters,"Box, Hunter & Hunter",C-3-2,12,6
+,,,,,,,,,,,,,Statistics for Experimenters,Box Hunter & Hunter,C-3-2,12,6
 ,,,,,,,,,,,,,America Again,Stephen Colbert,F-1-2,5,6
 ,,,,,,,,,,,,,Ender in Exile,Orson Scott Card,F-3-4,5,0
 ,,,,,,,,,,,,,Electronic Sensor Circuits & Projects,Forrest M. Mims III,A-1-4,18,0
@@ -86,8 +86,8 @@
 ,,,,,,,,,,,,,Ender in Exile,Orson Scott Card,F-3-4,5,0
 ,,,,,,,,,,,,,Cognitive Science,George F. Luger,G-3-4,0,6
 ,,,,,,,,,,,,,America Again,Stephen Colbert,F-1-2,5,6
-,,,,,,,,,,,,,Promised Land,"Connie Willis, Cynthia Felice",C-3-4,12,6
-,,,,,,,,,,,,,Statistics for Experimenters,"Box, Hunter & Hunter",C-3-2,12,6
+,,,,,,,,,,,,,Promised Land,Connie Willis Cynthia Felice,C-3-4,12,6
+,,,,,,,,,,,,,Statistics for Experimenters,Box Hunter & Hunter,C-3-2,12,6
 ,,,,,,,,,,,,,Visual Modeling with Rational Rose and UML,Quatrani,C-1-5,12,0
 ,,,,,,,,,,,,,Circuit Encyclopedia,McGraw-Hill,B-1-5,17,6
 ,,,,,,,,,,,,,Electronic Sensor Circuits & Projects,Forrest M. Mims III,A-1-4,18,0
@@ -113,13 +113,13 @@
 ,,,,1,6,,,,,,,,,,,,
 ,,,,4,6,,,,,,,,,,,,
 ,,,,5,6,,,,,,,,,,,,
-,,,6,5,6,,,Promised Land,"Connie Willis, Cynthia Felice",C-3-4,12,6,,,,,
+,,,6,5,6,,,Promised Land,Connie Willis Cynthia Felice,C-3-4,12,6,,,,,
 ,,,,4,6,,,,,,,,,,,,
 ,,,,4,8,,,,,,,,,,,,
 ,,,,13,8,,,,,,,,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,12,6,,,,,,,,,,,,
-,,,7,12,6,,,Statistics for Experimenters,"Box, Hunter & Hunter",C-3-2,12,6,,,,,
+,,,7,12,6,,,Statistics for Experimenters,Box Hunter & Hunter,C-3-2,12,6,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,12,6,,,,,,,,,,,,
@@ -142,18 +142,18 @@
 ,,,,23,0,,,,,,,,,,,,
 ,,,,24,0,,,,,,,,,,,,
 3,training,unorderedBooksAndLocations,,,,,,,,,,,Digital Technology,Gerald E. Williams,G-1-4,0,0
-,,,,,,,,,,,,,Knowledge-Based Image Processing Systems,"Graham, Barrett",E-1-4,6,0
+,,,,,,,,,,,,,Knowledge-Based Image Processing Systems,Graham Barrett,E-1-4,6,0
 ,,,,,,,,,,,,,Cognitive Science,George F. Luger,G-3-4,0,6
 ,,,,,,,,,,,,,An Introduction to Bayesian Networks,Finn. V Jensen,E-3-4,6,6
 ,,,,,,,,,,,,,Conquerors Legacy,Timothy Zahn,A-2-5,18,3
 ,,,,,,,,,,,,,Fun Home,Alison Bechdel,F-2-4,5,3
 ,,,,,,,,,,,,,Public Enemies,Bryan Burrough,G-3-5,0,6
-,,,,,,,,,,,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0
-,,,,,,,,,,,,,Linux Toys,"Negus, Wolber",D-1-5,11,6
+,,,,,,,,,,,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0
+,,,,,,,,,,,,,Linux Toys,Negus Wolber,D-1-5,11,6
 ,,,,,,,,,,,,,Introduction to Computing and Algorithms,Russel L. Shackelford,B-3-1,17,0
-,,orderedBooksAndLocations,,,,,,,,,,,Linux Toys,"Negus, Wolber",D-1-5,11,6
-,,,,,,,,,,,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0
-,,,,,,,,,,,,,Knowledge-Based Image Processing Systems,"Graham, Barrett",E-1-4,6,0
+,,orderedBooksAndLocations,,,,,,,,,,,Linux Toys,Negus Wolber,D-1-5,11,6
+,,,,,,,,,,,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0
+,,,,,,,,,,,,,Knowledge-Based Image Processing Systems,Graham Barrett,E-1-4,6,0
 ,,,,,,,,,,,,,An Introduction to Bayesian Networks,Finn. V Jensen,E-3-4,6,6
 ,,,,,,,,,,,,,Fun Home,Alison Bechdel,F-2-4,5,3
 ,,,,,,,,,,,,,Digital Technology,Gerald E. Williams,G-1-4,0,0
@@ -161,17 +161,17 @@
 ,,,,,,,,,,,,,Public Enemies,Bryan Burrough,G-3-5,0,6
 ,,,,,,,,,,,,,Introduction to Computing and Algorithms,Russel L. Shackelford,B-3-1,17,0
 ,,,,,,,,,,,,,Conquerors Legacy,Timothy Zahn,A-2-5,18,3
-,,orderedPickPath,1,24,0,,,Linux Toys,"Negus, Wolber",D-1-5,11,6,,,,,
+,,orderedPickPath,1,24,0,,,Linux Toys,Negus Wolber,D-1-5,11,6,,,,,
 ,,,,23,0,,,,,,,,,,,,
 ,,,,19,8,,,,,,,,,,,,
 ,,,,10,8,,,,,,,,,,,,
 ,,,,10,6,,,,,,,,,,,,
 ,,,,11,6,,,,,,,,,,,,
-,,,2,11,6,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0,,,,,
+,,,2,11,6,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0,,,,,
 ,,,,10,6,,,,,,,,,,,,
 ,,,,10,0,,,,,,,,,,,,
 ,,,,11,0,,,,,,,,,,,,
-,,,3,11,0,,,Knowledge-Based Image Processing Systems,"Graham, Barrett",E-1-4,6,0,,,,,
+,,,3,11,0,,,Knowledge-Based Image Processing Systems,Graham Barrett,E-1-4,6,0,,,,,
 ,,,,10,0,,,,,,,,,,,,
 ,,,,7,0,,,,,,,,,,,,
 ,,,,6,0,,,,,,,,,,,,
@@ -214,26 +214,26 @@
 ,,,,23,0,,,,,,,,,,,,
 ,,,,24,0,,,,,,,,,,,,
 4,training,unorderedBooksAndLocations,,,,,,,,,,,Enercell Battery Guidebook,Radio Shack,C-2-2,12,3
-,,,,,,,,,,,,,Hard Real-Time Systems,"John, Kirithi",A-2-2,18,3
+,,,,,,,,,,,,,Hard Real-Time Systems,John Kirithi,A-2-2,18,3
 ,,,,,,,,,,,,,Cognitive Science,George F. Luger,G-3-4,0,6
-,,,,,,,,,,,,,Casual Inference in Statistics,"Pearl, Glymour, Jewell",E-2-4,6,3
+,,,,,,,,,,,,,Casual Inference in Statistics,Pearl Glymour Jewell,E-2-4,6,3
 ,,,,,,,,,,,,,Practical Digital Design Using ICs,Joseph D. Greenfield,G-2-3,0,3
 ,,,,,,,,,,,,,Signals and Systems An Introduction to Analog and Digital Signal Processing,Alan V. Oppenheim,C-1-4,12,0
 ,,,,,,,,,,,,,Digital Technology,Gerald E. Williams,G-1-4,0,0
 ,,,,,,,,,,,,,Allied Electronics,Allied 790,D-3-3,11,0
 ,,,,,,,,,,,,,What You See Is Where You Act Interlacing the Display and Manipulation Spaces,J.P. Djajadiningrat,B-2-5,17,3
 ,,,,,,,,,,,,,Consciousness,Blackmore,A-3-4,18,6
-,,orderedBooksAndLocations,,,,,,,,,,,Hard Real-Time Systems,"John, Kirithi",A-2-2,18,3
+,,orderedBooksAndLocations,,,,,,,,,,,Hard Real-Time Systems,John Kirithi,A-2-2,18,3
 ,,,,,,,,,,,,,Consciousness,Blackmore,A-3-4,18,6
 ,,,,,,,,,,,,,What You See Is Where You Act Interlacing the Display and Manipulation Spaces,J.P. Djajadiningrat,B-2-5,17,3
 ,,,,,,,,,,,,,Enercell Battery Guidebook,Radio Shack,C-2-2,12,3
 ,,,,,,,,,,,,,Signals and Systems An Introduction to Analog and Digital Signal Processing,Alan V. Oppenheim,C-1-4,12,0
 ,,,,,,,,,,,,,Allied Electronics,Allied 790,D-3-3,11,0
-,,,,,,,,,,,,,Casual Inference in Statistics,"Pearl, Glymour, Jewell",E-2-4,6,3
+,,,,,,,,,,,,,Casual Inference in Statistics,Pearl Glymour Jewell,E-2-4,6,3
 ,,,,,,,,,,,,,Cognitive Science,George F. Luger,G-3-4,0,6
 ,,,,,,,,,,,,,Practical Digital Design Using ICs,Joseph D. Greenfield,G-2-3,0,3
 ,,,,,,,,,,,,,Digital Technology,Gerald E. Williams,G-1-4,0,0
-,,orderedPickPath,1,24,0,,,Hard Real-Time Systems,"John, Kirithi",A-2-2,18,3,,,,,
+,,orderedPickPath,1,24,0,,,Hard Real-Time Systems,John Kirithi,A-2-2,18,3,,,,,
 ,,,,23,0,,,,,,,,,,,,
 ,,,,19,3,,,,,,,,,,,,
 ,,,,18,3,,,,,,,,,,,,
@@ -261,7 +261,7 @@
 ,,,,10,8,,,,,,,,,,,,
 ,,,,10,0,,,,,,,,,,,,
 ,,,,11,0,,,,,,,,,,,,
-,,,7,11,0,,,Casual Inference in Statistics,"Pearl, Glymour, Jewell",E-2-4,6,3,,,,,
+,,,7,11,0,,,Casual Inference in Statistics,Pearl Glymour Jewell,E-2-4,6,3,,,,,
 ,,,,10,0,,,,,,,,,,,,
 ,,,,7,3,,,,,,,,,,,,
 ,,,,6,3,,,,,,,,,,,,
@@ -287,22 +287,22 @@
 ,,,,24,0,,,,,,,,,,,,
 5,training,unorderedBooksAndLocations,,,,,,,,,,,Practical Digital Design Using ICs,Joseph D. Greenfield,G-2-3,0,3
 ,,,,,,,,,,,,,Public Enemies,Bryan Burrough,G-3-5,0,6
-,,,,,,,,,,,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0
+,,,,,,,,,,,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0
 ,,,,,,,,,,,,,Cognitive Science,George F. Luger,G-3-4,0,6
 ,,,,,,,,,,,,,Pegasus in Space,Anne McCaffrey,E-3-1,6,6
 ,,,,,,,,,,,,,Selected Reprints On VLSI Technologies and Computer Graphics,Henry Fuchs,A-1-2,18,0
 ,,,,,,,,,,,,,Rise & Resurrection of the American Programmer,Edward Yourdon,E-1-1,6,0
 ,,,,,,,,,,,,,The Complete Persepolis,Marjane Satrapi,F-3-5,5,0
 ,,,,,,,,,,,,,Conquerors Legacy,Timothy Zahn,A-2-5,18,3
-,,,,,,,,,,,,,Statistics for Experimenters,"Box, Hunter & Hunter",C-3-2,12,6
+,,,,,,,,,,,,,Statistics for Experimenters,Box Hunter & Hunter,C-3-2,12,6
 ,,orderedBooksAndLocations,,,,,,,,,,,The Complete Persepolis,Marjane Satrapi,F-3-5,5,0
 ,,,,,,,,,,,,,Practical Digital Design Using ICs,Joseph D. Greenfield,G-2-3,0,3
 ,,,,,,,,,,,,,Public Enemies,Bryan Burrough,G-3-5,0,6
 ,,,,,,,,,,,,,Cognitive Science,George F. Luger,G-3-4,0,6
 ,,,,,,,,,,,,,Pegasus in Space,Anne McCaffrey,E-3-1,6,6
 ,,,,,,,,,,,,,Rise & Resurrection of the American Programmer,Edward Yourdon,E-1-1,6,0
-,,,,,,,,,,,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0
-,,,,,,,,,,,,,Statistics for Experimenters,"Box, Hunter & Hunter",C-3-2,12,6
+,,,,,,,,,,,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0
+,,,,,,,,,,,,,Statistics for Experimenters,Box Hunter & Hunter,C-3-2,12,6
 ,,,,,,,,,,,,,Conquerors Legacy,Timothy Zahn,A-2-5,18,3
 ,,,,,,,,,,,,,Selected Reprints On VLSI Technologies and Computer Graphics,Henry Fuchs,A-1-2,18,0
 ,,orderedPickPath,1,24,0,,,The Complete Persepolis,Marjane Satrapi,F-3-5,5,0,,,,,
@@ -333,11 +333,11 @@
 ,,,,7,6,,,,,,,,,,,,
 ,,,,7,0,,,,,,,,,,,,
 ,,,,6,0,,,,,,,,,,,,
-,,,7,6,0,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0,,,,,
+,,,7,6,0,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0,,,,,
 ,,,,7,0,,,,,,,,,,,,
 ,,,,10,0,,,,,,,,,,,,
 ,,,,11,0,,,,,,,,,,,,
-,,,8,11,0,,,Statistics for Experimenters,"Box, Hunter & Hunter",C-3-2,12,6,,,,,
+,,,8,11,0,,,Statistics for Experimenters,Box Hunter & Hunter,C-3-2,12,6,,,,,
 ,,,,10,0,,,,,,,,,,,,
 ,,,,10,8,,,,,,,,,,,,
 ,,,,13,8,,,,,,,,,,,,
@@ -360,18 +360,18 @@
 6,training,unorderedBooksAndLocations,,,,,,,,,,,Auto Electronics Projects,Maplin,A-1-5,18,0
 ,,,,,,,,,,,,,Treasure Island,Robert Louis Stevenson,F-2-3,5,3
 ,,,,,,,,,,,,,Machine Learning,Carbonell,A-2-4,18,3
-,,,,,,,,,,,,,Sams Teach Yourself Java 2,"Cadenhead, Lemay",B-1-4,17,6
+,,,,,,,,,,,,,Sams Teach Yourself Java 2,Cadenhead Lemay,B-1-4,17,6
 ,,,,,,,,,,,,,Computer Engineering Hardware Design,M. Morris Mano,B-3-5,17,0
 ,,,,,,,,,,,,,Conquerors Legacy,Timothy Zahn,A-2-5,18,3
 ,,,,,,,,,,,,,Mind Design ||,John Haugeland,E-1-2,6,0
 ,,,,,,,,,,,,,The Art of War,Sun Tzu,F-2-2,5,3
-,,,,,,,,,,,,,Casual Inference in Statistics,"Pearl, Glymour, Jewell",E-2-4,6,3
+,,,,,,,,,,,,,Casual Inference in Statistics,Pearl Glymour Jewell,E-2-4,6,3
 ,,,,,,,,,,,,,Location and Context-Awareness,LoCA 2006,G-1-2,0,0
 ,,orderedBooksAndLocations,,,,,,,,,,,Machine Learning,Carbonell,A-2-4,18,3
 ,,,,,,,,,,,,,Conquerors Legacy,Timothy Zahn,A-2-5,18,3
 ,,,,,,,,,,,,,Computer Engineering Hardware Design,M. Morris Mano,B-3-5,17,0
-,,,,,,,,,,,,,Sams Teach Yourself Java 2,"Cadenhead, Lemay",B-1-4,17,6
-,,,,,,,,,,,,,Casual Inference in Statistics,"Pearl, Glymour, Jewell",E-2-4,6,3
+,,,,,,,,,,,,,Sams Teach Yourself Java 2,Cadenhead Lemay,B-1-4,17,6
+,,,,,,,,,,,,,Casual Inference in Statistics,Pearl Glymour Jewell,E-2-4,6,3
 ,,,,,,,,,,,,,Mind Design ||,John Haugeland,E-1-2,6,0
 ,,,,,,,,,,,,,Treasure Island,Robert Louis Stevenson,F-2-3,5,3
 ,,,,,,,,,,,,,The Art of War,Sun Tzu,F-2-2,5,3
@@ -391,11 +391,11 @@
 ,,,,16,8,,,,,,,,,,,,
 ,,,,16,0,,,,,,,,,,,,
 ,,,,17,0,,,,,,,,,,,,
-,,,4,17,0,,,Sams Teach Yourself Java 2,"Cadenhead, Lemay",B-1-4,17,6,,,,,
+,,,4,17,0,,,Sams Teach Yourself Java 2,Cadenhead Lemay,B-1-4,17,6,,,,,
 ,,,,16,0,,,,,,,,,,,,
 ,,,,16,6,,,,,,,,,,,,
 ,,,,17,6,,,,,,,,,,,,
-,,,5,17,6,,,Casual Inference in Statistics,"Pearl, Glymour, Jewell",E-2-4,6,3,,,,,
+,,,5,17,6,,,Casual Inference in Statistics,Pearl Glymour Jewell,E-2-4,6,3,,,,,
 ,,,,16,6,,,,,,,,,,,,
 ,,,,12,8,,,,,,,,,,,,
 ,,,,7,6,,,,,,,,,,,,
@@ -432,7 +432,7 @@
 7,training,unorderedBooksAndLocations,,,,,,,,,,,An Introduction to Programming: C++,C. Thomas Wu,A-1-3,18,0
 ,,,,,,,,,,,,,Computers in the Human Context,Tom Forester,D-3-4,11,0
 ,,,,,,,,,,,,,Pegasus in Space,Anne McCaffrey,E-3-1,6,6
-,,,,,,,,,,,,,"Programmer's Problem Solver for the IBM PC, XT & AT",Robert Jourdain,C-1-2,12,0
+,,,,,,,,,,,,,Programmer's Problem Solver for the IBM PC XT & AT,Robert Jourdain,C-1-2,12,0
 ,,,,,,,,,,,,,Concurrent Systems,Jean Bacon,G-3-2,0,6
 ,,,,,,,,,,,,,J2ME Games with MIDP2,Carol Hamer,C-1-3,12,0
 ,,,,,,,,,,,,,Conference Abstracts and Applications,SIGGRAPH 2000,F-2-1,5,3
@@ -440,7 +440,7 @@
 ,,,,,,,,,,,,,Freedom's Landing,Anne McCaffrey,B-3-2,17,0
 ,,,,,,,,,,,,,Handbook of Modern Sensors,Jacob Fraden,E-2-2,6,3
 ,,orderedBooksAndLocations,,,,,,,,,,,Freedom's Landing,Anne McCaffrey,B-3-2,17,0
-,,,,,,,,,,,,,"Programmer's Problem Solver for the IBM PC, XT & AT",Robert Jourdain,C-1-2,12,0
+,,,,,,,,,,,,,Programmer's Problem Solver for the IBM PC XT & AT,Robert Jourdain,C-1-2,12,0
 ,,,,,,,,,,,,,J2ME Games with MIDP2,Carol Hamer,C-1-3,12,0
 ,,,,,,,,,,,,,Computers in the Human Context,Tom Forester,D-3-4,11,0
 ,,,,,,,,,,,,,Handbook of Modern Sensors,Jacob Fraden,E-2-2,6,3
@@ -455,7 +455,7 @@
 ,,,,16,8,,,,,,,,,,,,
 ,,,,16,0,,,,,,,,,,,,
 ,,,,17,0,,,,,,,,,,,,
-,,,2,17,0,,,"Programmer's Problem Solver for the IBM PC, XT & AT",Robert Jourdain,C-1-2,12,0,,,,,
+,,,2,17,0,,,Programmer's Problem Solver for the IBM PC XT & AT,Robert Jourdain,C-1-2,12,0,,,,,
 ,,,,16,0,,,,,,,,,,,,
 ,,,,13,0,,,,,,,,,,,,
 ,,,,12,0,,,,,,,,,,,,
@@ -501,43 +501,43 @@
 ,,,,19,0,,,,,,,,,,,,
 ,,,,23,0,,,,,,,,,,,,
 ,,,,24,0,,,,,,,,,,,,
-8,training,unorderedBooksAndLocations,,,,,,,,,,,Promised Land,"Connie Willis, Cynthia Felice",C-3-4,12,6
+8,training,unorderedBooksAndLocations,,,,,,,,,,,Promised Land,Connie Willis Cynthia Felice,C-3-4,12,6
 ,,,,,,,,,,,,,The Complete Persepolis,Marjane Satrapi,F-3-5,5,0
 ,,,,,,,,,,,,,Rise & Resurrection of the American Programmer,Edward Yourdon,E-1-1,6,0
-,,,,,,,,,,,,,"C, The Complete Reference",Herbert Schildt,D-2-4,11,3
+,,,,,,,,,,,,,C The Complete Reference,Herbert Schildt,D-2-4,11,3
 ,,,,,,,,,,,,,Computers in the Human Context,Tom Forester,D-3-4,11,0
-,,,,,,,,,,,,,For the Love of Physics,"Goldstein, Lewin",F-1-4,5,6
+,,,,,,,,,,,,,For the Love of Physics,Goldstein Lewin,F-1-4,5,6
 ,,,,,,,,,,,,,What You See Is Where You Act Interlacing the Display and Manipulation Spaces,J.P. Djajadiningrat,B-2-5,17,3
-,,,,,,,,,,,,,Linux Toys,"Negus, Wolber",D-1-5,11,6
-,,,,,,,,,,,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0
+,,,,,,,,,,,,,Linux Toys,Negus Wolber,D-1-5,11,6
+,,,,,,,,,,,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0
 ,,,,,,,,,,,,,Allied Electronics,Allied 790,D-3-3,11,0
 ,,orderedBooksAndLocations,,,,,,,,,,,What You See Is Where You Act Interlacing the Display and Manipulation Spaces,J.P. Djajadiningrat,B-2-5,17,3
-,,,,,,,,,,,,,Promised Land,"Connie Willis, Cynthia Felice",C-3-4,12,6
-,,,,,,,,,,,,,Linux Toys,"Negus, Wolber",D-1-5,11,6
-,,,,,,,,,,,,,"C, The Complete Reference",Herbert Schildt,D-2-4,11,3
+,,,,,,,,,,,,,Promised Land,Connie Willis Cynthia Felice,C-3-4,12,6
+,,,,,,,,,,,,,Linux Toys,Negus Wolber,D-1-5,11,6
+,,,,,,,,,,,,,C The Complete Reference,Herbert Schildt,D-2-4,11,3
 ,,,,,,,,,,,,,Computers in the Human Context,Tom Forester,D-3-4,11,0
-,,,,,,,,,,,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0
+,,,,,,,,,,,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0
 ,,,,,,,,,,,,,Allied Electronics,Allied 790,D-3-3,11,0
 ,,,,,,,,,,,,,Rise & Resurrection of the American Programmer,Edward Yourdon,E-1-1,6,0
 ,,,,,,,,,,,,,The Complete Persepolis,Marjane Satrapi,F-3-5,5,0
-,,,,,,,,,,,,,For the Love of Physics,"Goldstein, Lewin",F-1-4,5,6
+,,,,,,,,,,,,,For the Love of Physics,Goldstein Lewin,F-1-4,5,6
 ,,orderedPickPath,1,24,0,,,What You See Is Where You Act Interlacing the Display and Manipulation Spaces,J.P. Djajadiningrat,B-2-5,17,3,,,,,
 ,,,,23,0,,,,,,,,,,,,
 ,,,,19,8,,,,,,,,,,,,
 ,,,,16,8,,,,,,,,,,,,
 ,,,,16,3,,,,,,,,,,,,
 ,,,,17,3,,,,,,,,,,,,
-,,,2,17,3,,,Promised Land,"Connie Willis, Cynthia Felice",C-3-4,12,6,,,,,
+,,,2,17,3,,,Promised Land,Connie Willis Cynthia Felice,C-3-4,12,6,,,,,
 ,,,,16,3,,,,,,,,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,12,6,,,,,,,,,,,,
-,,,3,12,6,,,Linux Toys,"Negus, Wolber",D-1-5,11,6,,,,,
+,,,3,12,6,,,Linux Toys,Negus Wolber,D-1-5,11,6,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,13,8,,,,,,,,,,,,
 ,,,,10,8,,,,,,,,,,,,
 ,,,,10,6,,,,,,,,,,,,
 ,,,,11,6,,,,,,,,,,,,
-,,,4,11,6,,,"C, The Complete Reference",Herbert Schildt,D-2-4,11,3,,,,,
+,,,4,11,6,,,C The Complete Reference,Herbert Schildt,D-2-4,11,3,,,,,
 ,,,,10,6,,,,,,,,,,,,
 ,,,,10,3,,,,,,,,,,,,
 ,,,,11,3,,,,,,,,,,,,
@@ -545,7 +545,7 @@
 ,,,,10,3,,,,,,,,,,,,
 ,,,,10,0,,,,,,,,,,,,
 ,,,,11,0,,,,,,,,,,,,
-,,,6,11,0,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0,,,,,
+,,,6,11,0,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0,,,,,
 ,,,,10,0,,,,,,,,,,,,
 ,,,,10,0,,,,,,,,,,,,
 ,,,,11,0,,,,,,,,,,,,
@@ -563,7 +563,7 @@
 ,,,,4,8,,,,,,,,,,,,
 ,,,,4,0,,,,,,,,,,,,
 ,,,,5,0,,,,,,,,,,,,
-,,,10,5,0,,,For the Love of Physics,"Goldstein, Lewin",F-1-4,5,6,,,,,
+,,,10,5,0,,,For the Love of Physics,Goldstein Lewin,F-1-4,5,6,,,,,
 ,,,,4,0,,,,,,,,,,,,
 ,,,,4,6,,,,,,,,,,,,
 ,,,,5,6,,,,,,,,,,,,
@@ -578,10 +578,10 @@
 ,,,,,,,,,,,,,Visual Modeling with Rational Rose and UML,Quatrani,C-1-5,12,0
 ,,,,,,,,,,,,,The Art of Manipulating Fabric,Colette Wolff,C-3-5,12,6
 ,,,,,,,,,,,,,Discover Your True North,Bill George,B-2-4,17,3
-,,,,,,,,,,,,,Casual Inference in Statistics,"Pearl, Glymour, Jewell",E-2-4,6,3
-,,,,,,,,,,,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0
+,,,,,,,,,,,,,Casual Inference in Statistics,Pearl Glymour Jewell,E-2-4,6,3
+,,,,,,,,,,,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0
 ,,,,,,,,,,,,,The Lean Startup,Eric Ries,E-3-3,6,6
-,,,,,,,,,,,,,Knowledge-Based Image Processing Systems,"Graham, Barrett",E-1-4,6,0
+,,,,,,,,,,,,,Knowledge-Based Image Processing Systems,Graham Barrett,E-1-4,6,0
 ,,,,,,,,,,,,,Conference Abstracts and Applications,SIGGRAPH 2000,F-2-1,5,3
 ,,orderedBooksAndLocations,,,,,,,,,,,Discover Your True North,Bill George,B-2-4,17,3
 ,,,,,,,,,,,,,Visual Modeling with Rational Rose and UML,Quatrani,C-1-5,12,0
@@ -589,9 +589,9 @@
 ,,,,,,,,,,,,,Conference Abstracts and Applications,SIGGRAPH 2000,F-2-1,5,3
 ,,,,,,,,,,,,,Cosmos,Carl Sagan,E-3-2,6,6
 ,,,,,,,,,,,,,The Lean Startup,Eric Ries,E-3-3,6,6
-,,,,,,,,,,,,,Casual Inference in Statistics,"Pearl, Glymour, Jewell",E-2-4,6,3
-,,,,,,,,,,,,,Knowledge-Based Image Processing Systems,"Graham, Barrett",E-1-4,6,0
-,,,,,,,,,,,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0
+,,,,,,,,,,,,,Casual Inference in Statistics,Pearl Glymour Jewell,E-2-4,6,3
+,,,,,,,,,,,,,Knowledge-Based Image Processing Systems,Graham Barrett,E-1-4,6,0
+,,,,,,,,,,,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0
 ,,,,,,,,,,,,,Electronic Sensor Circuits & Projects,Forrest M. Mims III,A-1-4,18,0
 ,,orderedPickPath,1,24,0,,,Discover Your True North,Bill George,B-2-4,17,3,,,,,
 ,,,,23,0,,,,,,,,,,,,
@@ -623,15 +623,15 @@
 ,,,,7,6,,,,,,,,,,,,
 ,,,,7,6,,,,,,,,,,,,
 ,,,,6,6,,,,,,,,,,,,
-,,,7,6,6,,,Casual Inference in Statistics,"Pearl, Glymour, Jewell",E-2-4,6,3,,,,,
+,,,7,6,6,,,Casual Inference in Statistics,Pearl Glymour Jewell,E-2-4,6,3,,,,,
 ,,,,7,6,,,,,,,,,,,,
 ,,,,7,3,,,,,,,,,,,,
 ,,,,6,3,,,,,,,,,,,,
-,,,8,6,3,,,Knowledge-Based Image Processing Systems,"Graham, Barrett",E-1-4,6,0,,,,,
+,,,8,6,3,,,Knowledge-Based Image Processing Systems,Graham Barrett,E-1-4,6,0,,,,,
 ,,,,7,3,,,,,,,,,,,,
 ,,,,7,0,,,,,,,,,,,,
 ,,,,6,0,,,,,,,,,,,,
-,,,9,6,0,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0,,,,,
+,,,9,6,0,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0,,,,,
 ,,,,7,0,,,,,,,,,,,,
 ,,,,10,0,,,,,,,,,,,,
 ,,,,11,0,,,,,,,,,,,,
@@ -648,24 +648,24 @@
 10,training,unorderedBooksAndLocations,,,,,,,,,,,3D Studio Max,Kinetix,E-2-5,6,3
 ,,,,,,,,,,,,,Concurrent Systems,Jean Bacon,G-3-2,0,6
 ,,,,,,,,,,,,,Galileo's Daughter,Dava Sobel,A-1-1,18,0
-,,,,,,,,,,,,,Linux Toys,"Negus, Wolber",D-1-5,11,6
-,,,,,,,,,,,,,"Robots, Androids, and Animatrons",John Lovine,B-1-1,17,6
-,,,,,,,,,,,,,"Computers: Their Structure, Use, and Influence","Slotnick, Slotnick",E-3-5,6,6
+,,,,,,,,,,,,,Linux Toys,Negus Wolber,D-1-5,11,6
+,,,,,,,,,,,,,Robots Androids and Animatrons,John Lovine,B-1-1,17,6
+,,,,,,,,,,,,,Computers: Their Structure Use and Influence,Slotnick Slotnick,E-3-5,6,6
 ,,,,,,,,,,,,,Expendable,James Alan Gardner,D-3-5,11,0
 ,,,,,,,,,,,,,The Lean Startup,Eric Ries,E-3-3,6,6
 ,,,,,,,,,,,,,The Art of Manipulating Fabric,Colette Wolff,C-3-5,12,6
-,,,,,,,,,,,,,"Programmer's Problem Solver for the IBM PC, XT & AT",Robert Jourdain,C-1-2,12,0
-,,orderedBooksAndLocations,,,,,,,,,,,Linux Toys,"Negus, Wolber",D-1-5,11,6
+,,,,,,,,,,,,,Programmer's Problem Solver for the IBM PC XT & AT,Robert Jourdain,C-1-2,12,0
+,,orderedBooksAndLocations,,,,,,,,,,,Linux Toys,Negus Wolber,D-1-5,11,6
 ,,,,,,,,,,,,,Expendable,James Alan Gardner,D-3-5,11,0
 ,,,,,,,,,,,,,3D Studio Max,Kinetix,E-2-5,6,3
-,,,,,,,,,,,,,"Computers: Their Structure, Use, and Influence","Slotnick, Slotnick",E-3-5,6,6
+,,,,,,,,,,,,,Computers: Their Structure Use and Influence,Slotnick Slotnick,E-3-5,6,6
 ,,,,,,,,,,,,,The Lean Startup,Eric Ries,E-3-3,6,6
 ,,,,,,,,,,,,,Concurrent Systems,Jean Bacon,G-3-2,0,6
 ,,,,,,,,,,,,,The Art of Manipulating Fabric,Colette Wolff,C-3-5,12,6
-,,,,,,,,,,,,,"Programmer's Problem Solver for the IBM PC, XT & AT",Robert Jourdain,C-1-2,12,0
-,,,,,,,,,,,,,"Robots, Androids, and Animatrons",John Lovine,B-1-1,17,6
+,,,,,,,,,,,,,Programmer's Problem Solver for the IBM PC XT & AT,Robert Jourdain,C-1-2,12,0
+,,,,,,,,,,,,,Robots Androids and Animatrons,John Lovine,B-1-1,17,6
 ,,,,,,,,,,,,,Galileo's Daughter,Dava Sobel,A-1-1,18,0
-,,orderedPickPath,1,24,0,,,Linux Toys,"Negus, Wolber",D-1-5,11,6,,,,,
+,,orderedPickPath,1,24,0,,,Linux Toys,Negus Wolber,D-1-5,11,6,,,,,
 ,,,,23,0,,,,,,,,,,,,
 ,,,,19,8,,,,,,,,,,,,
 ,,,,10,8,,,,,,,,,,,,
@@ -679,7 +679,7 @@
 ,,,,10,0,,,,,,,,,,,,
 ,,,,7,3,,,,,,,,,,,,
 ,,,,6,3,,,,,,,,,,,,
-,,,4,6,3,,,"Computers: Their Structure, Use, and Influence","Slotnick, Slotnick",E-3-5,6,6,,,,,
+,,,4,6,3,,,Computers: Their Structure Use and Influence,Slotnick Slotnick,E-3-5,6,6,,,,,
 ,,,,7,3,,,,,,,,,,,,
 ,,,,7,6,,,,,,,,,,,,
 ,,,,6,6,,,,,,,,,,,,
@@ -699,11 +699,11 @@
 ,,,,13,8,,,,,,,,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,12,6,,,,,,,,,,,,
-,,,8,12,6,,,"Programmer's Problem Solver for the IBM PC, XT & AT",Robert Jourdain,C-1-2,12,0,,,,,
+,,,8,12,6,,,Programmer's Problem Solver for the IBM PC XT & AT,Robert Jourdain,C-1-2,12,0,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,13,0,,,,,,,,,,,,
 ,,,,12,0,,,,,,,,,,,,
-,,,9,12,0,,,"Robots, Androids, and Animatrons",John Lovine,B-1-1,17,6,,,,,
+,,,9,12,0,,,Robots Androids and Animatrons,John Lovine,B-1-1,17,6,,,,,
 ,,,,13,0,,,,,,,,,,,,
 ,,,,16,6,,,,,,,,,,,,
 ,,,,17,6,,,,,,,,,,,,
@@ -719,16 +719,16 @@
 ,,,,24,0,,,,,,,,,,,,
 11,testing,unorderedBooksAndLocations,,,,,,,,,,,Winds of Fury,Mercedes Lackey,D-2-2,11,3
 ,,,,,,,,,,,,,Introduction to Computing and Algorithms,Russel L. Shackelford,B-3-1,17,0
-,,,,,,,,,,,,,Sams Teach Yourself Java 2,"Cadenhead, Lemay",B-1-4,17,6
+,,,,,,,,,,,,,Sams Teach Yourself Java 2,Cadenhead Lemay,B-1-4,17,6
 ,,,,,,,,,,,,,Human Factors in Computing Systems,ACM CHI '95,C-2-1,12,3
 ,,,,,,,,,,,,,Conference Abstracts and Applications,SIGGRAPH 2000,F-2-1,5,3
 ,,,,,,,,,,,,,The Art of Manipulating Fabric,Colette Wolff,C-3-5,12,6
 ,,,,,,,,,,,,,C++ Primer 2nd Edition,Stanley B. Lippman,C-3-3,12,6
 ,,,,,,,,,,,,,Systems Journal,MIT Media Laboratory,D-2-1,11,3
-,,,,,,,,,,,,,Linux Toys,"Negus, Wolber",D-1-5,11,6
+,,,,,,,,,,,,,Linux Toys,Negus Wolber,D-1-5,11,6
 ,,,,,,,,,,,,,Computer Engineering Hardware Design,M. Morris Mano,B-3-5,17,0
 ,,orderedBooksAndLocations,,,,,,,,,,,Conference Abstracts and Applications,SIGGRAPH 2000,F-2-1,5,3
-,,,,,,,,,,,,,Linux Toys,"Negus, Wolber",D-1-5,11,6
+,,,,,,,,,,,,,Linux Toys,Negus Wolber,D-1-5,11,6
 ,,,,,,,,,,,,,Winds of Fury,Mercedes Lackey,D-2-2,11,3
 ,,,,,,,,,,,,,Systems Journal,MIT Media Laboratory,D-2-1,11,3
 ,,,,,,,,,,,,,The Art of Manipulating Fabric,Colette Wolff,C-3-5,12,6
@@ -736,14 +736,14 @@
 ,,,,,,,,,,,,,Human Factors in Computing Systems,ACM CHI '95,C-2-1,12,3
 ,,,,,,,,,,,,,Introduction to Computing and Algorithms,Russel L. Shackelford,B-3-1,17,0
 ,,,,,,,,,,,,,Computer Engineering Hardware Design,M. Morris Mano,B-3-5,17,0
-,,,,,,,,,,,,,Sams Teach Yourself Java 2,"Cadenhead, Lemay",B-1-4,17,6
+,,,,,,,,,,,,,Sams Teach Yourself Java 2,Cadenhead Lemay,B-1-4,17,6
 ,,orderedPickPath,1,24,0,,,Conference Abstracts and Applications,SIGGRAPH 2000,F-2-1,5,3,,,,,
 ,,,,23,0,,,,,,,,,,,,
 ,,,,19,8,,,,,,,,,,,,
 ,,,,4,8,,,,,,,,,,,,
 ,,,,4,3,,,,,,,,,,,,
 ,,,,5,3,,,,,,,,,,,,
-,,,2,5,3,,,Linux Toys,"Negus, Wolber",D-1-5,11,6,,,,,
+,,,2,5,3,,,Linux Toys,Negus Wolber,D-1-5,11,6,,,,,
 ,,,,4,3,,,,,,,,,,,,
 ,,,,4,8,,,,,,,,,,,,
 ,,,,7,8,,,,,,,,,,,,
@@ -779,7 +779,7 @@
 ,,,,16,0,,,,,,,,,,,,
 ,,,,16,0,,,,,,,,,,,,
 ,,,,17,0,,,,,,,,,,,,
-,,,10,17,0,,,Sams Teach Yourself Java 2,"Cadenhead, Lemay",B-1-4,17,6,,,,,
+,,,10,17,0,,,Sams Teach Yourself Java 2,Cadenhead Lemay,B-1-4,17,6,,,,,
 ,,,,16,0,,,,,,,,,,,,
 ,,,,16,6,,,,,,,,,,,,
 ,,,,17,6,,,,,,,,,,,,
@@ -790,9 +790,9 @@
 ,,,,23,0,,,,,,,,,,,,
 ,,,,24,0,,,,,,,,,,,,
 12,testing,unorderedBooksAndLocations,,,,,,,,,,,Winds of Fury,Mercedes Lackey,D-2-2,11,3
-,,,,,,,,,,,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0
+,,,,,,,,,,,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0
 ,,,,,,,,,,,,,Fashion Geek,Diana Eng,B-1-2,17,6
-,,,,,,,,,,,,,Promised Land,"Connie Willis, Cynthia Felice",C-3-4,12,6
+,,,,,,,,,,,,,Promised Land,Connie Willis Cynthia Felice,C-3-4,12,6
 ,,,,,,,,,,,,,Freedom's Landing,Anne McCaffrey,B-3-2,17,0
 ,,,,,,,,,,,,,Conquerors Legacy,Timothy Zahn,A-2-5,18,3
 ,,,,,,,,,,,,,Location and Context-Awareness,LoCA 2006,G-1-2,0,0
@@ -803,8 +803,8 @@
 ,,,,,,,,,,,,,Fashion Geek,Diana Eng,B-1-2,17,6
 ,,,,,,,,,,,,,Freedom's Landing,Anne McCaffrey,B-3-2,17,0
 ,,,,,,,,,,,,,Enercell Battery Guidebook,Radio Shack,C-2-2,12,3
-,,,,,,,,,,,,,Promised Land,"Connie Willis, Cynthia Felice",C-3-4,12,6
-,,,,,,,,,,,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0
+,,,,,,,,,,,,,Promised Land,Connie Willis Cynthia Felice,C-3-4,12,6
+,,,,,,,,,,,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0
 ,,,,,,,,,,,,,Winds of Fury,Mercedes Lackey,D-2-2,11,3
 ,,,,,,,,,,,,,The Complete Persepolis,Marjane Satrapi,F-3-5,5,0
 ,,,,,,,,,,,,,Location and Context-Awareness,LoCA 2006,G-1-2,0,0
@@ -827,11 +827,11 @@
 ,,,,16,0,,,,,,,,,,,,
 ,,,,13,3,,,,,,,,,,,,
 ,,,,12,3,,,,,,,,,,,,
-,,,5,12,3,,,Promised Land,"Connie Willis, Cynthia Felice",C-3-4,12,6,,,,,
+,,,5,12,3,,,Promised Land,Connie Willis Cynthia Felice,C-3-4,12,6,,,,,
 ,,,,13,3,,,,,,,,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,12,6,,,,,,,,,,,,
-,,,6,12,6,,,Discrete-Time Signal Processing,"Oppenheim, Schafer",D-3-1,11,0,,,,,
+,,,6,12,6,,,Discrete-Time Signal Processing,Oppenheim Schafer,D-3-1,11,0,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,13,8,,,,,,,,,,,,
 ,,,,10,8,,,,,,,,,,,,
@@ -866,20 +866,20 @@
 ,,,,,,,,,,,,,Consciousness,Blackmore,A-3-4,18,6
 ,,,,,,,,,,,,,The Lean Startup,Eric Ries,E-3-3,6,6
 ,,,,,,,,,,,,,Capacitive Sensors - Design and Applications,Larry K. Baxter,C-3-1,12,6
-,,,,,,,,,,,,,For the Love of Physics,"Goldstein, Lewin",F-1-4,5,6
+,,,,,,,,,,,,,For the Love of Physics,Goldstein Lewin,F-1-4,5,6
 ,,,,,,,,,,,,,Pegasus in Space,Anne McCaffrey,E-3-1,6,6
 ,,,,,,,,,,,,,Lean in for Graduates,Sheryl Sandberg,F-1-5,5,6
 ,,,,,,,,,,,,,Outward Bound,James P. Hogan,D-2-3,11,3
-,,,,,,,,,,,,,Promised Land,"Connie Willis, Cynthia Felice",C-3-4,12,6
+,,,,,,,,,,,,,Promised Land,Connie Willis Cynthia Felice,C-3-4,12,6
 ,,orderedBooksAndLocations,,,,,,,,,,,Consciousness,Blackmore,A-3-4,18,6
 ,,,,,,,,,,,,,Capacitive Sensors - Design and Applications,Larry K. Baxter,C-3-1,12,6
-,,,,,,,,,,,,,Promised Land,"Connie Willis, Cynthia Felice",C-3-4,12,6
+,,,,,,,,,,,,,Promised Land,Connie Willis Cynthia Felice,C-3-4,12,6
 ,,,,,,,,,,,,,Outward Bound,James P. Hogan,D-2-3,11,3
 ,,,,,,,,,,,,,Introduction to Electric Circuits,Herbert W. Jackson,E-1-3,6,0
 ,,,,,,,,,,,,,The Lean Startup,Eric Ries,E-3-3,6,6
 ,,,,,,,,,,,,,Pegasus in Space,Anne McCaffrey,E-3-1,6,6
 ,,,,,,,,,,,,,Conference Abstracts and Applications,SIGGRAPH 2000,F-2-1,5,3
-,,,,,,,,,,,,,For the Love of Physics,"Goldstein, Lewin",F-1-4,5,6
+,,,,,,,,,,,,,For the Love of Physics,Goldstein Lewin,F-1-4,5,6
 ,,,,,,,,,,,,,Lean in for Graduates,Sheryl Sandberg,F-1-5,5,6
 ,,orderedPickPath,1,24,0,,,Consciousness,Blackmore,A-3-4,18,6,,,,,
 ,,,,23,0,,,,,,,,,,,,
@@ -891,7 +891,7 @@
 ,,,,13,8,,,,,,,,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,12,6,,,,,,,,,,,,
-,,,3,12,6,,,Promised Land,"Connie Willis, Cynthia Felice",C-3-4,12,6,,,,,
+,,,3,12,6,,,Promised Land,Connie Willis Cynthia Felice,C-3-4,12,6,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,12,6,,,,,,,,,,,,
@@ -919,7 +919,7 @@
 ,,,,4,8,,,,,,,,,,,,
 ,,,,4,3,,,,,,,,,,,,
 ,,,,5,3,,,,,,,,,,,,
-,,,9,5,3,,,For the Love of Physics,"Goldstein, Lewin",F-1-4,5,6,,,,,
+,,,9,5,3,,,For the Love of Physics,Goldstein Lewin,F-1-4,5,6,,,,,
 ,,,,4,3,,,,,,,,,,,,
 ,,,,4,6,,,,,,,,,,,,
 ,,,,5,6,,,,,,,,,,,,
@@ -935,22 +935,22 @@
 ,,,,24,0,,,,,,,,,,,,
 14,testing,unorderedBooksAndLocations,,,,,,,,,,,C++ Primer 2nd Edition,Stanley B. Lippman,C-3-3,12,6
 ,,,,,,,,,,,,,Selected Reprints On VLSI Technologies and Computer Graphics,Henry Fuchs,A-1-2,18,0
-,,,,,,,,,,,,,"Programmer's Problem Solver for the IBM PC, XT & AT",Robert Jourdain,C-1-2,12,0
+,,,,,,,,,,,,,Programmer's Problem Solver for the IBM PC XT & AT,Robert Jourdain,C-1-2,12,0
 ,,,,,,,,,,,,,Practical Digital Design Using ICs,Joseph D. Greenfield,G-2-3,0,3
 ,,,,,,,,,,,,,Enercell Battery Guidebook,Radio Shack,C-2-2,12,3
 ,,,,,,,,,,,,,Neuroethology,Jerffrey M. Camhi,D-1-4,11,6
 ,,,,,,,,,,,,,Electronic Sensor Circuits & Projects,Forrest M. Mims III,A-1-4,18,0
 ,,,,,,,,,,,,,Discover Your True North,Bill George,B-2-4,17,3
 ,,,,,,,,,,,,,Theory of Recursive Functions and Effective Computability,Rogers,A-3-3,18,6
-,,,,,,,,,,,,,"Robots, Androids, and Animatrons",John Lovine,B-1-1,17,6
+,,,,,,,,,,,,,Robots Androids and Animatrons,John Lovine,B-1-1,17,6
 ,,orderedBooksAndLocations,,,,,,,,,,,Theory of Recursive Functions and Effective Computability,Rogers,A-3-3,18,6
 ,,,,,,,,,,,,,Neuroethology,Jerffrey M. Camhi,D-1-4,11,6
 ,,,,,,,,,,,,,Practical Digital Design Using ICs,Joseph D. Greenfield,G-2-3,0,3
 ,,,,,,,,,,,,,C++ Primer 2nd Edition,Stanley B. Lippman,C-3-3,12,6
 ,,,,,,,,,,,,,Enercell Battery Guidebook,Radio Shack,C-2-2,12,3
-,,,,,,,,,,,,,"Programmer's Problem Solver for the IBM PC, XT & AT",Robert Jourdain,C-1-2,12,0
+,,,,,,,,,,,,,Programmer's Problem Solver for the IBM PC XT & AT,Robert Jourdain,C-1-2,12,0
 ,,,,,,,,,,,,,Discover Your True North,Bill George,B-2-4,17,3
-,,,,,,,,,,,,,"Robots, Androids, and Animatrons",John Lovine,B-1-1,17,6
+,,,,,,,,,,,,,Robots Androids and Animatrons,John Lovine,B-1-1,17,6
 ,,,,,,,,,,,,,Selected Reprints On VLSI Technologies and Computer Graphics,Henry Fuchs,A-1-2,18,0
 ,,,,,,,,,,,,,Electronic Sensor Circuits & Projects,Forrest M. Mims III,A-1-4,18,0
 ,,orderedPickPath,1,24,0,,,Theory of Recursive Functions and Effective Computability,Rogers,A-3-3,18,6,,,,,
@@ -979,7 +979,7 @@
 ,,,,13,6,,,,,,,,,,,,
 ,,,,13,3,,,,,,,,,,,,
 ,,,,12,3,,,,,,,,,,,,
-,,,6,12,3,,,"Programmer's Problem Solver for the IBM PC, XT & AT",Robert Jourdain,C-1-2,12,0,,,,,
+,,,6,12,3,,,Programmer's Problem Solver for the IBM PC XT & AT,Robert Jourdain,C-1-2,12,0,,,,,
 ,,,,13,3,,,,,,,,,,,,
 ,,,,13,0,,,,,,,,,,,,
 ,,,,12,0,,,,,,,,,,,,
@@ -987,7 +987,7 @@
 ,,,,13,0,,,,,,,,,,,,
 ,,,,16,3,,,,,,,,,,,,
 ,,,,17,3,,,,,,,,,,,,
-,,,8,17,3,,,"Robots, Androids, and Animatrons",John Lovine,B-1-1,17,6,,,,,
+,,,8,17,3,,,Robots Androids and Animatrons,John Lovine,B-1-1,17,6,,,,,
 ,,,,16,3,,,,,,,,,,,,
 ,,,,16,6,,,,,,,,,,,,
 ,,,,17,6,,,,,,,,,,,,
@@ -1014,11 +1014,11 @@
 ,,,,,,,,,,,,,Fahrenheit 451,Ray Bradbury,F-1-3,5,6
 ,,,,,,,,,,,,,Introduction to Computing and Algorithms,Russel L. Shackelford,B-3-1,17,0
 ,,,,,,,,,,,,,Human Factors in Computing Systems,ACM CHI '95,C-2-1,12,3
-,,,,,,,,,,,,,Casual Inference in Statistics,"Pearl, Glymour, Jewell",E-2-4,6,3
+,,,,,,,,,,,,,Casual Inference in Statistics,Pearl Glymour Jewell,E-2-4,6,3
 ,,orderedBooksAndLocations,,,,,,,,,,,Signals and Systems,Zoher Z. Karu,D-1-2,11,6
 ,,,,,,,,,,,,,An Introduction to Bayesian Networks,Finn. V Jensen,E-3-4,6,6
 ,,,,,,,,,,,,,Introduction To Electrical Circuit Analysis,Robert Carter,E-2-3,6,3
-,,,,,,,,,,,,,Casual Inference in Statistics,"Pearl, Glymour, Jewell",E-2-4,6,3
+,,,,,,,,,,,,,Casual Inference in Statistics,Pearl Glymour Jewell,E-2-4,6,3
 ,,,,,,,,,,,,,Ubiquitous Computing Fundamentals,John Krumm,F-3-3,5,0
 ,,,,,,,,,,,,,America Again,Stephen Colbert,F-1-2,5,6
 ,,,,,,,,,,,,,Fahrenheit 451,Ray Bradbury,F-1-3,5,6
@@ -1039,7 +1039,7 @@
 ,,,,7,6,,,,,,,,,,,,
 ,,,,7,3,,,,,,,,,,,,
 ,,,,6,3,,,,,,,,,,,,
-,,,4,6,3,,,Casual Inference in Statistics,"Pearl, Glymour, Jewell",E-2-4,6,3,,,,,
+,,,4,6,3,,,Casual Inference in Statistics,Pearl Glymour Jewell,E-2-4,6,3,,,,,
 ,,,,7,3,,,,,,,,,,,,
 ,,,,7,3,,,,,,,,,,,,
 ,,,,6,3,,,,,,,,,,,,
@@ -1150,26 +1150,26 @@
 ,,,,23,0,,,,,,,,,,,,
 ,,,,24,0,,,,,,,,,,,,
 17,testing,unorderedBooksAndLocations,,,,,,,,,,,Location and Context-Awareness,LoCA 2006,G-1-2,0,0
-,,,,,,,,,,,,,"Robots, Androids, and Animatrons",John Lovine,B-1-1,17,6
+,,,,,,,,,,,,,Robots Androids and Animatrons,John Lovine,B-1-1,17,6
 ,,,,,,,,,,,,,Pegasus in Space,Anne McCaffrey,E-3-1,6,6
 ,,,,,,,,,,,,,Conference Abstracts and Applications,SIGGRAPH 2000,F-2-1,5,3
-,,,,,,,,,,,,,Hard Real-Time Systems,"John, Kirithi",A-2-2,18,3
+,,,,,,,,,,,,,Hard Real-Time Systems,John Kirithi,A-2-2,18,3
 ,,,,,,,,,,,,,Machine Learning,Carbonell,A-2-4,18,3
-,,,,,,,,,,,,,Statistics for Experimenters,"Box, Hunter & Hunter",C-3-2,12,6
+,,,,,,,,,,,,,Statistics for Experimenters,Box Hunter & Hunter,C-3-2,12,6
 ,,,,,,,,,,,,,An Introduction to Bayesian Networks,Finn. V Jensen,E-3-4,6,6
 ,,,,,,,,,,,,,1990 International Conference on Supercomputing,ACM Sigarch,C-2-3,12,3
 ,,,,,,,,,,,,,Mind Design ||,John Haugeland,E-1-2,6,0
-,,orderedBooksAndLocations,,,,,,,,,,,Hard Real-Time Systems,"John, Kirithi",A-2-2,18,3
+,,orderedBooksAndLocations,,,,,,,,,,,Hard Real-Time Systems,John Kirithi,A-2-2,18,3
 ,,,,,,,,,,,,,Machine Learning,Carbonell,A-2-4,18,3
-,,,,,,,,,,,,,"Robots, Androids, and Animatrons",John Lovine,B-1-1,17,6
+,,,,,,,,,,,,,Robots Androids and Animatrons,John Lovine,B-1-1,17,6
 ,,,,,,,,,,,,,1990 International Conference on Supercomputing,ACM Sigarch,C-2-3,12,3
-,,,,,,,,,,,,,Statistics for Experimenters,"Box, Hunter & Hunter",C-3-2,12,6
+,,,,,,,,,,,,,Statistics for Experimenters,Box Hunter & Hunter,C-3-2,12,6
 ,,,,,,,,,,,,,Mind Design ||,John Haugeland,E-1-2,6,0
 ,,,,,,,,,,,,,Pegasus in Space,Anne McCaffrey,E-3-1,6,6
 ,,,,,,,,,,,,,An Introduction to Bayesian Networks,Finn. V Jensen,E-3-4,6,6
 ,,,,,,,,,,,,,Conference Abstracts and Applications,SIGGRAPH 2000,F-2-1,5,3
 ,,,,,,,,,,,,,Location and Context-Awareness,LoCA 2006,G-1-2,0,0
-,,orderedPickPath,1,24,0,,,Hard Real-Time Systems,"John, Kirithi",A-2-2,18,3,,,,,
+,,orderedPickPath,1,24,0,,,Hard Real-Time Systems,John Kirithi,A-2-2,18,3,,,,,
 ,,,,23,0,,,,,,,,,,,,
 ,,,,19,3,,,,,,,,,,,,
 ,,,,18,3,,,,,,,,,,,,
@@ -1177,7 +1177,7 @@
 ,,,,19,3,,,,,,,,,,,,
 ,,,,19,3,,,,,,,,,,,,
 ,,,,18,3,,,,,,,,,,,,
-,,,3,18,3,,,"Robots, Androids, and Animatrons",John Lovine,B-1-1,17,6,,,,,
+,,,3,18,3,,,Robots Androids and Animatrons,John Lovine,B-1-1,17,6,,,,,
 ,,,,19,3,,,,,,,,,,,,
 ,,,,19,8,,,,,,,,,,,,
 ,,,,16,8,,,,,,,,,,,,
@@ -1187,7 +1187,7 @@
 ,,,,16,6,,,,,,,,,,,,
 ,,,,13,3,,,,,,,,,,,,
 ,,,,12,3,,,,,,,,,,,,
-,,,5,12,3,,,Statistics for Experimenters,"Box, Hunter & Hunter",C-3-2,12,6,,,,,
+,,,5,12,3,,,Statistics for Experimenters,Box Hunter & Hunter,C-3-2,12,6,,,,,
 ,,,,13,3,,,,,,,,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,12,6,,,,,,,,,,,,
@@ -1227,18 +1227,18 @@
 ,,,,,,,,,,,,,3D Studio Max,Kinetix,E-2-5,6,3
 ,,,,,,,,,,,,,Outward Bound,James P. Hogan,D-2-3,11,3
 ,,,,,,,,,,,,,The Cartoon Guide to Statistics,Larry Gonick,G-2-4,0,3
-,,,,,,,,,,,,,Computer Vision and Applications,"Jahne, Hausecker",B-2-2,17,3
+,,,,,,,,,,,,,Computer Vision and Applications,Jahne Hausecker,B-2-2,17,3
 ,,,,,,,,,,,,,An Introduction to Programming: C++,C. Thomas Wu,A-1-3,18,0
-,,,,,,,,,,,,,Knowledge-Based Image Processing Systems,"Graham, Barrett",E-1-4,6,0
-,,,,,,,,,,,,,"Commercial, Industrial, and Institutional Refrigeration",William B. Cooper,G-2-2,0,3
+,,,,,,,,,,,,,Knowledge-Based Image Processing Systems,Graham Barrett,E-1-4,6,0
+,,,,,,,,,,,,,Commercial Industrial and Institutional Refrigeration,William B. Cooper,G-2-2,0,3
 ,,orderedBooksAndLocations,,,,,,,,,,,The Master Handbook of IC Circuit Applications,Delton T. Horn,D-1-1,11,6
 ,,,,,,,,,,,,,Outward Bound,James P. Hogan,D-2-3,11,3
-,,,,,,,,,,,,,Knowledge-Based Image Processing Systems,"Graham, Barrett",E-1-4,6,0
+,,,,,,,,,,,,,Knowledge-Based Image Processing Systems,Graham Barrett,E-1-4,6,0
 ,,,,,,,,,,,,,3D Studio Max,Kinetix,E-2-5,6,3
 ,,,,,,,,,,,,,The Cartoon Guide to Statistics,Larry Gonick,G-2-4,0,3
-,,,,,,,,,,,,,"Commercial, Industrial, and Institutional Refrigeration",William B. Cooper,G-2-2,0,3
+,,,,,,,,,,,,,Commercial Industrial and Institutional Refrigeration,William B. Cooper,G-2-2,0,3
 ,,,,,,,,,,,,,Capacitive Sensors - Design and Applications,Larry K. Baxter,C-3-1,12,6
-,,,,,,,,,,,,,Computer Vision and Applications,"Jahne, Hausecker",B-2-2,17,3
+,,,,,,,,,,,,,Computer Vision and Applications,Jahne Hausecker,B-2-2,17,3
 ,,,,,,,,,,,,,Conquerors Legacy,Timothy Zahn,A-2-5,18,3
 ,,,,,,,,,,,,,An Introduction to Programming: C++,C. Thomas Wu,A-1-3,18,0
 ,,orderedPickPath,1,24,0,,,The Master Handbook of IC Circuit Applications,Delton T. Horn,D-1-1,11,6,,,,,
@@ -1251,7 +1251,7 @@
 ,,,,10,6,,,,,,,,,,,,
 ,,,,10,3,,,,,,,,,,,,
 ,,,,11,3,,,,,,,,,,,,
-,,,3,11,3,,,Knowledge-Based Image Processing Systems,"Graham, Barrett",E-1-4,6,0,,,,,
+,,,3,11,3,,,Knowledge-Based Image Processing Systems,Graham Barrett,E-1-4,6,0,,,,,
 ,,,,10,3,,,,,,,,,,,,
 ,,,,7,0,,,,,,,,,,,,
 ,,,,6,0,,,,,,,,,,,,
@@ -1265,7 +1265,7 @@
 ,,,,1,8,,,,,,,,,,,,
 ,,,,1,3,,,,,,,,,,,,
 ,,,,0,3,,,,,,,,,,,,
-,,,6,0,3,,,"Commercial, Industrial, and Institutional Refrigeration",William B. Cooper,G-2-2,0,3,,,,,
+,,,6,0,3,,,Commercial Industrial and Institutional Refrigeration,William B. Cooper,G-2-2,0,3,,,,,
 ,,,,1,3,,,,,,,,,,,,
 ,,,,1,3,,,,,,,,,,,,
 ,,,,0,3,,,,,,,,,,,,
@@ -1275,7 +1275,7 @@
 ,,,,13,8,,,,,,,,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,12,6,,,,,,,,,,,,
-,,,8,12,6,,,Computer Vision and Applications,"Jahne, Hausecker",B-2-2,17,3,,,,,
+,,,8,12,6,,,Computer Vision and Applications,Jahne Hausecker,B-2-2,17,3,,,,,
 ,,,,13,6,,,,,,,,,,,,
 ,,,,16,3,,,,,,,,,,,,
 ,,,,17,3,,,,,,,,,,,,
@@ -1293,7 +1293,7 @@
 ,,,,19,0,,,,,,,,,,,,
 ,,,,23,0,,,,,,,,,,,,
 ,,,,24,0,,,,,,,,,,,,
-19,testing,unorderedBooksAndLocations,,,,,,,,,,,"C, The Complete Reference",Herbert Schildt,D-2-4,11,3
+19,testing,unorderedBooksAndLocations,,,,,,,,,,,C The Complete Reference,Herbert Schildt,D-2-4,11,3
 ,,,,,,,,,,,,,Ender in Exile,Orson Scott Card,F-3-4,5,0
 ,,,,,,,,,,,,,Guide to Data Analysis,Jarija J. Norusis,B-2-1,17,3
 ,,,,,,,,,,,,,Outward Bound,James P. Hogan,D-2-3,11,3
@@ -1302,14 +1302,14 @@
 ,,,,,,,,,,,,,Machine Learning,Carbonell,A-2-4,18,3
 ,,,,,,,,,,,,,Teach Yourself Visually,Sherry Willard Kinkoph,D-2-5,11,3
 ,,,,,,,,,,,,,Systems Engineering Models of Human-Machine Interaction,William B. Rouse,G-3-3,0,6
-,,,,,,,,,,,,,"Algorithms on Strings, Trees, and Sequences",Dan Gusfield,E-1-5,6,0
+,,,,,,,,,,,,,Algorithms on Strings Trees and Sequences,Dan Gusfield,E-1-5,6,0
 ,,orderedBooksAndLocations,,,,,,,,,,,Guide to Data Analysis,Jarija J. Norusis,B-2-1,17,3
 ,,,,,,,,,,,,,Discover Your True North,Bill George,B-2-4,17,3
 ,,,,,,,,,,,,,Ender in Exile,Orson Scott Card,F-3-4,5,0
 ,,,,,,,,,,,,,Ubiquitous Computing Fundamentals,John Krumm,F-3-3,5,0
 ,,,,,,,,,,,,,Systems Engineering Models of Human-Machine Interaction,William B. Rouse,G-3-3,0,6
-,,,,,,,,,,,,,"Algorithms on Strings, Trees, and Sequences",Dan Gusfield,E-1-5,6,0
-,,,,,,,,,,,,,"C, The Complete Reference",Herbert Schildt,D-2-4,11,3
+,,,,,,,,,,,,,Algorithms on Strings Trees and Sequences,Dan Gusfield,E-1-5,6,0
+,,,,,,,,,,,,,C The Complete Reference,Herbert Schildt,D-2-4,11,3
 ,,,,,,,,,,,,,Outward Bound,James P. Hogan,D-2-3,11,3
 ,,,,,,,,,,,,,Teach Yourself Visually,Sherry Willard Kinkoph,D-2-5,11,3
 ,,,,,,,,,,,,,Machine Learning,Carbonell,A-2-4,18,3
@@ -1337,13 +1337,13 @@
 ,,,,4,0,,,,,,,,,,,,
 ,,,,1,6,,,,,,,,,,,,
 ,,,,0,6,,,,,,,,,,,,
-,,,6,0,6,,,"Algorithms on Strings, Trees, and Sequences",Dan Gusfield,E-1-5,6,0,,,,,
+,,,6,0,6,,,Algorithms on Strings Trees and Sequences,Dan Gusfield,E-1-5,6,0,,,,,
 ,,,,1,6,,,,,,,,,,,,
 ,,,,5,8,,,,,,,,,,,,
 ,,,,7,8,,,,,,,,,,,,
 ,,,,7,0,,,,,,,,,,,,
 ,,,,6,0,,,,,,,,,,,,
-,,,7,6,0,,,"C, The Complete Reference",Herbert Schildt,D-2-4,11,3,,,,,
+,,,7,6,0,,,C The Complete Reference,Herbert Schildt,D-2-4,11,3,,,,,
 ,,,,7,0,,,,,,,,,,,,
 ,,,,10,3,,,,,,,,,,,,
 ,,,,11,3,,,,,,,,,,,,
